@@ -146,7 +146,7 @@ You may also see any lint errors in the console.
 
 Si vous souhaitez exporter la structure du projet
 
-node export-file-structure.js
+node tools/export-file-structure.js
 
 ================================
 

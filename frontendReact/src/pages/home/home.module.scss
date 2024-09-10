@@ -1,0 +1,30 @@
+.home {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.home__subtitle {
+	font-size: 24px;
+	color: #ffffff;
+	text-align: center;
+	margin-top: 20px;
+	position: relative;
+	top: 0;
+}
+
+.home__img {
+	margin-top: 40px;
+	width: 150px;
+	height: auto;
+}
+
+@media (max-width: 768px) {
+	.home__subtitle {
+		font-size: 18px;
+	}
+
+	.home__img {
+		width: 120px;
+	}
+}

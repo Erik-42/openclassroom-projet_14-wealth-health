@@ -1,0 +1,73 @@
+{
+	"name": "modaleReact",
+	"version": "1.0.0",
+	"description": "Modal toute prête et autonome sous React - https://github.com/Erik-42 ",
+	"license": "MIT",
+	"author": "Erik-42",
+	"keywords": [
+		"modaleReact",
+		"react",
+		"modal",
+		"modale",
+		"dom"
+	],
+	"files": [
+		"dist",
+		"README.md"
+	],
+	"main": "./dist/modaleReact.umd.js",
+	"module": "./dist/modaleReact.es.js",
+	"exports": {
+		".": {
+			"import": "./dist/modaleReact.es.js",
+			"require": "./dist/modaleReact.umd.js"
+		}
+	},
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"test": "vitest run",
+		"watch": "vitest",
+		"coverage": "vitest run --coverage"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"eslintConfig": {
+		"env": {
+			"browser": true,
+			"node": true,
+			"es2020": true
+		},
+		"extends": [
+			"eslint:recommended",
+			"plugin:react/recommended"
+		],
+		"parserOptions": {
+			"sourceType": "module"
+		}
+	},
+	"devDependencies": {
+		"@testing-library/dom": "^10.4.0",
+		"@testing-library/react": "^16.0.1",
+		"@vitejs/plugin-react": "^4.3.1",
+		"c8": "^10.1.2",
+		"eslint": "^9.10.0",
+		"eslint-plugin-react": "^7.35.2",
+		"jsdom": "^25.0.0",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"react-test-renderer": "^18.3.1",
+		"vite": "^5.4.3",
+		"vitest": "^2.0.5"
+	}
+}

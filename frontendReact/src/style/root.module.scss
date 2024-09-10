@@ -1,0 +1,47 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	list-style: none;
+	font-family: var(--font-default);
+}
+
+:root {
+	--font-default: "Roboto", Arial, Helvetica, sans-serif;
+
+	--defaultBgColor: #fff;
+	--defaultFontColor: #000;
+
+	--primaryBgColor: #12002b;
+	--primaryFontColor: #fff;
+	--secondaryBgColor: #00bc77;
+	--secondaryFontColor: #2c3e50;
+	--tertiaryBgColor: #12002b;
+	--tertiaryFontColor: #222;
+	--menuBgColor: #000;
+	--signinBgColor: #12002b;
+	--circleFeature: green;
+	--errorMessage: red;
+	--hoverbutton: darkgreen;
+	--borderLineColor: #dddddd;
+
+	--404BgColor: #f4f4f4;
+	--404FontColor: #333;
+	--404Link: #1d3557;
+
+	--header-height: 60px;
+	--footer-height: 60px;
+}
+body {
+	margin: 0;
+}
+
+.roboto-regular {
+	font-family: "Roboto", Arial, Helvetica, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
