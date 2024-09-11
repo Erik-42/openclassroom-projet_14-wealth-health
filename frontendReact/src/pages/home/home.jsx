@@ -1,17 +1,20 @@
 import React from "react";
 import styled from "./home.module.scss";
-import wealthhealthLogo from "../../assets/img/logo/logo-wealthhealth.webp";
+import MainAccueil from "../../layouts/mainAccueil/mainAccueil";
+import MainRightBottom from "../../layouts/mainRightBottom/mainRightBottom";
+import MainLeftBottom from "../../layouts/mainLeftBottom/mainLeftBottom";
 
 export default function Home() {
 	return (
 		<div className={styled.home}>
-			<h2 className={styled.home__subtitle}>Gestion des dossiers du personnel</h2>
+			{/* MainAccueil takes up the top two-thirds */}
+			<MainAccueil className={styled.home__mainAccueil} />
 
-			<img
-				className={styled.home__img}
-				src={wealthhealthLogo}
-				alt={wealthhealthLogo}
-			/>
+			{/* MainRightBottom and MainLeftBottom share the bottom third */}
+			<div className={styled.home__bottomSection}>
+				<MainLeftBottom className={styled.home__mainLeftBottom} />
+				<MainRightBottom className={styled.home__mainRightBottom} />
+			</div>
 		</div>
 	);
 }

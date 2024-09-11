@@ -154,6 +154,10 @@ node tools/export-file-structure.js
 
 Github: [https://erik-42.github.io/openclassroom-projet_14-wealthhealth/](https://erik-42.github.io/openclassroom-projet_14-wealthhealth/)
 
+<a href='https://openclassroom-projet14-wealthhealth.vercel.app/'>Wealth Health en React</a>
+
+<a href='https://erik-42.github.io/openclassroom-projet_14-wealthhealth/frontendJquery/'>Wealth Health en Jquery</a>
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## License

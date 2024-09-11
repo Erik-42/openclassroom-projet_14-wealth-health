@@ -13,8 +13,9 @@ export default function App() {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="*" element={<Error404 />} />
+				<Route path="" element={<Footer />} />
 			</Routes>
-			<Footer />
+			{/* <Footer /> */}
 			<SpeedInsights />
 		</BrowserRouter>
 	);

@@ -3,7 +3,7 @@
 	top: 0;
 	background-color: var(--defaultBgColor);
 	width: 100%;
-	border-bottom: 2px solid var(--borderLineColor);
+	// border-bottom: 2px solid var(--borderLineColor);
 	z-index: 10;
 }
 
@@ -11,10 +11,9 @@
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	padding: 0.5rem 1rem;
 
 	&__title {
-		font-size: 64px;
+		font-size: 28px;
 		color: black;
 	}
 
@@ -24,7 +23,7 @@
 		z-index: 11;
 
 		&__image {
-			width: 150px;
+			width: 6rem;
 			height: auto;
 
 			@media (max-width: 768px) {

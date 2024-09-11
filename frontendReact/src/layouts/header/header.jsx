@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "./header.module.scss";
-import logo from "../../assets/img/logo/logo-wealthhealth0.webp";
+import logo from "../../assets/img/logo/logo-wealthhealth.svg";
 import Loader from "../../utils/loader/loader";
 
 export default function Header({ loading }) {
@@ -18,6 +18,11 @@ export default function Header({ loading }) {
 						/>
 					</Link>
 					<h1 className={styled.nav__title}>HR-Net</h1>
+					<div className={styled.navbar}>
+						<a href="#">
+							<p>Connexion</p>
+						</a>
+					</div>
 				</nav>
 			</header>
 		</>

@@ -1,7 +1,7 @@
 .footer {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-end;
 	border-top: 2px solid var(--borderLineColor);
 	padding: 1.5rem;
 	position: fixed;
@@ -13,6 +13,6 @@
 		margin: 0;
 		padding: 0;
 		color: black;
-		font-size: x-large;
+		font-size: 12px;
 	}
 }

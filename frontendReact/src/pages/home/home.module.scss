@@ -1,30 +1,47 @@
 .home {
+	position: relative;
+	top: 4rem;
+	height: calc(
+		98vh - 6rem
+	); /* Ajustement de la hauteur totale en tenant compte du header et du footer */
 	display: flex;
 	flex-direction: column;
+	justify-content: flex-start;
 	align-items: center;
-}
 
-.home__subtitle {
-	font-size: 24px;
-	color: #ffffff;
-	text-align: center;
-	margin-top: 20px;
-	position: relative;
-	top: 0;
-}
-
-.home__img {
-	margin-top: 40px;
-	width: 150px;
-	height: auto;
-}
-
-@media (max-width: 768px) {
-	.home__subtitle {
-		font-size: 18px;
+	&__mainAccueil {
+		height: 66.66%; /* Deux tiers de la hauteur restante */
+		width: 100%; /* Largeur complète */
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		top: -1rem;
 	}
 
-	.home__img {
-		width: 120px;
+	&__bottomSection {
+		display: flex;
+		width: 100%; /* Largeur complète */
+		height: 100%; /* Un tiers de la hauteur */
+		justify-content: space-around;
+		flex-direction: row;
+		align-items: stretch;
+		position: relative;
+		bottom: 0;
+		margin: 3rem 0 0 0;
+	}
+
+	&__mainRightBottom {
+		width: 50%; /* Moitié de la largeur */
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
+
+	&__mainLeftBottom {
+		width: 50%; /* Moitié de la largeur */
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
 	}
 }
