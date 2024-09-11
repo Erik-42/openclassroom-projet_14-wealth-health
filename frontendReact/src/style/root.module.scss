@@ -8,6 +8,11 @@
 		format("opentype");
 }
 
+.roboto-regular {
+	font-family: "Roboto", Arial, Helvetica, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -45,10 +50,4 @@
 }
 body {
 	margin: 0;
-}
-
-.roboto-regular {
-	font-family: "Roboto", Arial, Helvetica, sans-serif;
-	font-weight: 400;
-	font-style: normal;
 }

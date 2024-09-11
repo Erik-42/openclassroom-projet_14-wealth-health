@@ -1,17 +1,15 @@
 .home {
 	position: relative;
 	top: 4rem;
-	height: calc(
-		98vh - 6rem
-	); /* Ajustement de la hauteur totale en tenant compte du header et du footer */
+	height: calc(98vh - 6rem);
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
 
 	&__mainAccueil {
-		height: 66.66%; /* Deux tiers de la hauteur restante */
-		width: 100%; /* Largeur complète */
+		height: 66.66%;
+		width: 100%;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -21,8 +19,8 @@
 
 	&__bottomSection {
 		display: flex;
-		width: 100%; /* Largeur complète */
-		height: 100%; /* Un tiers de la hauteur */
+		width: 100%;
+		// height: 100%;
 		justify-content: space-around;
 		flex-direction: row;
 		align-items: stretch;
@@ -32,14 +30,14 @@
 	}
 
 	&__mainRightBottom {
-		width: 50%; /* Moitié de la largeur */
+		width: 50%;
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
 	}
 
 	&__mainLeftBottom {
-		width: 50%; /* Moitié de la largeur */
+		width: 50%;
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
