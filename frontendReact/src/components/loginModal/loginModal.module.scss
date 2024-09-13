@@ -1,0 +1,78 @@
+.login {
+	box-sizing: border-box;
+	background-color: var(--defaultBgColor);
+	width: 300px;
+	margin: 5rem auto;
+	padding: 2rem;
+	text-align: center;
+
+	&__icon {
+		font-size: 2rem;
+		display: block;
+		margin-bottom: 1rem;
+	}
+
+	&__errorMessage {
+		color: var(--errorMessage);
+		font-weight: bold;
+		margin: 1em 0;
+	}
+
+	&__form {
+		margin-top: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+
+		&__wrapper {
+			display: flex;
+			flex-direction: column;
+			text-align: left;
+			margin-bottom: 1rem;
+
+			label {
+				font-weight: bold;
+				margin: 0.5rem 0;
+			}
+
+			input {
+				padding: 5px;
+				font-size: 1rem;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+			}
+		}
+
+		&__remember {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+
+			input {
+				margin-right: 0.5rem;
+			}
+
+			label {
+				cursor: pointer;
+			}
+		}
+	}
+
+	&__button {
+		display: block;
+		width: 100%;
+		padding: 8px;
+		font-size: 1.1rem;
+		font-weight: bold;
+		margin-top: 1rem;
+		border: none;
+		background-color: var(--circleFeature);
+		color: var(--primaryFontColor);
+		cursor: pointer;
+		border-radius: 4px;
+
+		&:hover {
+			background-color: var(--hoverbutton);
+		}
+	}
+}

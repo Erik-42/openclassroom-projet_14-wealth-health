@@ -3,59 +3,57 @@
 	top: 0;
 	background-color: var(--defaultBgColor);
 	width: 100%;
-	// border-bottom: 2px solid var(--borderLineColor);
 	z-index: 10;
 }
 
 .nav {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between; /* Distributes items across full width */
 	align-items: center;
+	width: 100%;
+	padding: 0 20px; /* Add some padding to create space from the edges */
+}
 
-	&__title {
-		font-size: 28px;
-		color: black;
-	}
+.nav__title {
+	font-size: 28px;
+	color: black;
+}
 
-	&__logo {
-		display: flex;
-		align-items: center;
-		z-index: 11;
+.nav__connect {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem; /* Space between buttons */
+	flex-direction: row; /* Align items in a row */
+}
 
-		&__image {
-			width: 6rem;
-			height: auto;
+.nav__logo {
+	display: flex;
+	align-items: center;
+	z-index: 11;
 
-			@media (max-width: 768px) {
-				width: 120px;
-			}
+	&__image {
+		width: 6rem;
+		height: auto;
+
+		@media (max-width: 768px) {
+			width: 120px;
 		}
 	}
+}
 
-	&__container {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-		justify-content: flex-end;
-		width: 100%;
+.nav__connect__button,
+.nav__connect__btnvList,
+.nav__connect__btnView {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	color: var(--defaultFontColor);
+	font-size: 18px;
+	border: none;
+	background: transparent;
+	padding: 0.5rem 1rem;
 
-		&__item {
-			font-size: 22px;
-			text-decoration: none;
-			color: var(--defaultFontColor);
-			border: transparent;
-			background: transparent;
-			display: flex;
-			align-items: center;
-			gap: 1rem;
-
-			&:hover {
-				text-decoration: underline;
-			}
-
-			@media (max-width: 768px) {
-				font-size: 18px;
-			}
-		}
+	&:hover {
+		text-decoration: underline;
 	}
 }

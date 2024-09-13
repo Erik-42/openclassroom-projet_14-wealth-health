@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "./header.module.scss";
-import logo from "../../assets/img/logo/logo-wealthhealth.svg";
+import logo from "../../assets/img/logo/logo-wealthhealth-nobackground.svg";
 import Loader from "../../utils/loader/loader";
 
 export default function Header({ loading }) {
@@ -18,10 +18,27 @@ export default function Header({ loading }) {
 						/>
 					</Link>
 					<h1 className={styled.nav__title}>HR-Net</h1>
-					<div className={styled.navbar}>
-						<a href="#">
+
+					<div className={styled.nav__connect}>
+						{/* //deviens deconnexion si connecté */}
+
+						<Link className={styled.nav__connect__button} to="/login">
 							<p>Connexion</p>
-						</a>
+						</Link>
+						{/* //visible uniquement si connexion */}
+						<Link className={styled.nav__connect__btnList} to="/employeeList">
+							<p>List employees</p>
+						</Link>
+						<Link className={styled.nav__connect__btnView} to="/viewEmployee">
+							<p>View employee</p>
+						</Link>
+						<Link
+							className={styled.nav__connect__btnCreate}
+							to="/createEmployee"
+						>
+							<p>Create employee</p>
+						</Link>
+						{/* //visible uniquement si connexion */}
 					</div>
 				</nav>
 			</header>

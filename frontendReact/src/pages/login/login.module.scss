@@ -1,0 +1,10 @@
+.bg__login {
+	background-color: var(--signinBgColor);
+	width: 100%;
+	min-height: calc(115vh - var(--header-height) - var(--footer-height));
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+	box-sizing: border-box;
+}

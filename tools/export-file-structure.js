@@ -26,7 +26,7 @@ function readDirRecursive(dir) {
 	return results;
 }
 
-const dirPath = path.join("../logs/structure-file/"); // Change this to your desired directory
+const dirPath = path.join("../logs/structure-file"); // Change this to your desired directory
 const structure = readDirRecursive(dirPath);
 
 fs.writeFileSync("structure.json", JSON.stringify(structure, null, 2));

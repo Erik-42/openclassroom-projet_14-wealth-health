@@ -1,0 +1,15 @@
+export const mockEmployee = {
+	firstName: "Adam",
+	lastName: "Douglas",
+	birthday: "1952-03-11",
+	street: "1200 E. California Blvd.",
+	city: "Pasadena",
+	state: "CA",
+	zipCode: "91125",
+	country: "USA",
+	department: "R&D",
+	function: "Manager",
+	startWork: "1978-04-08",
+	endWork: "2001-05-11",
+	avatar: "../../assets/img/avatar/H2G2-Grok-only.svg",
+};
