@@ -144,9 +144,9 @@ You may also see any lint errors in the console.
 
 ================================
 
-Si vous souhaitez exporter la structure du projet
+Si vous souhaitez exporter la structure du projet en vous mettant dans le repertoir racine et en y copiant le fichier `export-file-structure.js`
 
-node tools/export-file-structure.js
+node export-file-structure.js
 
 ================================
 

@@ -1,106 +1,45 @@
-import { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "./listEmployees.module.scss";
 
-function ListEmployee({ data, nameData }) {
-	// Search
+export default function ListEmployees() {
 	const [dataSearchInput, setDataSearchInput] = useState("");
-	const [dataSearched, setDataSearched] = useState([]);
-	const [dataSearchActive, setDataSearchActive] = useState(false);
-
-	useEffect(() => {
-		let resultFound = [];
-
-		if (dataSearchInput !== "") {
-			setPage(0);
-			setDataSearched([]);
-			setDataSearchActive(true);
-
-			dataSorted.forEach((properties, index) => {
-				if (
-					properties.firstName
-						.toLowerCase()
-						.includes(dataSearchInput.toLowerCase()) ||
-					properties.lastName
-						.toLowerCase()
-						.includes(dataSearchInput.toLowerCase())
-				) {
-					resultFound.push(data[index]);
-				}
-			});
-
-			if (resultFound.length !== 0) {
-				setDataSearched([...new Set(resultFound)]);
-			} else {
-				resultFound.push("None");
-				setDataSearched(resultFound);
-			}
-		} else {
-			setDataSearchActive(false);
-			setDataSearched([]);
-		}
-	}, [dataSearchInput, dataSorted, data]);
-
-	// Sort
-	const [dataSorted, setDataSorted] = useState(data);
-	const [dataShow, setDataShow] = useState(true);
-
-	const sortData = (order, type) => {
-		const sortedData = [...dataSorted].sort((a, b) => {
-			return order === "ASC"
-				? a[type].localeCompare(b[type])
-				: b[type].localeCompare(a[type]);
-		});
-
-		if (dataSearchActive) {
-			setDataSearched(sortedData);
-		} else {
-			setDataSorted(sortedData);
-		}
-
-		setDataShow(false);
-	};
-
-	// Entries
-	const [selectedEntries, setSelectedEntries] = useState(10);
 	const [minEntries, setMinEntries] = useState(0);
-	const [maxEntries, setMaxEntries] = useState(0);
-
-	const handleChangeEntries = (event) => {
-		setSelectedEntries(parseInt(event.target.value));
-	};
-
-	// Pages
+	const [maxEntries, setMaxEntries] = useState(10);
 	const [page, setPage] = useState(0);
-	const maxPage = Math.ceil(data.length / selectedEntries);
+
+	console.log(setMinEntries);
+
+	const employees = useSelector((state) => state.employee.employeeList);
+	// Filter employees based on search input
+	const dataSearched = employees.filter((employee) =>
+		`${employee.firstName} ${employee.lastName}`
+			.toLowerCase()
+			.includes(dataSearchInput.toLowerCase())
+	);
+
+	// Determine data to show: filtered or all employees
+	const dataShow = dataSearchInput === "" ? employees : dataSearched;
+
+	const maxPage = Math.ceil(dataShow.length / maxEntries);
+
+	const handleChangeEntries = (e) => {
+		setMaxEntries(parseInt(e.target.value));
+		setPage(0); // Reset to first page when changing number of entries
+	};
 
 	const handlePreviousPage = () => {
-		setPage((page - 1 + maxPage) % maxPage);
+		setPage(page > 0 ? page - 1 : 0);
 	};
 
 	const handleNextPage = () => {
-		setPage((page + 1) % maxPage);
+		setPage(page < maxPage - 1 ? page + 1 : page);
 	};
-
-	useEffect(() => {
-		const entryRange = dataSearchActive ? dataSearched : data;
-		setMinEntries(page * selectedEntries);
-		setMaxEntries(Math.min((page + 1) * selectedEntries, entryRange.length));
-
-		if (minEntries > data.length) {
-			setPage(0);
-		}
-	}, [page, dataSearched, dataSearchInput, selectedEntries, minEntries]);
-
-	// Refresh
-	useEffect(() => {
-		setDataShow(true);
-	}, [dataShow, dataSorted]);
 
 	return (
 		<div className={styled.listEmployee}>
 			{/* Search */}
-			{data.length !== 0 && (
+			{employees.length !== 0 && (
 				<div className={styled.listEmployee__search}>
 					<span className={styled.listEmployee__search__title}>Search</span>
 					<input
@@ -115,7 +54,7 @@ function ListEmployee({ data, nameData }) {
 			)}
 
 			{/* Entries */}
-			{data.length !== 0 && (
+			{employees.length !== 0 && (
 				<div className={styled.listEmployee__entries}>
 					<span className={styled.listEmployee__entries__title}>Entries</span>
 					<select
@@ -129,26 +68,25 @@ function ListEmployee({ data, nameData }) {
 						<option value={100}>100</option>
 					</select>
 					<span className={styled.listEmployee__entries__total}>
-						Showing {minEntries + 1} to {maxEntries} of{" "}
-						{dataSearchInput === "" ? data.length : dataSearched.length}{" "}
-						entries.
+						Showing {minEntries + 1} to {Math.min(maxEntries, dataShow.length)}{" "}
+						of {dataShow.length} entries.
 					</span>
 				</div>
 			)}
 
 			{/* Pagination */}
-			{data.length !== 0 && (
+			{employees.length !== 0 && (
 				<div className={styled.listEmployee__pagination}>
 					<button
 						className={styled.listEmployee__pagination__button}
-						style={{ display: !page ? "none" : "" }}
+						disabled={page === 0}
 						onClick={handlePreviousPage}
 					>
 						Previous page
 					</button>
 					<button
 						className={styled.listEmployee__pagination__button}
-						style={{ display: page === maxPage - 1 ? "none" : "" }}
+						disabled={page === maxPage - 1}
 						onClick={handleNextPage}
 					>
 						Next page
@@ -158,8 +96,8 @@ function ListEmployee({ data, nameData }) {
 
 			{/* Avatar List */}
 			<div className={styled.listEmployee__avatarList}>
-				{(dataShow && dataSearchActive ? dataSearched : dataSorted)
-					.slice(minEntries, maxEntries)
+				{dataShow
+					.slice(page * maxEntries, (page + 1) * maxEntries)
 					.map((employee, index) => (
 						<div key={index} className={styled.listEmployee__avatarItem}>
 							<img
@@ -175,10 +113,3 @@ function ListEmployee({ data, nameData }) {
 		</div>
 	);
 }
-
-ListEmployee.propTypes = {
-	data: PropTypes.array.isRequired,
-	nameData: PropTypes.array.isRequired,
-};
-
-export default ListEmployee;

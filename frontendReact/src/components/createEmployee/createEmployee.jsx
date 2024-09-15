@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import styled from "./CreateEmployee.module.scss";
 import defaultAvatar from "../../assets/img/avatar/H2G2-Grok-only.svg";
 import stateData from "../../assets/data/states.json";
@@ -7,6 +6,7 @@ import countryData from "../../assets/data/country.json";
 
 import Dropdown from "../dropdown/dropdown";
 
+// eslint-disable-next-line react/prop-types
 const CreateEmployee = ({ onAddEmployee }) => {
 	const [employee, setEmployee] = useState({
 		avatar: "",
@@ -272,10 +272,6 @@ const CreateEmployee = ({ onAddEmployee }) => {
 			</form>
 		</div>
 	);
-};
-
-CreateEmployee.propTypes = {
-	onAddEmployee: PropTypes.func.isRequired,
 };
 
 export default CreateEmployee;

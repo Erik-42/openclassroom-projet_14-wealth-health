@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import styled from "./dropdown.module.scss";
 
 export default function Dropdown({
@@ -23,10 +22,3 @@ export default function Dropdown({
 		</select>
 	);
 }
-
-Dropdown.propTypes = {
-	name: PropTypes.string.isRequired,
-	onChangeDropdown: PropTypes.func.isRequired,
-	optionsList: PropTypes.array.isRequired,
-	defaultValue: PropTypes.string.isRequired,
-};

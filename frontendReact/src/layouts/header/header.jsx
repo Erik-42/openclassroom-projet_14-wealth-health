@@ -4,6 +4,7 @@ import styled from "./header.module.scss";
 import logo from "../../assets/img/logo/logo-wealthhealth-nobackground.svg";
 import Loader from "../../utils/loader/loader";
 
+// eslint-disable-next-line react/prop-types
 export default function Header({ loading }) {
 	return (
 		<>
@@ -26,11 +27,11 @@ export default function Header({ loading }) {
 							<p>Connexion</p>
 						</Link>
 						{/* //visible uniquement si connexion */}
-						<Link className={styled.nav__connect__btnList} to="/employeeList">
-							<p>List employees</p>
+						<Link className={styled.nav__connect__btnList} to="/listEmployee">
+							<p>List employés</p>
 						</Link>
 						<Link className={styled.nav__connect__btnView} to="/viewEmployee">
-							<p>View employee</p>
+							<p>View employé</p>
 						</Link>
 						{/* //visible uniquement si connexion */}
 					</div>

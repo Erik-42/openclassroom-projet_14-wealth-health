@@ -1,12 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./style/root.module.scss";
 import Home from "./pages/home/home";
-import Header from "./layouts/header/header";
-// import Footer from './layouts/footer/footer'
 import Error404 from "./pages/error404/error404";
 import Login from "./pages/login/login";
-import ListEmployees from "./components/listEmployees/listEmployees";
 import ViewEmployee from "./pages/viewEmployee/viewEmployee";
+import Header from "./layouts/header/header";
+import ListEmployees from "./components/listEmployees/listEmployees";
 import CreateEmployee from "./components/createEmployee/createEmployee";
 import ConnectedRoute from "./utils/connectedRoutes/connectedRoute";
 import { SpeedInsights } from "@vercel/speed-insights/react";
@@ -38,7 +37,6 @@ export default function App() {
 
 			{/* SpeedInsights pour monitorer les performances avec Vercel */}
 			<SpeedInsights />
-			{/* <Footer/> */}
 		</BrowserRouter>
 	);
 }

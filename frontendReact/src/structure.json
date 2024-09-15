@@ -1,0 +1,562 @@
+[
+  {
+    "name": "App.css",
+    "type": "file"
+  },
+  {
+    "name": "App.jsx",
+    "type": "file"
+  },
+  {
+    "name": "assets",
+    "type": "directory",
+    "children": [
+      {
+        "name": "data",
+        "type": "directory",
+        "children": [
+          {
+            "name": "country.json",
+            "type": "file"
+          },
+          {
+            "name": "job.json",
+            "type": "file"
+          },
+          {
+            "name": "states.json",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "img",
+        "type": "directory",
+        "children": [
+          {
+            "name": "avatar",
+            "type": "directory",
+            "children": [
+              {
+                "name": "95118ed64eb84edad9c796091a314c16.jpg",
+                "type": "file"
+              },
+              {
+                "name": "black-digital-art-minimalism-typography-numbers-logo-circle-universe-word-clouds-Douglas-Adams-42-shape-darkness-number-screenshot-computer-wallpaper.jpg",
+                "type": "file"
+              },
+              {
+                "name": "cameraIcone.png",
+                "type": "file"
+              },
+              {
+                "name": "cameraIcone.svg",
+                "type": "file"
+              },
+              {
+                "name": "codeAsk42.png",
+                "type": "file"
+              },
+              {
+                "name": "codeAsk42.svg",
+                "type": "file"
+              },
+              {
+                "name": "default-avatar.svg",
+                "type": "file"
+              },
+              {
+                "name": "dontPanic-full.jpg",
+                "type": "file"
+              },
+              {
+                "name": "dontPanic-full.svg",
+                "type": "file"
+              },
+              {
+                "name": "dontPanic-noBackground.svg",
+                "type": "file"
+              },
+              {
+                "name": "dontPanic-only.svg",
+                "type": "file"
+              },
+              {
+                "name": "H2G2-Grok-only.svg",
+                "type": "file"
+              },
+              {
+                "name": "H2G2-Grok.png",
+                "type": "file"
+              },
+              {
+                "name": "H2G2-Grok.svg",
+                "type": "file"
+              },
+              {
+                "name": "h2g2_le_guide_du_voyageur_galactique_56613-2921509239.jpg",
+                "type": "file"
+              },
+              {
+                "name": "head-Grok-full-not-background.svg",
+                "type": "file"
+              },
+              {
+                "name": "head-Grok-full.png",
+                "type": "file"
+              },
+              {
+                "name": "head-Grok-full.svg",
+                "type": "file"
+              },
+              {
+                "name": "head-Grok-full.webp",
+                "type": "file"
+              },
+              {
+                "name": "head-Grok-only.svg",
+                "type": "file"
+              },
+              {
+                "name": "hitchhiker__s_guide_logo_by_darkalchemisthaku-4078494060.jpg",
+                "type": "file"
+              },
+              {
+                "name": "logo42AskStyle.jpg",
+                "type": "file"
+              },
+              {
+                "name": "logo42AskStyle.svg",
+                "type": "file"
+              },
+              {
+                "name": "logo42Style.jpg",
+                "type": "file"
+              },
+              {
+                "name": "logo42Style.svg",
+                "type": "file"
+              },
+              {
+                "name": "petuniaNwall.png",
+                "type": "file"
+              },
+              {
+                "name": "petuniaNwall.svg",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "banner",
+            "type": "directory",
+            "children": [
+              {
+                "name": "bank-tree.jpeg",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "error404",
+            "type": "directory",
+            "children": [
+              {
+                "name": "logo404.svg",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "icones",
+            "type": "directory",
+            "children": [
+              {
+                "name": "favicon.ico",
+                "type": "file"
+              },
+              {
+                "name": "logo-wealthhealth0.ico",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "logo",
+            "type": "directory",
+            "children": [
+              {
+                "name": "logo-wealthhealth-nobackground.svg",
+                "type": "file"
+              },
+              {
+                "name": "logo-wealthhealth.svg",
+                "type": "file"
+              },
+              {
+                "name": "logoAccueil.svg",
+                "type": "file"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "components",
+    "type": "directory",
+    "children": [
+      {
+        "name": "createEmployee",
+        "type": "directory",
+        "children": [
+          {
+            "name": "createEmployee.jsx",
+            "type": "file"
+          },
+          {
+            "name": "createEmployee.module.scss",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "dropdown",
+        "type": "directory",
+        "children": [
+          {
+            "name": "dropdown.jsx",
+            "type": "file"
+          },
+          {
+            "name": "dropdown.module.scss",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "employeeInfo",
+        "type": "directory",
+        "children": [
+          {
+            "name": "employeeInfo.jsx",
+            "type": "file"
+          },
+          {
+            "name": "EmployeeInfo.module.scss",
+            "type": "file"
+          },
+          {
+            "name": "EmployeeTest.jsx",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "listEmployees",
+        "type": "directory",
+        "children": [
+          {
+            "name": "listEmployees.jsx",
+            "type": "file"
+          },
+          {
+            "name": "listEmployees.module.scss",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "loginModal",
+        "type": "directory",
+        "children": [
+          {
+            "name": "infos.txt",
+            "type": "file"
+          },
+          {
+            "name": "login.test.js",
+            "type": "file"
+          },
+          {
+            "name": "loginModal.jsx",
+            "type": "file"
+          },
+          {
+            "name": "loginModal.module.scss",
+            "type": "file"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "export-file-structure.js",
+    "type": "file"
+  },
+  {
+    "name": "index.js",
+    "type": "file"
+  },
+  {
+    "name": "layouts",
+    "type": "directory",
+    "children": [
+      {
+        "name": "header",
+        "type": "directory",
+        "children": [
+          {
+            "name": "header.jsx",
+            "type": "file"
+          },
+          {
+            "name": "header.module.scss",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "mainAccueil",
+        "type": "directory",
+        "children": [
+          {
+            "name": "mainAccueil.jsx",
+            "type": "file"
+          },
+          {
+            "name": "mainAccueil.module.scss",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "mainLeftBottom",
+        "type": "directory",
+        "children": [
+          {
+            "name": "mainLeftBottom.jsx",
+            "type": "file"
+          },
+          {
+            "name": "mainLeftBottom.module.scss",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "mainRightBottom",
+        "type": "directory",
+        "children": [
+          {
+            "name": "mainRightBottom.jsx",
+            "type": "file"
+          },
+          {
+            "name": "mainRightBottom.module.scss",
+            "type": "file"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.jsx",
+    "type": "file"
+  },
+  {
+    "name": "mock",
+    "type": "directory",
+    "children": [
+      {
+        "name": "api",
+        "type": "directory",
+        "children": [
+          {
+            "name": "db.json",
+            "type": "file"
+          },
+          {
+            "name": "mockUsers.js",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "data",
+        "type": "directory",
+        "children": [
+          {
+            "name": "mockEmployee.js",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "server",
+        "type": "directory",
+        "children": [
+          {
+            "name": "mockLogin.js",
+            "type": "file"
+          },
+          {
+            "name": "msw",
+            "type": "directory",
+            "children": [
+              {
+                "name": "handlers.js",
+                "type": "file"
+              },
+              {
+                "name": "node.js",
+                "type": "file"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "pages",
+    "type": "directory",
+    "children": [
+      {
+        "name": "error404",
+        "type": "directory",
+        "children": [
+          {
+            "name": "error404.jsx",
+            "type": "file"
+          },
+          {
+            "name": "error404.module.scss",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "home",
+        "type": "directory",
+        "children": [
+          {
+            "name": "home.jsx",
+            "type": "file"
+          },
+          {
+            "name": "home.module.scss",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "login",
+        "type": "directory",
+        "children": [
+          {
+            "name": "login.jsx",
+            "type": "file"
+          },
+          {
+            "name": "login.module.scss",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "viewEmployee",
+        "type": "directory",
+        "children": [
+          {
+            "name": "viewEmployee.jsx",
+            "type": "file"
+          },
+          {
+            "name": "viewEmployee.module.scss",
+            "type": "file"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "store",
+    "type": "directory",
+    "children": [
+      {
+        "name": "slice",
+        "type": "directory",
+        "children": [
+          {
+            "name": "employeeSlice.js",
+            "type": "file"
+          },
+          {
+            "name": "tokenSlice.js",
+            "type": "file"
+          },
+          {
+            "name": "userSlice.js",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "store.js",
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "name": "style",
+    "type": "directory",
+    "children": [
+      {
+        "name": "fonts",
+        "type": "directory",
+        "children": [
+          {
+            "name": "Meutas-Bold.otf",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "root.module.scss",
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "name": "utils",
+    "type": "directory",
+    "children": [
+      {
+        "name": "connectedRoutes",
+        "type": "directory",
+        "children": [
+          {
+            "name": "connectedRoute.jsx",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "loader",
+        "type": "directory",
+        "children": [
+          {
+            "name": "loader.jsx",
+            "type": "file"
+          },
+          {
+            "name": "loader.module.scss",
+            "type": "file"
+          }
+        ]
+      }
+    ]
+  }
+]
