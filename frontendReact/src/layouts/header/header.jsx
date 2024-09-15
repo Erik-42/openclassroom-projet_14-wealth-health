@@ -1,4 +1,4 @@
-import React from "react";
+import "react";
 import { Link } from "react-router-dom";
 import styled from "./header.module.scss";
 import logo from "../../assets/img/logo/logo-wealthhealth-nobackground.svg";
@@ -31,12 +31,6 @@ export default function Header({ loading }) {
 						</Link>
 						<Link className={styled.nav__connect__btnView} to="/viewEmployee">
 							<p>View employee</p>
-						</Link>
-						<Link
-							className={styled.nav__connect__btnCreate}
-							to="/createEmployee"
-						>
-							<p>Create employee</p>
 						</Link>
 						{/* //visible uniquement si connexion */}
 					</div>

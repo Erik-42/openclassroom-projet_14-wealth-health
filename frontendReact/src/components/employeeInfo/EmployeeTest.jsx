@@ -1,5 +1,5 @@
 // src/components/EmployeeTest.js
-import React from "react";
+import "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setEmployee } from "../slice/employeeSlice";
 import { mockEmployee } from "../mockData";

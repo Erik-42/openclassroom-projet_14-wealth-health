@@ -41,7 +41,7 @@ export default function LoginModal() {
 			setLoading(false);
 		}, 1000); // Simuler un délai pour l'authentification
 	};
-
+console.log(setErrorMessage);
 	return (
 		<>
 			{loading && <Loader />}
