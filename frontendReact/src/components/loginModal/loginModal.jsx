@@ -33,7 +33,7 @@ export default function LoginModal() {
 				localStorage.setItem("token", fakeToken);
 			}
 
-			navigate("/viewEmployee");
+			navigate("/listEmployees");
 			setLoading(false);
 		}, 1000);
 	};

@@ -35,27 +35,35 @@ export default function Header() {
 							alt="Wealth Health Logo"
 						/>
 					</Link>
-					<h1 className={styled.nav__title}>HR-Net</h1>
+					<h1 className={styled.nav__title}>-- HR-Net --</h1>
 
 					<div className={styled.nav__connect}>
 						{token ? (
-							<div className={styled.nav__container}>
-								<Link
-									className={styled.nav__connect__btnView}
-									to="/viewEmployee"
-								>
+							<>
+								<div className={styled.nav__connect__container__btnView}>
 									<i className="fa fa-user-circle firstname"></i>
-									{firstname}
-								</Link>
-								<button
-									onClick={handleSignOut}
-									className={styled.nav__container__item}
-								>
-									<i className="fa fa-sign-out"></i> Sign Out
-								</button>
-							</div>
+									<span>{firstname} Spock</span>
+								</div>
+								<div className={styled.nav__connect__container}>
+									<Link
+										className={styled.nav__connect__container__btnvList}
+										to="/listEmployees"
+									>
+										<i className="fa-solid fa-list"></i> Liste employés
+									</Link>
+									<button
+										onClick={handleSignOut}
+										className={styled.nav__connect__container__logBtn}
+									>
+										<i className="fa fa-sign-out"></i> Sign Out
+									</button>
+								</div>
+							</>
 						) : (
-							<Link className={styled.nav__connect__button} to="/login">
+							<Link
+								className={styled.nav__connect__container__logBtn}
+								to="/login"
+							>
 								<i className="fa fa-user-circle"></i> Sign In
 							</Link>
 						)}

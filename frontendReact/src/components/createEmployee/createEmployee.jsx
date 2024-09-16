@@ -4,6 +4,7 @@ import defaultAvatar from "../../assets/img/avatar/H2G2-Grok-only.svg";
 import stateData from "../../assets/data/states.json";
 import countryData from "../../assets/data/country.json";
 import Dropdown from "../dropdown/dropdown";
+import { useSelector } from "react-redux";
 
 // Fonction pour gérer le changement de fichier
 function handleFileChange(e, setEmployee) {
@@ -90,7 +91,9 @@ export default function CreateEmployee({ onAddEmployee }) {
 
 	const [showModal, setShowModal] = useState(false);
 	const fileInputRef = useRef(null);
-
+	const selectedEmployee = useSelector(
+		(state) => state.employee.selectedEmployee
+	);
 	useEffect(() => {
 		if (stateData.length > 0) {
 			setEmployee((prev) => ({ ...prev, state: stateData[0].abbreviation }));
@@ -102,7 +105,7 @@ export default function CreateEmployee({ onAddEmployee }) {
 			}));
 		}
 	}, []);
-
+	console.log(selectedEmployee);
 	return (
 		<div className={styled.createEmployee}>
 			<h2>Modifier Employés</h2>
@@ -126,6 +129,9 @@ export default function CreateEmployee({ onAddEmployee }) {
 						ref={fileInputRef}
 						onChange={(e) => handleFileChange(e, setEmployee)}
 					/>
+					<p className={styled.avatar__text}>
+						Cliquez sur la photo pour changer
+					</p>
 				</div>
 
 				<div className={styled.generalInfos}>
@@ -136,7 +142,13 @@ export default function CreateEmployee({ onAddEmployee }) {
 							<input
 								type="text"
 								name="firstName"
-								value={employee.firstName}
+								value={
+									employee.firstName
+										? employee.firstName
+										: selectedEmployee
+										? selectedEmployee.firstName
+										: ""
+								}
 								onChange={(e) => handleChange(e, setEmployee)}
 								placeholder="John"
 							/>
@@ -147,7 +159,13 @@ export default function CreateEmployee({ onAddEmployee }) {
 							<input
 								type="text"
 								name="lastName"
-								value={employee.lastName}
+								value={
+									employee.lastName
+										? employee.lastName
+										: selectedEmployee
+										? selectedEmployee.lastName
+										: ""
+								}
 								onChange={(e) => handleChange(e, setEmployee)}
 								placeholder="Doe"
 							/>
@@ -158,7 +176,13 @@ export default function CreateEmployee({ onAddEmployee }) {
 							<input
 								type="date"
 								name="birthday"
-								value={employee.birthday}
+								value={
+									employee.birthday
+										? employee.birthday
+										: selectedEmployee
+										? selectedEmployee.birthday
+										: ""
+								}
 								onChange={(e) => handleChange(e, setEmployee)}
 							/>
 						</div>
@@ -173,7 +197,13 @@ export default function CreateEmployee({ onAddEmployee }) {
 							<input
 								type="text"
 								name="street"
-								value={employee.street}
+								value={
+									employee.street
+										? employee.street
+										: selectedEmployee
+										? selectedEmployee.street
+										: ""
+								}
 								onChange={(e) => handleChange(e, setEmployee)}
 								placeholder="123 Main St"
 							/>
@@ -184,7 +214,13 @@ export default function CreateEmployee({ onAddEmployee }) {
 							<input
 								type="text"
 								name="city"
-								value={employee.city}
+								value={
+									employee.city
+										? employee.city
+										: selectedEmployee
+										? selectedEmployee.city
+										: ""
+								}
 								onChange={(e) => handleChange(e, setEmployee)}
 								placeholder="New York"
 							/>
@@ -198,7 +234,13 @@ export default function CreateEmployee({ onAddEmployee }) {
 									handleStateChange(value, setEmployee)
 								}
 								optionsList={stateData}
-								defaultValue={employee.state}
+								value={
+									employee.state
+										? employee.state
+										: selectedEmployee
+										? selectedEmployee.state
+										: ""
+								}
 							/>
 						</div>
 
@@ -207,7 +249,13 @@ export default function CreateEmployee({ onAddEmployee }) {
 							<input
 								type="text"
 								name="zipCode"
-								value={employee.zipCode}
+								value={
+									employee.zipCode
+										? employee.zipCode
+										: selectedEmployee
+										? selectedEmployee.zipCode
+										: ""
+								}
 								onChange={(e) => handleChange(e, setEmployee)}
 								placeholder="10001"
 							/>
@@ -221,7 +269,13 @@ export default function CreateEmployee({ onAddEmployee }) {
 									handleCountryChange(value, setEmployee)
 								}
 								optionsList={countryData}
-								defaultValue={employee.country}
+								value={
+									employee.country
+										? employee.country
+										: selectedEmployee
+										? selectedEmployee.country
+										: ""
+								}
 							/>
 						</div>
 					</div>
@@ -235,7 +289,13 @@ export default function CreateEmployee({ onAddEmployee }) {
 							<input
 								type="text"
 								name="department"
-								value={employee.department}
+								value={
+									employee.department
+										? employee.department
+										: selectedEmployee
+										? selectedEmployee.department
+										: ""
+								}
 								onChange={(e) => handleChange(e, setEmployee)}
 								placeholder="Engineering"
 							/>
@@ -246,7 +306,13 @@ export default function CreateEmployee({ onAddEmployee }) {
 							<input
 								type="text"
 								name="function"
-								value={employee.function}
+								value={
+									employee.function
+										? employee.function
+										: selectedEmployee
+										? selectedEmployee.function
+										: ""
+								}
 								onChange={(e) => handleChange(e, setEmployee)}
 								placeholder="Software Engineer"
 							/>
@@ -257,7 +323,13 @@ export default function CreateEmployee({ onAddEmployee }) {
 							<input
 								type="date"
 								name="startWork"
-								value={employee.startWork}
+								value={
+									employee.startWork
+										? employee.startWork
+										: selectedEmployee
+										? selectedEmployee.startWork
+										: ""
+								}
 								onChange={(e) => handleChange(e, setEmployee)}
 							/>
 						</div>
@@ -267,7 +339,13 @@ export default function CreateEmployee({ onAddEmployee }) {
 							<input
 								type="date"
 								name="endWork"
-								value={employee.endWork}
+								value={
+									employee.endWork
+										? employee.endWork
+										: selectedEmployee
+										? selectedEmployee.endWork
+										: ""
+								}
 								onChange={(e) => handleChange(e, setEmployee)}
 							/>
 						</div>
@@ -295,7 +373,7 @@ export default function CreateEmployee({ onAddEmployee }) {
 
 				{showModal && (
 					<div className={styled.confirmationModal}>
-						<p>Êtes-vous sûr de vouloir supprimer cet employé ?</p>
+						<p>Êtes-vous sûr de vouloir archiver cet employé ?</p>
 						<button onClick={() => confirmDelete(setShowModal)}>Oui</button>
 						<button onClick={() => cancelDelete(setShowModal)}>Non</button>
 					</div>

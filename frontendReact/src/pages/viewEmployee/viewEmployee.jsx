@@ -4,6 +4,7 @@ import CreateEmployee from "../../components/createEmployee/createEmployee.jsx";
 import ListEmployee from "../../components/listEmployees/listEmployees.jsx";
 import styled from "./viewEmployee.module.scss";
 import { useState } from "react";
+import { selectEmployee } from "../../store/slice/employeeSlice.js";
 
 export default function ViewEmployee() {
 	const selectedEmployee = useSelector(
@@ -11,8 +12,9 @@ export default function ViewEmployee() {
 	);
 	const [isEditing, setIsEditing] = useState(false);
 
-	const handleEditClick = () => {
+	const handleEditClick = (selectedEmployee) => {
 		setIsEditing(true);
+		selectEmployee(selectedEmployee);
 	};
 
 	const handleCancelEdit = () => {
@@ -37,7 +39,6 @@ export default function ViewEmployee() {
 				)}
 
 				<div className={styled.viewEmployee__actions}>
-					<p>Actions possibles sur les fiches employés:</p>
 					{isEditing ? (
 						<button
 							className={
@@ -56,9 +57,9 @@ export default function ViewEmployee() {
 								" " +
 								styled["viewEmployee__actions__btn--modif"]
 							}
-							onClick={handleEditClick}
+							onClick={() => handleEditClick(selectedEmployee.id)}
 						>
-							Modifier employés
+							Modifier
 						</button>
 					)}
 				</div>

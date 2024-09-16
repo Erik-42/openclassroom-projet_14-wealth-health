@@ -6,6 +6,7 @@ import headGrokFull from "../../assets/img/avatar/head-Grok-full.svg";
 
 const mockEmployees = [
 	{
+		id: 1,
 		firstName: "Adam",
 		lastName: "Douglas",
 		birthday: "1952-03-11",
@@ -21,6 +22,7 @@ const mockEmployees = [
 		avatar: headGrokOnly,
 	},
 	{
+		id: 2,
 		firstName: "Arthur",
 		lastName: "Dent",
 		birthday: "1978-05-11",
@@ -36,6 +38,7 @@ const mockEmployees = [
 		avatar: dontPanicOnly,
 	},
 	{
+		id: 3,
 		firstName: "Ford",
 		lastName: "Prefect",
 		birthday: "1965-03-15",
@@ -51,6 +54,7 @@ const mockEmployees = [
 		avatar: logo42Style,
 	},
 	{
+		id: 4,
 		firstName: "Zaphod",
 		lastName: "Beeblebrox",
 		birthday: "1970-04-01",
@@ -66,6 +70,7 @@ const mockEmployees = [
 		avatar: defaultAvatar,
 	},
 	{
+		id: 5,
 		firstName: "Trillian",
 		lastName: "Astra",
 		birthday: "1985-02-07",
@@ -81,6 +86,7 @@ const mockEmployees = [
 		avatar: defaultAvatar,
 	},
 	{
+		id: 6,
 		firstName: "Marvin",
 		lastName: "The Paranoid Android",
 		birthday: "1987-01-01",

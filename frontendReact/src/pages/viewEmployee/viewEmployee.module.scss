@@ -63,7 +63,11 @@
 		}
 	}
 }
-
+.viewEmployee__actions {
+	position: relative;
+	top: 5rem;
+	margin: 3rem;
+}
 .container {
 	display: flex;
 	flex-direction: column;

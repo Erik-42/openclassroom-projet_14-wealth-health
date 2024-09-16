@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectEmployee } from "../../store/slice/employeeSlice";
 import styled from "./listEmployees.module.scss";
 import defaultAvatar from "../../assets/img/avatar/default-avatar.svg";
+import { useNavigate } from "react-router";
 
 export default function ListEmployee() {
 	const dispatch = useDispatch();
@@ -12,6 +13,8 @@ export default function ListEmployee() {
 	const [page, setPage] = useState(0);
 	console.log(setMinEntries);
 	const employees = useSelector((state) => state.employee?.employeeList || []);
+
+	const navigate = useNavigate();
 
 	if (!Array.isArray(employees)) {
 		console.error(
@@ -30,9 +33,9 @@ export default function ListEmployee() {
 	const dataShow = dataSearchInput === "" ? employees : dataSearched;
 
 	const maxPage = Math.ceil(dataShow.length / maxEntries);
-
 	const handleEditClick = (employeeId) => {
 		dispatch(selectEmployee(employeeId));
+		navigate("/viewEmployee");
 	};
 
 	const handleChangeEntries = (e) => {
@@ -83,8 +86,7 @@ export default function ListEmployee() {
 						<option value={100}>100</option>
 					</select>
 					<span className={styled.listEmployee__entries__total}>
-						Affichage {minEntries + 1} a
-						{Math.min(maxEntries, dataShow.length)}
+						Affichage {minEntries + 1} a{Math.min(maxEntries, dataShow.length)}
 						des {dataShow.length} Entrées.
 					</span>
 				</div>
