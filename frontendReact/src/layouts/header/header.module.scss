@@ -8,10 +8,10 @@
 
 .nav {
 	display: flex;
-	justify-content: space-between; /* Distributes items across full width */
+	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-	padding: 0 20px; /* Add some padding to create space from the edges */
+	padding: 0 20px;
 }
 
 .nav__title {
@@ -22,8 +22,8 @@
 .nav__connect {
 	display: flex;
 	align-items: center;
-	gap: 1.5rem; /* Space between buttons */
-	flex-direction: row; /* Align items in a row */
+	gap: 1.5rem;
+	flex-direction: row;
 }
 
 .nav__logo {

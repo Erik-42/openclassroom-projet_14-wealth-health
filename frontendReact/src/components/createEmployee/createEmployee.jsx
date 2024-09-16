@@ -59,9 +59,9 @@ function handleDelete(setShowModal) {
 	setShowModal(true);
 }
 
-// Fonction pour confirmer la suppression
+// Fonction pour confirmer l'archivage
 function confirmDelete(setShowModal) {
-	// Logique pour supprimer l'employé
+	// Logique pour archver l'employé
 	setShowModal(false);
 }
 
@@ -289,7 +289,7 @@ export default function CreateEmployee({ onAddEmployee }) {
 						className={styled.btn__supp}
 						onClick={() => handleDelete(setShowModal)}
 					>
-						⚠️ Supprimer Employé ⚠️
+						⚠️ Archiver Employé ⚠️
 					</button>
 				</div>
 

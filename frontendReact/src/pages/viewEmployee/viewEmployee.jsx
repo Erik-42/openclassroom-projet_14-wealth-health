@@ -6,7 +6,6 @@ import styled from "./viewEmployee.module.scss";
 import { useState } from "react";
 
 export default function ViewEmployee() {
-	// const employee = useSelector((state) => state.employee.employee);
 	const selectedEmployee = useSelector(
 		(state) => state.employee.selectedEmployee
 	);

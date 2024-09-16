@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import styled from "./dropdown.module.scss";
 
 export default function Dropdown({

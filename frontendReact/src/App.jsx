@@ -10,8 +10,6 @@ import CreateEmployee from "./components/createEmployee/createEmployee";
 import ConnectedRoute from "./utils/connectedRoutes/connectedRoute";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
-import TestPage from "./components/testComponents/testPage";
-
 export default function App() {
 	return (
 		<BrowserRouter>
@@ -19,8 +17,6 @@ export default function App() {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/login" element={<Login />} />
-
-				<Route path="/test" element={<TestPage />} />
 
 				<Route path="/listEmployees" element={<ListEmployees />} />
 				<Route path="/viewEmployee" element={<ViewEmployee />} />

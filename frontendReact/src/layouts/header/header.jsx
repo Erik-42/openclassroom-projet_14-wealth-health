@@ -1,11 +1,28 @@
-import "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import styled from "./header.module.scss";
 import logo from "../../assets/img/logo/logo-wealthhealth-nobackground.svg";
 import Loader from "../../utils/loader/loader";
+import { removeToken } from "../../store/slice/tokenSlice";
 
-// eslint-disable-next-line react/prop-types
-export default function Header({ loading }) {
+export default function Header() {
+	const [loading, setLoading] = useState(false);
+	const token = useSelector((state) => state.token.token);
+	const firstname = useSelector((state) => state.user.firstname);
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
+	const handleSignOut = () => {
+		setLoading(true);
+
+		setTimeout(() => {
+			dispatch(removeToken());
+			navigate("/login");
+			setLoading(false);
+		}, 1000);
+	};
+
 	return (
 		<>
 			{loading && <Loader />}
@@ -21,19 +38,27 @@ export default function Header({ loading }) {
 					<h1 className={styled.nav__title}>HR-Net</h1>
 
 					<div className={styled.nav__connect}>
-						{/* //deviens deconnexion si connecté */}
-
-						<Link className={styled.nav__connect__button} to="/login">
-							<p>Connexion</p>
-						</Link>
-						{/* //visible uniquement si connexion */}
-						{/* <Link className={styled.nav__connect__btnList} to="/listEmployees">
-							<p>List employés</p>
-						</Link> */}
-						<Link className={styled.nav__connect__btnView} to="/viewEmployee">
-							<p>View employé</p>
-						</Link>
-						{/* //visible uniquement si connexion */}
+						{token ? (
+							<div className={styled.nav__container}>
+								<Link
+									className={styled.nav__connect__btnView}
+									to="/viewEmployee"
+								>
+									<i className="fa fa-user-circle firstname"></i>
+									{firstname}
+								</Link>
+								<button
+									onClick={handleSignOut}
+									className={styled.nav__container__item}
+								>
+									<i className="fa fa-sign-out"></i> Sign Out
+								</button>
+							</div>
+						) : (
+							<Link className={styled.nav__connect__button} to="/login">
+								<i className="fa fa-user-circle"></i> Sign In
+							</Link>
+						)}
 					</div>
 				</nav>
 			</header>

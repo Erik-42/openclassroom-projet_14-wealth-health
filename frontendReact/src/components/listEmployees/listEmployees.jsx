@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectEmployee } from "../../store/slice/employeeSlice"; // Utiliser selectEmployee
+import { selectEmployee } from "../../store/slice/employeeSlice";
 import styled from "./listEmployees.module.scss";
 import defaultAvatar from "../../assets/img/avatar/default-avatar.svg";
 
@@ -10,7 +10,7 @@ export default function ListEmployee() {
 	const [minEntries, setMinEntries] = useState(0);
 	const [maxEntries, setMaxEntries] = useState(5);
 	const [page, setPage] = useState(0);
-
+	console.log(setMinEntries);
 	const employees = useSelector((state) => state.employee?.employeeList || []);
 
 	if (!Array.isArray(employees)) {
@@ -32,7 +32,7 @@ export default function ListEmployee() {
 	const maxPage = Math.ceil(dataShow.length / maxEntries);
 
 	const handleEditClick = (employeeId) => {
-		dispatch(selectEmployee(employeeId)); // Utiliser selectEmployee
+		dispatch(selectEmployee(employeeId));
 	};
 
 	const handleChangeEntries = (e) => {
@@ -65,10 +65,12 @@ export default function ListEmployee() {
 				</div>
 			)}
 
-			{/* Entries */}
+			{/* Nombre par page */}
 			{employees.length !== 0 && (
 				<div className={styled.listEmployee__entries}>
-					<span className={styled.listEmployee__entries__title}>Entries</span>
+					<span className={styled.listEmployee__entries__title}>
+						Nombre par page
+					</span>
 					<select
 						value={maxEntries}
 						onChange={handleChangeEntries}
@@ -81,8 +83,9 @@ export default function ListEmployee() {
 						<option value={100}>100</option>
 					</select>
 					<span className={styled.listEmployee__entries__total}>
-						Showing {minEntries + 1} to {Math.min(maxEntries, dataShow.length)}{" "}
-						of {dataShow.length} entries.
+						Affichage {minEntries + 1} a
+						{Math.min(maxEntries, dataShow.length)}
+						des {dataShow.length} Entrées.
 					</span>
 				</div>
 			)}

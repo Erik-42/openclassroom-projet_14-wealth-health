@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import styles from "./employeeInfo.module.scss";
 import defaultAvatar from "../../assets/img/avatar/H2G2-Grok-only.svg";
 
-// Function qui genere les champs input
+// Function qui génère les champs
 // eslint-disable-next-line react/prop-types
 function InfoField({ label, value, type = "text", placeholder = "" }) {
 	return (
