@@ -1,35 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit";
+import mockEmployee from "../../mock/data/mockEmployees";
 
 const initialState = {
-	employee: {
-		firstName: "",
-		lastName: "",
-		birthday: "",
-		street: "",
-		city: "",
-		state: "",
-		zipCode: "",
-		country: "",
-		department: "",
-		function: "",
-		startWork: "",
-		endWork: "",
-		avatar: "",
-	},
+	employeeList: mockEmployee,
+	selectedEmployee: null,
 };
 
 const employeeSlice = createSlice({
 	name: "employee",
 	initialState,
 	reducers: {
-		addEmployee(state, action) {
-			state.employee = action.payload;
+		addEmployee: (state, action) => {
+			state.employeeList.push(action.payload);
 		},
-		resetEmployee(state) {
-			state.employee = initialState.employee;
+		selectEmployee: (state, action) => {
+			state.selectedEmployee = state.employeeList.find(
+				(employee) => employee.id === action.payload
+			);
+		},
+		setEmployeeList: (state, action) => {
+			state.employeeList = action.payload;
+		},
+		clearSelectedEmployee: (state) => {
+			state.selectedEmployee = null;
 		},
 	},
 });
 
-export const { addEmployee, resetEmployee } = employeeSlice.actions;
+export const {
+	addEmployee,
+	selectEmployee,
+	setEmployeeList,
+	clearSelectedEmployee,
+} = employeeSlice.actions;
 export default employeeSlice.reducer;

@@ -1,38 +1,22 @@
-body {
-	font-family: Arial, sans-serif;
-	background-color: #4a657a;
-	color: #fff;
-}
-
 .viewEmployee {
 	position: relative;
-	top: 8rem;
-
-	&__navbar {
-		background-color: #2f3e46;
-		display: flex;
-		align-items: center;
-		justify-content: flex-end;
-		gap: 18rem;
-
-		&__title {
-			font-size: x-large;
-			color: #51a458;
-			text-align: center;
-		}
-
-		&__menu {
-			font-size: x-large;
-			color: #8077ff;
-			text-align: end;
-		}
-	}
+	background-color: var(--defaultBgColor);
+	// color: #0be30a;
+	top: 7rem;
+	padding: 2rem;
 
 	&__main {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: relative;
+		top: -9rem;
+
 		&__general {
 			width: 100%;
 
-			&__viewEmployee {
+			&__employee {
 				width: 100%;
 				height: 33%;
 
@@ -45,10 +29,23 @@ body {
 				}
 
 				&__infos {
-					&__container1 {
+					&__container1,
+					&__container2,
+					&__container3 {
+						margin-bottom: 10px;
+
 						&__firstName,
 						&__lastName,
-						&__birthday {
+						&__birthday,
+						&__street,
+						&__city,
+						&__state,
+						&__zipCode,
+						&__country,
+						&__department,
+						&__function,
+						&__startWork,
+						&__endWork {
 							margin-bottom: 10px;
 						}
 
@@ -58,25 +55,6 @@ body {
 
 						&__lastName {
 							color: burlywood;
-						}
-					}
-
-					&__container2 {
-						&__street,
-						&__city,
-						&__state,
-						&__zipCode,
-						&__country {
-							margin-bottom: 10px;
-						}
-					}
-
-					&__container3 {
-						&__department,
-						&__function,
-						&__startWork,
-						&__endWork {
-							margin-bottom: 10px;
 						}
 					}
 				}
@@ -102,22 +80,24 @@ header {
 	justify-content: space-between;
 }
 
-.menu-bar button,
-.menu-bar input {
-	background-color: #517fa4;
-	color: white;
-	border: none;
-	padding: 10px;
-	margin-right: 5px;
-	border-radius: 5px;
-}
+.menu-bar {
+	button,
+	input {
+		background-color: #517fa4;
+		color: white;
+		border: none;
+		padding: 10px;
+		margin-right: 5px;
+		border-radius: 5px;
+	}
 
-.menu-bar input {
-	padding: 8px;
+	input {
+		padding: 8px;
+	}
 }
 
 main {
-	background-color: #324a5e;
+	background-color: var(--defautBgColor);
 	padding: 20px;
 	border-radius: 10px;
 	width: 100%;
@@ -125,51 +105,46 @@ main {
 	text-align: center;
 }
 
-.avatar img {
-	border-radius: 50%;
-	width: 100px;
+.avatar {
+	img {
+		border-radius: 50%;
+		width: 100px;
+	}
 }
 
-.actions button {
-	background-color: #517fa4;
-	color: white;
-	border: none;
-	padding: 10px;
-	margin: 10px 5px;
-	border-radius: 5px;
+.actions {
+	button {
+		background-color: #517fa4;
+		color: white;
+		border: none;
+		padding: 10px;
+		margin: 10px 5px;
+		border-radius: 5px;
+	}
 }
 
 form {
 	margin-top: 20px;
+
+	.form-row {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 15px;
+
+		label,
+		input {
+			width: 48%;
+		}
+
+		input {
+			padding: 10px;
+			border-radius: 5px;
+			border: 1px solid #517fa4;
+		}
+	}
 }
 
-.form-row {
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 15px;
-}
-
-form label {
-	width: 48%;
-}
-
-form input {
-	padding: 10px;
-	border-radius: 5px;
-	border: 1px solid #517fa4;
-	width: 48%;
-}
-
-.create-btn {
-	background-color: #5cdb95;
-	color: white;
-	padding: 10px 20px;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	margin-top: 20px;
-}
-
+.create-btn,
 .home-btn {
 	background-color: #517fa4;
 	color: white;
@@ -177,6 +152,15 @@ form input {
 	padding: 10px;
 	margin-top: 20px;
 	border-radius: 5px;
+	cursor: pointer;
+}
+
+.create-btn {
+	background-color: #5cdb95;
+}
+
+.home-btn {
+	background-color: #517fa4;
 }
 
 footer {
@@ -206,6 +190,7 @@ footer button {
 		padding: 10px;
 		margin-top: 20px;
 		border-radius: 5px;
+		cursor: pointer;
 	}
 
 	&__supp {

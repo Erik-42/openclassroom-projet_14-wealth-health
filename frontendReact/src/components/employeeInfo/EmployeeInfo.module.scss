@@ -4,89 +4,88 @@
 	align-items: center;
 	margin: 2rem;
 	padding: 2rem;
-	background-color: #f9f9f9;
 	border-radius: 0.625rem;
 	box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-}
 
-.infos {
-	display: grid;
-	gap: 2rem;
-	width: 100%;
-}
-
-h3 {
-	font-size: 1.5rem;
-	margin-bottom: 1rem;
-	color: #333;
-}
-
-.infoGroup {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
-	gap: 1.5rem;
-	align-items: center;
-}
-
-label {
-	display: block;
-	font-weight: 600;
-	margin-bottom: 0.5rem;
-	color: #555;
-}
-
-input {
-	width: 100%;
-	padding: 0.75rem;
-	border-radius: 0.3125rem;
-	border: 0.0625rem solid #ddd;
-	background-color: #f5f5f5;
-	color: #333;
-	font-size: 1rem;
-	transition: all 0.3s ease;
-}
-
-input:disabled {
-	background-color: #eaeaea;
-}
-
-.generalInfos,
-.addressInfo,
-.workInfo {
-	padding: 1.5rem;
-	background-color: #fff;
-	border-radius: 0.625rem;
-	box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.05);
-}
-
-.generalInfos {
-	border-top: 0.25rem solid #4caf50;
-}
-
-.addressInfo {
-	border-top: 0.25rem solid #ff9800;
-}
-
-.workInfo {
-	border-top: 0.25rem solid #2196f3;
-}
-
-.avatar {
-	border: 0.125rem solid #ddd;
-	border-radius: 0.625rem;
-	padding: 0.625rem;
-	width: 9.375rem;
-	height: 9.375rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	img {
+	&__infos {
+		display: grid;
+		gap: 2rem;
 		width: 100%;
-		height: 100%;
-		border-radius: 50%;
-		object-fit: contain;
-		object-position: center;
-		background-color: #f0f0f0;
+	}
+
+	&__title {
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+		color: #333;
+	}
+
+	&__generalInfos,
+	&__addressInfo,
+	&__workInfo {
+		padding: 1.5rem;
+		background-color: #fff;
+		border-radius: 0.625rem;
+		box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.05);
+	}
+
+	&__generalInfos {
+		border-top: 0.25rem solid #4caf50;
+	}
+
+	&__addressInfo {
+		border-top: 0.25rem solid #ff9800;
+	}
+
+	&__workInfo {
+		border-top: 0.25rem solid #2196f3;
+	}
+
+	&__infoGroup {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+		gap: 1.5rem;
+		align-items: center;
+	}
+
+	&__label {
+		display: block;
+		font-weight: 600;
+		margin-bottom: 0.5rem;
+		color: #555;
+	}
+
+	&__input {
+		width: 100%;
+		padding: 0.75rem;
+		border-radius: 0.3125rem;
+		border: 0.0625rem solid #ddd;
+		background-color: #f5f5f5;
+		color: #333;
+		font-size: 1rem;
+		transition: all 0.3s ease;
+
+		&:disabled {
+			background-color: #eaeaea;
+		}
+	}
+
+	&__avatar {
+		border: 0.125rem solid #ddd;
+		border-radius: 0.625rem;
+		padding: 0.625rem;
+		width: 9.375rem;
+		height: 9.375rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		img {
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+			object-fit: contain;
+			object-position: center;
+			background-color: #f0f0f0;
+		}
 	}
 }

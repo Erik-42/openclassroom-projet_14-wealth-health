@@ -1,13 +1,77 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styled from "./CreateEmployee.module.scss";
 import defaultAvatar from "../../assets/img/avatar/H2G2-Grok-only.svg";
 import stateData from "../../assets/data/states.json";
 import countryData from "../../assets/data/country.json";
-
 import Dropdown from "../dropdown/dropdown";
 
+// Fonction pour gérer le changement de fichier
+function handleFileChange(e, setEmployee) {
+	const file = e.target.files[0];
+	if (file) {
+		const reader = new FileReader();
+		reader.onloadend = () => {
+			setEmployee((prev) => ({ ...prev, avatar: reader.result }));
+		};
+		reader.readAsDataURL(file);
+	}
+}
+
+// Fonction pour gérer les changements de champ de saisie
+function handleChange(e, setEmployee) {
+	const { name, value } = e.target;
+	setEmployee((prev) => ({ ...prev, [name]: value }));
+}
+
+// Fonction pour gérer le changement d'état
+function handleStateChange(value, setEmployee) {
+	setEmployee((prev) => ({ ...prev, state: value }));
+}
+
+// Fonction pour gérer le changement de pays
+function handleCountryChange(value, setEmployee) {
+	setEmployee((prev) => ({ ...prev, country: value }));
+}
+
+// Fonction pour gérer la soumission du formulaire
+function handleSubmit(e, employee, onAddEmployee, setEmployee) {
+	e.preventDefault();
+	onAddEmployee(employee);
+	setEmployee({
+		avatar: "",
+		firstName: "",
+		lastName: "",
+		birthday: "",
+		street: "",
+		city: "",
+		state: "",
+		zipCode: "",
+		country: "",
+		department: "",
+		function: "",
+		startWork: "",
+		endWork: "",
+	});
+}
+
+// Fonction pour gérer l'affichage de la modal de confirmation
+function handleDelete(setShowModal) {
+	setShowModal(true);
+}
+
+// Fonction pour confirmer la suppression
+function confirmDelete(setShowModal) {
+	// Logique pour supprimer l'employé
+	setShowModal(false);
+}
+
+// Fonction pour annuler la suppression
+function cancelDelete(setShowModal) {
+	setShowModal(false);
+}
+
 // eslint-disable-next-line react/prop-types
-const CreateEmployee = ({ onAddEmployee }) => {
+export default function CreateEmployee({ onAddEmployee }) {
 	const [employee, setEmployee] = useState({
 		avatar: "",
 		firstName: "",
@@ -25,50 +89,7 @@ const CreateEmployee = ({ onAddEmployee }) => {
 	});
 
 	const [showModal, setShowModal] = useState(false);
-
-	const handleChange = (e) => {
-		const { name, value } = e.target;
-		setEmployee((prev) => ({ ...prev, [name]: value }));
-	};
-
-	const handleStateChange = (value) => {
-		setEmployee((prev) => ({ ...prev, state: value }));
-	};
-	const handleCountryChange = (value) => {
-		setEmployee((prev) => ({ ...prev, country: value }));
-	};
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		onAddEmployee(employee);
-		setEmployee({
-			avatar: "",
-			firstName: "",
-			lastName: "",
-			birthday: "",
-			street: "",
-			city: "",
-			state: "",
-			zipCode: "",
-			country: "",
-			department: "",
-			function: "",
-			startWork: "",
-			endWork: "",
-		});
-	};
-
-	const handleDelete = () => {
-		setShowModal(true);
-	};
-
-	const confirmDelete = () => {
-		// Logic to delete the employee
-		setShowModal(false);
-	};
-
-	const cancelDelete = () => {
-		setShowModal(false);
-	};
+	const fileInputRef = useRef(null);
 
 	useEffect(() => {
 		if (stateData.length > 0) {
@@ -85,110 +106,120 @@ const CreateEmployee = ({ onAddEmployee }) => {
 	return (
 		<div className={styled.createEmployee}>
 			<h2>Modifier Employés</h2>
-			<form onSubmit={handleSubmit} className={styled.form}>
+			<form
+				onSubmit={(e) => handleSubmit(e, employee, onAddEmployee, setEmployee)}
+				className={styled.form}
+			>
 				<div className={styled.avatarSection}>
+					{/* Image de l'avatar cliquable */}
 					<img
 						src={employee.avatar || defaultAvatar}
 						alt="Employee Avatar"
 						className={styled.avatar}
+						onClick={() => fileInputRef.current.click()}
 					/>
+					{/* Input fichier caché */}
 					<input
-						type="text"
-						name="avatar"
-						value={employee.avatar}
-						onChange={handleChange}
-						placeholder="Avatar URL"
+						type="file"
+						accept="image/*"
+						style={{ display: "none" }}
+						ref={fileInputRef}
+						onChange={(e) => handleFileChange(e, setEmployee)}
 					/>
 				</div>
 
 				<div className={styled.generalInfos}>
-					<h3>General Information</h3>
+					<h3>Informations Générales</h3>
 					<div className={styled.infoGroup}>
 						<div>
-							<label>First Name</label>
+							<label>Prénom</label>
 							<input
 								type="text"
 								name="firstName"
 								value={employee.firstName}
-								onChange={handleChange}
+								onChange={(e) => handleChange(e, setEmployee)}
 								placeholder="John"
 							/>
 						</div>
 
 						<div>
-							<label>Last Name</label>
+							<label>Nom</label>
 							<input
 								type="text"
 								name="lastName"
 								value={employee.lastName}
-								onChange={handleChange}
+								onChange={(e) => handleChange(e, setEmployee)}
 								placeholder="Doe"
 							/>
 						</div>
 
 						<div>
-							<label>Birthday</label>
+							<label>Date de Naissance</label>
 							<input
 								type="date"
 								name="birthday"
 								value={employee.birthday}
-								onChange={handleChange}
+								onChange={(e) => handleChange(e, setEmployee)}
 							/>
 						</div>
 					</div>
 				</div>
 
 				<div className={styled.addressInfo}>
-					<h3>Address Information</h3>
+					<h3>Informations Adresse</h3>
 					<div className={styled.infoGroup}>
 						<div>
-							<label>Street</label>
+							<label>Rue</label>
 							<input
 								type="text"
 								name="street"
 								value={employee.street}
-								onChange={handleChange}
+								onChange={(e) => handleChange(e, setEmployee)}
 								placeholder="123 Main St"
 							/>
 						</div>
 
 						<div>
-							<label>City</label>
+							<label>Ville</label>
 							<input
 								type="text"
 								name="city"
 								value={employee.city}
-								onChange={handleChange}
+								onChange={(e) => handleChange(e, setEmployee)}
 								placeholder="New York"
 							/>
 						</div>
 
 						<div>
-							<label>State</label>
+							<label>État</label>
 							<Dropdown
 								name="state"
-								onChangeDropdown={handleStateChange}
+								onChangeDropdown={(value) =>
+									handleStateChange(value, setEmployee)
+								}
 								optionsList={stateData}
 								defaultValue={employee.state}
 							/>
 						</div>
 
 						<div>
-							<label>Zip Code</label>
+							<label>Code Postal</label>
 							<input
 								type="text"
 								name="zipCode"
 								value={employee.zipCode}
-								onChange={handleChange}
+								onChange={(e) => handleChange(e, setEmployee)}
 								placeholder="10001"
 							/>
 						</div>
 
 						<div>
-							<label>Country</label>
+							<label>Pays</label>
 							<Dropdown
 								name="country"
-								onChangeDropdown={handleCountryChange}
+								onChangeDropdown={(value) =>
+									handleCountryChange(value, setEmployee)
+								}
 								optionsList={countryData}
 								defaultValue={employee.country}
 							/>
@@ -197,47 +228,47 @@ const CreateEmployee = ({ onAddEmployee }) => {
 				</div>
 
 				<div className={styled.workInfo}>
-					<h3>Work Information</h3>
+					<h3>Informations Professionnelles</h3>
 					<div className={styled.infoGroup}>
 						<div>
-							<label>Department</label>
+							<label>Département</label>
 							<input
 								type="text"
 								name="department"
 								value={employee.department}
-								onChange={handleChange}
+								onChange={(e) => handleChange(e, setEmployee)}
 								placeholder="Engineering"
 							/>
 						</div>
 
 						<div>
-							<label>Function</label>
+							<label>Fonction</label>
 							<input
 								type="text"
 								name="function"
 								value={employee.function}
-								onChange={handleChange}
+								onChange={(e) => handleChange(e, setEmployee)}
 								placeholder="Software Engineer"
 							/>
 						</div>
 
 						<div>
-							<label>Start Work</label>
+							<label>Date de Début</label>
 							<input
 								type="date"
 								name="startWork"
 								value={employee.startWork}
-								onChange={handleChange}
+								onChange={(e) => handleChange(e, setEmployee)}
 							/>
 						</div>
 
 						<div>
-							<label>End Work</label>
+							<label>Date de Fin</label>
 							<input
 								type="date"
 								name="endWork"
 								value={employee.endWork}
-								onChange={handleChange}
+								onChange={(e) => handleChange(e, setEmployee)}
 							/>
 						</div>
 					</div>
@@ -245,7 +276,7 @@ const CreateEmployee = ({ onAddEmployee }) => {
 
 				<div className={styled.btn}>
 					<button type="submit" className={styled.btn__create}>
-						Ajout Employés
+						Ajouter Employé
 					</button>
 					<button type="button" className={styled.btn__modif}>
 						Valider
@@ -256,22 +287,20 @@ const CreateEmployee = ({ onAddEmployee }) => {
 					<button
 						type="button"
 						className={styled.btn__supp}
-						onClick={handleDelete}
+						onClick={() => handleDelete(setShowModal)}
 					>
-						⚠️ Supprimer Employés ⚠️
+						⚠️ Supprimer Employé ⚠️
 					</button>
 				</div>
 
 				{showModal && (
 					<div className={styled.confirmationModal}>
-						<p>Are you sure you want to delete this employee?</p>
-						<button onClick={confirmDelete}>Yes</button>
-						<button onClick={cancelDelete}>No</button>
+						<p>Êtes-vous sûr de vouloir supprimer cet employé ?</p>
+						<button onClick={() => confirmDelete(setShowModal)}>Oui</button>
+						<button onClick={() => cancelDelete(setShowModal)}>Non</button>
 					</div>
 				)}
 			</form>
 		</div>
 	);
-};
-
-export default CreateEmployee;
+}

@@ -13,13 +13,11 @@ export default function LoginModal() {
 	const [loading, setLoading] = useState(false);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-
-	// Ne plus rediriger automatiquement vers /listEmployees s'il y a un token
+	console.log(setErrorMessage);
 	useEffect(() => {
 		const storedToken = localStorage.getItem("token");
 		if (storedToken) {
 			dispatch(setToken(storedToken));
-			// Retirer la redirection pour permettre l'accès à la page de connexion
 		}
 	}, [dispatch]);
 
@@ -27,7 +25,6 @@ export default function LoginModal() {
 		e.preventDefault();
 		setLoading(true);
 
-		// Simuler l'authentification sans appel à une API réelle
 		setTimeout(() => {
 			const fakeToken = "fake-token";
 			dispatch(setToken(fakeToken));
@@ -36,12 +33,11 @@ export default function LoginModal() {
 				localStorage.setItem("token", fakeToken);
 			}
 
-			// Rediriger vers la page principale de l'application
-			navigate("/listEmployees");
+			navigate("/viewEmployee");
 			setLoading(false);
-		}, 1000); // Simuler un délai pour l'authentification
+		}, 1000);
 	};
-console.log(setErrorMessage);
+
 	return (
 		<>
 			{loading && <Loader />}

@@ -1,4 +1,3 @@
-// src/components/EmployeeTest.js
 import "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setEmployee } from "../slice/employeeSlice";
@@ -21,7 +20,6 @@ const EmployeeTest = () => {
 					Name: {employee.firstName} {employee.lastName}
 				</p>
 				<p>Birthday: {employee.birthday}</p>
-				{/* Display other employee details here */}
 			</div>
 		</div>
 	);

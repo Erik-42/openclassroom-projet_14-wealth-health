@@ -1,4 +1,10 @@
-export const mockEmployees = [
+import defaultAvatar from "../../assets/img/avatar/default-avatar.svg";
+import headGrokOnly from "../../assets/img/avatar/head-Grok-only.svg";
+import dontPanicOnly from "../../assets/img/avatar/dontPanic-only.svg";
+import logo42Style from "../../assets/img/avatar/logo42Style.svg";
+import headGrokFull from "../../assets/img/avatar/head-Grok-full.svg";
+
+const mockEmployees = [
 	{
 		firstName: "Adam",
 		lastName: "Douglas",
@@ -12,7 +18,7 @@ export const mockEmployees = [
 		function: "Manager",
 		startWork: "1978-04-08",
 		endWork: "2001-05-11",
-		avatar: "../../assets/img/avatar/head-Grok-only.svg",
+		avatar: headGrokOnly,
 	},
 	{
 		firstName: "Arthur",
@@ -27,7 +33,7 @@ export const mockEmployees = [
 		function: "Representative",
 		startWork: "2000-09-01",
 		endWork: null,
-		avatar: "../../assets/img/avatar/dontPanic-only.svg",
+		avatar: dontPanicOnly,
 	},
 	{
 		firstName: "Ford",
@@ -42,7 +48,7 @@ export const mockEmployees = [
 		function: "Field Researcher",
 		startWork: "1995-04-22",
 		endWork: null,
-		avatar: "../../assets/img/avatar/logo42Style.svg",
+		avatar: logo42Style,
 	},
 	{
 		firstName: "Zaphod",
@@ -57,7 +63,7 @@ export const mockEmployees = [
 		function: "President",
 		startWork: "1998-07-01",
 		endWork: "2002-10-12",
-		avatar: "",
+		avatar: defaultAvatar,
 	},
 	{
 		firstName: "Trillian",
@@ -72,7 +78,7 @@ export const mockEmployees = [
 		function: "Scientist",
 		startWork: "2003-03-15",
 		endWork: null,
-		avatar: "",
+		avatar: defaultAvatar,
 	},
 	{
 		firstName: "Marvin",
@@ -87,6 +93,8 @@ export const mockEmployees = [
 		function: "Robotic Assistant",
 		startWork: "2000-01-01",
 		endWork: null,
-		avatar: "../../assets/img/avatar/head-Grok-full.svg",
+		avatar: headGrokFull,
 	},
 ];
+
+export default mockEmployees;

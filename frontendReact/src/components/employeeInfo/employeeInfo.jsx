@@ -1,160 +1,85 @@
-import PropTypes from "prop-types";
-import styled from "./EmployeeInfo.module.scss";
+import { useSelector } from "react-redux";
+import styles from "./employeeInfo.module.scss";
 import defaultAvatar from "../../assets/img/avatar/H2G2-Grok-only.svg";
-// import defaultAvatar from "../../assets/img/avatar/head-Grok-only.svg";
 
-const EmployeeInfo = ({ employee }) => {
+// Function qui genere les champs input
+// eslint-disable-next-line react/prop-types
+function InfoField({ label, value, type = "text", placeholder = "" }) {
 	return (
-		<div className={styled.employeeInfo}>
-			<div className={styled.infos}>
-				<div className={styled.generalInfos}>
-					<h3>General Information</h3>
-					<div className={styled.infoGroup}>
-						<div className={styled.avatar}>
+		<div className={styles.employeeInfo__field}>
+			<label className={styles.employeeInfo__label}>{label}</label>
+			<input
+				type={type}
+				value={value}
+				disabled
+				placeholder={placeholder}
+				className={styles.employeeInfo__input}
+			/>
+		</div>
+	);
+}
+
+export default function EmployeeInfo() {
+	const selectedEmployee = useSelector(
+		(state) => state.employee.selectedEmployee
+	);
+
+	if (!selectedEmployee) {
+		return <p>No employee selected</p>;
+	}
+
+	return (
+		<div className={styles.employeeInfo}>
+			<div className={styles.employeeInfo__infos}>
+				<div className={styles.employeeInfo__generalInfos}>
+					<h3 className={styles.employeeInfo__title}>General Information</h3>
+					<div className={styles.employeeInfo__infoGroup}>
+						<div className={styles.employeeInfo__avatar}>
 							<img
-								src={employee.avatar || defaultAvatar}
+								src={selectedEmployee.avatar || defaultAvatar}
 								alt="Employee Avatar"
 							/>
 						</div>
 
-						<div>
-							<label>First Name</label>
-							<input
-								type="text"
-								value={employee.firstName}
-								disabled
-								placeholder="John"
-							/>
-						</div>
-
-						<div>
-							<label>Last Name</label>
-							<input
-								type="text"
-								value={employee.lastName}
-								disabled
-								placeholder="Doe"
-							/>
-						</div>
-
-						<div>
-							<label>Birthday</label>
-							<input
-								type="date"
-								value={employee.birthday}
-								disabled
-								placeholder="1990-01-01"
-							/>
-						</div>
+						<InfoField label="First Name" value={selectedEmployee.firstName} />
+						<InfoField label="Last Name" value={selectedEmployee.lastName} />
+						<InfoField
+							label="Birthday"
+							value={selectedEmployee.birthday}
+							type="date"
+						/>
 					</div>
 				</div>
 
-				<div className={styled.addressInfo}>
-					<h3>Address Information</h3>
-					<div className={styled.infoGroup}>
-						<div>
-							<label>Street</label>
-							<input
-								type="text"
-								value={employee.street}
-								disabled
-								placeholder="123 Main St"
-							/>
-						</div>
-
-						<div>
-							<label>City</label>
-							<input
-								type="text"
-								value={employee.city}
-								disabled
-								placeholder="New York"
-							/>
-						</div>
-
-						<div>
-							<label>State</label>
-							<input
-								type="text"
-								value={employee.state}
-								disabled
-								placeholder="NY"
-							/>
-						</div>
-
-						<div>
-							<label>Zip Code</label>
-							<input
-								type="text"
-								value={employee.zipCode}
-								disabled
-								placeholder="10001"
-							/>
-						</div>
-
-						<div>
-							<label>Country</label>
-							<input
-								type="text"
-								value={employee.country}
-								disabled
-								placeholder="United States"
-							/>
-						</div>
+				<div className={styles.employeeInfo__addressInfo}>
+					<h3 className={styles.employeeInfo__title}>Address Information</h3>
+					<div className={styles.employeeInfo__infoGroup}>
+						<InfoField label="Street" value={selectedEmployee.street} />
+						<InfoField label="City" value={selectedEmployee.city} />
+						<InfoField label="State" value={selectedEmployee.state} />
+						<InfoField label="Zip Code" value={selectedEmployee.zipCode} />
+						<InfoField label="Country" value={selectedEmployee.country} />
 					</div>
 				</div>
 
-				<div className={styled.workInfo}>
-					<h3>Work Information</h3>
-					<div className={styled.infoGroup}>
-						<div>
-							<label>Department</label>
-							<input
-								type="text"
-								value={employee.department}
-								disabled
-								placeholder="Engineering"
-							/>
-						</div>
-
-						<div>
-							<label>Function</label>
-							<input
-								type="text"
-								value={employee.function}
-								disabled
-								placeholder="Software Engineer"
-							/>
-						</div>
-
-						<div>
-							<label>Start Work</label>
-							<input
-								type="date"
-								value={employee.startWork}
-								disabled
-								placeholder="2022-01-01"
-							/>
-						</div>
-
-						<div>
-							<label>End Work</label>
-							<input
-								type="date"
-								value={employee.endWork}
-								disabled
-								placeholder="2023-12-31"
-							/>
-						</div>
+				<div className={styles.employeeInfo__workInfo}>
+					<h3 className={styles.employeeInfo__title}>Work Information</h3>
+					<div className={styles.employeeInfo__infoGroup}>
+						<InfoField label="Department" value={selectedEmployee.department} />
+						<InfoField label="Function" value={selectedEmployee.function} />
+						<InfoField
+							label="Start Work"
+							value={selectedEmployee.startWork}
+							type="date"
+						/>
+						<InfoField
+							label="End Work"
+							value={selectedEmployee.endWork}
+							type="date"
+						/>
 					</div>
 				</div>
 			</div>
 		</div>
 	);
-};
-
-EmployeeInfo.propTypes = {
-	employee: PropTypes.object.isRequired,
-};
-
-export default EmployeeInfo;
+}

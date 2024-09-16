@@ -1,9 +1,5 @@
 [
   {
-    "name": "App.css",
-    "type": "file"
-  },
-  {
     "name": "App.jsx",
     "type": "file"
   },
@@ -244,11 +240,11 @@
             "type": "file"
           },
           {
-            "name": "EmployeeInfo.module.scss",
+            "name": "employeeInfo.module.scss",
             "type": "file"
           },
           {
-            "name": "EmployeeTest.jsx",
+            "name": "employeeTest.jsx",
             "type": "file"
           }
         ]
@@ -288,15 +284,25 @@
             "type": "file"
           }
         ]
+      },
+      {
+        "name": "testComponents",
+        "type": "directory",
+        "children": [
+          {
+            "name": "testPage.jsx",
+            "type": "file"
+          },
+          {
+            "name": "testPage.module.scss",
+            "type": "file"
+          }
+        ]
       }
     ]
   },
   {
     "name": "export-file-structure.js",
-    "type": "file"
-  },
-  {
-    "name": "index.js",
     "type": "file"
   },
   {
@@ -508,6 +514,10 @@
         "type": "file"
       }
     ]
+  },
+  {
+    "name": "structure.json",
+    "type": "file"
   },
   {
     "name": "style",

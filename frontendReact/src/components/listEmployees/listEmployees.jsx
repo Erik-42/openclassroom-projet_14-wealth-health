@@ -1,31 +1,43 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { selectEmployee } from "../../store/slice/employeeSlice"; // Utiliser selectEmployee
 import styled from "./listEmployees.module.scss";
+import defaultAvatar from "../../assets/img/avatar/default-avatar.svg";
 
-export default function ListEmployees() {
+export default function ListEmployee() {
+	const dispatch = useDispatch();
 	const [dataSearchInput, setDataSearchInput] = useState("");
 	const [minEntries, setMinEntries] = useState(0);
-	const [maxEntries, setMaxEntries] = useState(10);
+	const [maxEntries, setMaxEntries] = useState(5);
 	const [page, setPage] = useState(0);
 
-	console.log(setMinEntries);
+	const employees = useSelector((state) => state.employee?.employeeList || []);
 
-	const employees = useSelector((state) => state.employee.employeeList);
-	// Filter employees based on search input
+	if (!Array.isArray(employees)) {
+		console.error(
+			"Les données des employés ne sont pas un tableau :",
+			employees
+		);
+		return <div>Erreur lors du chargement des employés...</div>;
+	}
+
 	const dataSearched = employees.filter((employee) =>
 		`${employee.firstName} ${employee.lastName}`
 			.toLowerCase()
 			.includes(dataSearchInput.toLowerCase())
 	);
 
-	// Determine data to show: filtered or all employees
 	const dataShow = dataSearchInput === "" ? employees : dataSearched;
 
 	const maxPage = Math.ceil(dataShow.length / maxEntries);
 
+	const handleEditClick = (employeeId) => {
+		dispatch(selectEmployee(employeeId)); // Utiliser selectEmployee
+	};
+
 	const handleChangeEntries = (e) => {
 		setMaxEntries(parseInt(e.target.value));
-		setPage(0); // Reset to first page when changing number of entries
+		setPage(0);
 	};
 
 	const handlePreviousPage = () => {
@@ -58,10 +70,11 @@ export default function ListEmployees() {
 				<div className={styled.listEmployee__entries}>
 					<span className={styled.listEmployee__entries__title}>Entries</span>
 					<select
-						defaultValue={10}
+						value={maxEntries}
 						onChange={handleChangeEntries}
 						className={styled.listEmployee__entries__selectInput}
 					>
+						<option value={5}>5</option>
 						<option value={10}>10</option>
 						<option value={25}>25</option>
 						<option value={50}>50</option>
@@ -98,15 +111,22 @@ export default function ListEmployees() {
 			<div className={styled.listEmployee__avatarList}>
 				{dataShow
 					.slice(page * maxEntries, (page + 1) * maxEntries)
-					.map((employee, index) => (
-						<div key={index} className={styled.listEmployee__avatarItem}>
+					.map((employee) => (
+						<div key={employee.id} className={styled.listEmployee__avatarItem}>
 							<img
-								src={employee.avatar}
-								alt="Avatar"
-								className={styled.avatar}
+								src={employee.avatar || defaultAvatar}
+								alt={`${employee.firstName} ${employee.lastName}`}
+								className={styled.listEmployee__avatar}
 							/>
-							<span className={styled.name}>{employee.firstName}</span>
-							<span className={styled.name}>{employee.lastName}</span>
+							<span className={styled.listEmployee__name}>
+								{employee.firstName} {employee.lastName}
+							</span>
+							<button
+								className={styled.listEmployee__editButton}
+								onClick={() => handleEditClick(employee.id)}
+							>
+								view
+							</button>
 						</div>
 					))}
 			</div>

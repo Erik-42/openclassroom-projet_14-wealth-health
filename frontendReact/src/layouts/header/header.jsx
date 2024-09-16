@@ -27,9 +27,9 @@ export default function Header({ loading }) {
 							<p>Connexion</p>
 						</Link>
 						{/* //visible uniquement si connexion */}
-						<Link className={styled.nav__connect__btnList} to="/listEmployee">
+						{/* <Link className={styled.nav__connect__btnList} to="/listEmployees">
 							<p>List employés</p>
-						</Link>
+						</Link> */}
 						<Link className={styled.nav__connect__btnView} to="/viewEmployee">
 							<p>View employé</p>
 						</Link>

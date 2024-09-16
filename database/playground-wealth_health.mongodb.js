@@ -2,8 +2,8 @@
 // MongoDB Playground
 // Use Ctrl+Space inside a snippet or a string literal to trigger completions.
 
-const database = "NEW_TEMPLATE_DB";
-const collection = "NEW_TEMPLATE_COLLECTION_NAME";
+const database = "WEALTH_HEALTH";
+const collection = "USERS";
 
 // Create a new database.
 use(database);
