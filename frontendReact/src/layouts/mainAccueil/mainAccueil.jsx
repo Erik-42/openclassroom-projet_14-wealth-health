@@ -1,4 +1,4 @@
-import React from "react";
+import "react";
 import styled from "./mainAccueil.module.scss";
 import logoAccueil from "../../assets/img/logo/logoAccueil.svg";
 

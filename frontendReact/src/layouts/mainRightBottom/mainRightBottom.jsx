@@ -1,4 +1,4 @@
-import React from "react";
+import "react";
 import styled from "./mainRightBottom.module.scss";
 import logoRight from "../../assets/img/logo/logoAccueil.svg";
 

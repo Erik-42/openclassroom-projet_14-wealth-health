@@ -1,4 +1,4 @@
-import React from "react";
+import "react";
 import styled from "./home.module.scss";
 import MainAccueil from "../../layouts/mainAccueil/mainAccueil";
 import MainRightBottom from "../../layouts/mainRightBottom/mainRightBottom";
