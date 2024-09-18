@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable react/no-unescaped-entities */
+import "react";
 import styled from "./error404.module.scss";
 import logo404 from "../../assets/img/error404/logo404.svg";
 
@@ -12,7 +13,7 @@ export default function Error404() {
 				Oops! Vous êtes perdu. Cette page n'existe pas!
 			</p>
 			<a href="/" className={styled.homeLink}>
-				Retour à l'accueil
+				Retour à accueil
 			</a>
 		</div>
 	);

@@ -12,7 +12,6 @@ export const userSlice = createSlice({
 		setUser: (state, action) => {
 			//Mise à jour du token lors de la connexion
 			state.firstname = action.payload.firstname;
-			console.log(action);
 			state.lastname = action.payload.lastname;
 		},
 		removeUser: (state) => {

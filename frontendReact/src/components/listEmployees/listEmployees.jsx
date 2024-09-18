@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectEmployee } from "../../store/slice/employeeSlice";
@@ -11,7 +12,7 @@ export default function ListEmployee() {
 	const [minEntries, setMinEntries] = useState(0);
 	const [maxEntries, setMaxEntries] = useState(5);
 	const [page, setPage] = useState(0);
-	console.log(setMinEntries);
+
 	const employees = useSelector((state) => state.employee?.employeeList || []);
 
 	const navigate = useNavigate();

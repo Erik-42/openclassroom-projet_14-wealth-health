@@ -3,6 +3,8 @@ import styled from "./createEmployee.module.scss";
 import defaultAvatar from "../../assets/img/avatar/H2G2-Grok-only.svg";
 import stateData from "../../assets/data/states.json";
 import countryData from "../../assets/data/country.json";
+import jobData from "../../assets/data/job.json";
+
 import Dropdown from "../dropdown/dropdown";
 import { useSelector } from "react-redux";
 
@@ -28,12 +30,14 @@ function handleChange(e, setEmployee) {
 function handleStateChange(value, setEmployee) {
 	setEmployee((prev) => ({ ...prev, state: value }));
 }
-
 // Fonction pour gérer le changement de pays
 function handleCountryChange(value, setEmployee) {
 	setEmployee((prev) => ({ ...prev, country: value }));
 }
-
+// Fonction pour gérer le changement de job
+function handleJobChange(value, setEmployee) {
+	setEmployee((prev) => ({ ...prev, job: value }));
+}
 // Fonction pour réinitialiser tous les champs
 function handleReset(setEmployee) {
 	setEmployee({
@@ -356,9 +360,12 @@ export default function CreateEmployee({ onAddEmployee = () => {} }) {
 
 						<div>
 							<label>Fonction</label>
-							<input
-								type="text"
+							<Dropdown
 								name="function"
+								onChangeDropdown={(value) =>
+									handleJobChange(value, setEmployee)
+								}
+								optionsList={jobData}
 								value={
 									employee.function
 										? employee.function
@@ -366,8 +373,6 @@ export default function CreateEmployee({ onAddEmployee = () => {} }) {
 										? selectedEmployee.function
 										: ""
 								}
-								onChange={(e) => handleChange(e, setEmployee)}
-								placeholder="Software Engineer"
 							/>
 						</div>
 

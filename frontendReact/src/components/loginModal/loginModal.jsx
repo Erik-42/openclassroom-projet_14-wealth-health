@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import styled from "./loginModal.module.scss";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -13,7 +14,7 @@ export default function LoginModal() {
 	const [loading, setLoading] = useState(false);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	console.log(setErrorMessage);
+
 	useEffect(() => {
 		const storedToken = localStorage.getItem("token");
 		if (storedToken) {
