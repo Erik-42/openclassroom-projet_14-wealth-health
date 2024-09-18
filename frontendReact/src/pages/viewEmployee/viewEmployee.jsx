@@ -48,7 +48,7 @@ export default function ViewEmployee() {
 							}
 							onClick={handleCancelEdit}
 						>
-							Cancel
+							Retour
 						</button>
 					) : (
 						<button

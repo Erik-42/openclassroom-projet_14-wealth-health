@@ -1,7 +1,7 @@
 {
-	"name": "modaleReact",
+	"name": "ModaleReact",
 	"version": "1.0.0",
-	"description": "Modal toute prête et autonome sous React - https://github.com/Erik-42 ",
+	"description": "Modale toute prête et autonome sous React - https://github.com/Erik-42 ",
 	"license": "MIT",
 	"author": "Erik-42",
 	"keywords": [
@@ -67,7 +67,13 @@
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
 		"react-test-renderer": "^18.3.1",
+		"sass-embedded": "^1.79.1",
 		"vite": "^5.4.3",
 		"vitest": "^2.0.5"
+	},
+	"dependencies": {
+		"babel": "^6.23.0",
+		"jest": "^29.7.0",
+		"styled-components": "^6.1.13"
 	}
 }

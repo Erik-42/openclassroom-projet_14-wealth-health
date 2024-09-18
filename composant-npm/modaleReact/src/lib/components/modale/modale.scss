@@ -1,0 +1,33 @@
+h1 {
+	border: 2px solid red;
+}
+
+.modale {
+	left: 50%;
+	position: fixed;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(92, 92, 92, 0.5);
+
+	&__content {
+		background: rgb(196, 79, 79);
+		padding: 1em;
+		border-radius: 8px;
+	}
+
+	&__iconClose {
+		font-size: 25px;
+		position: absolute;
+		right: 5px;
+		top: 5px;
+		transition: 0.5s;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}

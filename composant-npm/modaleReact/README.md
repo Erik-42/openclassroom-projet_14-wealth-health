@@ -1,16 +1,53 @@
-# React + Vite
+# Modale
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Plugin du projet 14 "Faites passer une librairie jQuery vers React" OpenClassrooms.
 
-Currently, two official plugins are available:
+## How to install ?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```cmd
+npm i modaleReact
+```
 
-Vous pouvez exécuter vos tests depuis la ligne de commande en tapant :
+## How to use ?
 
-$ npm test
-Ou vous pouvez exécuter des tests et configurer une montre pour réexécuter les tests lorsque quelque chose change.
+1. Importez le plugin dans votre projet:
 
-$ npm run watch
-Remarque : l'exécution de tests d'instantanés crée un /src/lib/**snapshots**dossier. N'ignorez pas ce dossier avec Git. Les tests d'instantanés sont destinés à être validés dans votre dépôt Git.
+```javascript
+import Modale from "modaleReact";
+```
+
+2. Le state :
+
+```javascript
+const [displayModale, setDisplayModale] = useState(false);
+```
+
+3. Le return :
+
+```javascript
+<Modale
+	key={modaleReset}
+	id="id-modale"
+	showModale={displayModale}
+	closeModale={() => setDisplayModale(false)}
+	parameter={modalParameter}
+	message="votre message"
+/>
+```
+
+## Customize you modal
+
+1. paramètres de votre composant :
+
+```javascript
+const modaleParameter = {
+	backgroundColor: "",
+	borderRadius: "",
+	boxShadow: "",
+	color: "",
+	fontSize: "",
+	height: "",
+	padding: "",
+	width: "",
+};
+```

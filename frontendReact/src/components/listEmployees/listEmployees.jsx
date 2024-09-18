@@ -86,8 +86,9 @@ export default function ListEmployee() {
 						<option value={100}>100</option>
 					</select>
 					<span className={styled.listEmployee__entries__total}>
-						Affichage {minEntries + 1} a{Math.min(maxEntries, dataShow.length)}
-						des {dataShow.length} Entrées.
+						{" "}
+						Affichage {minEntries + 1} a {Math.min(maxEntries, dataShow.length)}{" "}
+						sur {dataShow.length} employés.
 					</span>
 				</div>
 			)}

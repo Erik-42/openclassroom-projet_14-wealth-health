@@ -5,9 +5,10 @@
 	padding: 2rem 0;
 	width: 100%;
 	position: relative;
-	top: 7rem;
+	top: 5rem;
 	color: var(--secondaryFontColor);
-	border: 3px solid;
+	background-color: var(--defaultBgColor);
+	// border: 3px solid;
 	&__search {
 		margin-bottom: 1rem;
 		width: 100%;

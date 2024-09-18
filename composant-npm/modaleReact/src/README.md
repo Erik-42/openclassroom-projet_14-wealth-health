@@ -1,9 +1,6 @@
-Ceci sera publié sur npm.
-Créez votre fichier README en utilisant Markdown.
+# Modale
 
-# Modal
-
-This plugin is for the project 14 from OpenClassrooms formation "Front-End".
+Plugin du projet 14 "Faites passer une librairie jQuery vers React" OpenClassrooms.
 
 ## How to install ?
 
@@ -13,37 +10,37 @@ npm i modaleReact
 
 ## How to use ?
 
-1. Import the plugin in your project like this :
+1. Importez le plugin dans votre projet:
 
 ```javascript
-import Modal from "modaleReact";
+import Modale from "modaleReact";
 ```
 
-2. The state :
+2. Le state :
 
 ```javascript
-const [displayModal, setDisplayModal] = useState(false);
+const [displayModale, setDisplayModale] = useState(false);
 ```
 
-3. In the return :
+3. Le return :
 
 ```javascript
-<Modal
-	key={modalReset}
-	id="You-modal-id"
-	showModal={displayModal}
-	closeModal={() => setDisplayModal(false)}
+<Modale
+	key={modaleReset}
+	id="id-modale"
+	showModale={displayModale}
+	closeModale={() => setDisplayModale(false)}
 	parameter={modalParameter}
-	message="Your message"
+	message="votre message"
 />
 ```
 
 ## Customize you modal
 
-1. Put this into your component :
+1. paramètres de votre composant :
 
 ```javascript
-const modalParameter = {
+const modaleParameter = {
 	backgroundColor: "",
 	borderRadius: "",
 	boxShadow: "",

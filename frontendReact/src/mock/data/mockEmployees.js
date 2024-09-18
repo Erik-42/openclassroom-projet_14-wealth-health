@@ -34,7 +34,7 @@ const mockEmployees = [
 		department: "Sales",
 		function: "Representative",
 		startWork: "2000-09-01",
-		endWork: null,
+		endWork: "",
 		avatar: dontPanicOnly,
 	},
 	{
@@ -50,7 +50,7 @@ const mockEmployees = [
 		department: "Research",
 		function: "Field Researcher",
 		startWork: "1995-04-22",
-		endWork: null,
+		endWork: "",
 		avatar: logo42Style,
 	},
 	{
@@ -82,7 +82,7 @@ const mockEmployees = [
 		department: "Astrophysics",
 		function: "Scientist",
 		startWork: "2003-03-15",
-		endWork: null,
+		endWork: "",
 		avatar: defaultAvatar,
 	},
 	{
@@ -98,7 +98,7 @@ const mockEmployees = [
 		department: "IT",
 		function: "Robotic Assistant",
 		startWork: "2000-01-01",
-		endWork: null,
+		endWork: "",
 		avatar: headGrokFull,
 	},
 ];

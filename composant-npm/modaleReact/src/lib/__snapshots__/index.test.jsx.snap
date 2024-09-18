@@ -15,3 +15,28 @@ exports[`HelloWorld > The greetee prop works 1`] = `
   !
 </div>
 `;
+
+exports[`ModaleReact > La prop greetee fonctionne correctement 1`] = `
+<div>
+  <div>
+    Modale React, 
+    Erik-42
+  </div>
+</div>
+`;
+
+exports[`ModaleReact > Le composant ModaleReact se rend correctement sans props 1`] = `
+<div>
+  <div>
+    Modale React, 
+  </div>
+</div>
+`;
+
+exports[`ModaleReact > ModaleReact fonctionne avec les paramètres de la modale 1`] = `
+<div>
+  <div>
+    Modale React, 
+  </div>
+</div>
+`;

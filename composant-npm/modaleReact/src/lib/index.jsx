@@ -1,12 +1,11 @@
-import "react";
-import PropTypes from "prop-types";
+import React from "react";
+import Modale from "./components/modale/modale";
 
-export default function HelloWorld(props) {
-	const { greetee = "World" } = props;
-
-	return <div>Hello, {greetee}!</div>;
+export default function ModaleReact({ greetee }) {
+	return (
+		<div>
+			<div>Modale React, {greetee}</div>
+			<Modale />
+		</div>
+	);
 }
-
-HelloWorld.propTypes = {
-	greetee: PropTypes.string,
-};

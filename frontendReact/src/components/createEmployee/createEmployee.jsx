@@ -34,10 +34,8 @@ function handleCountryChange(value, setEmployee) {
 	setEmployee((prev) => ({ ...prev, country: value }));
 }
 
-// Fonction pour gérer la soumission du formulaire
-function handleSubmit(e, employee, onAddEmployee, setEmployee) {
-	e.preventDefault();
-	onAddEmployee(employee);
+// Fonction pour réinitialiser tous les champs
+function handleReset(setEmployee) {
 	setEmployee({
 		avatar: "",
 		firstName: "",
@@ -70,9 +68,14 @@ function confirmDelete(setShowModal) {
 function cancelDelete(setShowModal) {
 	setShowModal(false);
 }
+function handleAddEmployee(employee) {
+	// Logique pour ajouter l'employé, par exemple une action Redux ou une mise à jour de l'état
+	console.log("Nouvel employé ajouté:", employee);
+}
+<CreateEmployee onAddEmployee={handleAddEmployee} />;
 
 // eslint-disable-next-line react/prop-types
-export default function CreateEmployee({ onAddEmployee }) {
+export default function CreateEmployee({ onAddEmployee = () => {} }) {
 	const [employee, setEmployee] = useState({
 		avatar: "",
 		firstName: "",
@@ -91,6 +94,7 @@ export default function CreateEmployee({ onAddEmployee }) {
 
 	const [showModal, setShowModal] = useState(false);
 	const fileInputRef = useRef(null);
+
 	const selectedEmployee = useSelector(
 		(state) => state.employee.selectedEmployee
 	);
@@ -105,18 +109,67 @@ export default function CreateEmployee({ onAddEmployee }) {
 			}));
 		}
 	}, []);
-	console.log(selectedEmployee);
+
+	// Fonction pour gérer la soumission du formulaire
+	function handleSubmit(e, employee, onAddEmployee, setEmployee) {
+		e.preventDefault();
+		onAddEmployee(employee);
+		setEmployee({
+			avatar: "",
+			firstName: "",
+			lastName: "",
+			birthday: "",
+			street: "",
+			city: "",
+			state: "",
+			zipCode: "",
+			country: "",
+			department: "",
+			function: "",
+			startWork: "",
+			endWork: "",
+		});
+	}
+
+	// Remettre à jour le formulaire lorsque l'employé est réinitialisé
+	useEffect(() => {
+		// Reset le formulaire avec les valeurs par défaut
+		setEmployee((prevEmployee) => ({
+			...prevEmployee,
+			avatar: "",
+			firstName: "",
+			lastName: "",
+			birthday: "",
+			street: "",
+			city: "",
+			state: stateData[0]?.abbreviation || "",
+			zipCode: "",
+			country: countryData[0]?.abbreviation || "",
+			department: "",
+			function: "",
+			startWork: "",
+			endWork: "",
+		}));
+	}, [employee.firstName, employee.lastName]);
+
 	return (
 		<div className={styled.createEmployee}>
 			<h2>Modifier Employés</h2>
 			<form
+				key={employee.firstName + employee.lastName}
 				onSubmit={(e) => handleSubmit(e, employee, onAddEmployee, setEmployee)}
 				className={styled.form}
 			>
 				<div className={styled.avatarSection}>
 					{/* Image de l'avatar cliquable */}
 					<img
-						src={employee.avatar || defaultAvatar}
+						src={
+							employee.avatar
+								? employee.avatar
+								: selectedEmployee
+								? selectedEmployee.avatar || defaultAvatar
+								: defaultAvatar
+						}
 						alt="Employee Avatar"
 						className={styled.avatar}
 						onClick={() => fileInputRef.current.click()}
@@ -130,7 +183,7 @@ export default function CreateEmployee({ onAddEmployee }) {
 						onChange={(e) => handleFileChange(e, setEmployee)}
 					/>
 					<p className={styled.avatar__text}>
-						Cliquez sur la photo pour changer
+						Cliquez sur la photo pour la changer
 					</p>
 				</div>
 
@@ -352,16 +405,28 @@ export default function CreateEmployee({ onAddEmployee }) {
 					</div>
 				</div>
 
+				{/* Buttons */}
 				<div className={styled.btn}>
 					<button type="submit" className={styled.btn__create}>
 						Ajouter Employé
 					</button>
-					<button type="button" className={styled.btn__modif}>
+					<button
+						type="button"
+						className={styled.btn__modif}
+						onClick={(e) =>
+							handleSubmit(e, employee, onAddEmployee, setEmployee)
+						}
+					>
 						Valider
 					</button>
-					<button type="button" className={styled.btn__cancel}>
-						Annuler
+					<button
+						type="button"
+						className={styled.btn__reset}
+						onClick={() => handleReset(setEmployee)}
+					>
+						Reset
 					</button>
+					<br></br>
 					<button
 						type="button"
 						className={styled.btn__supp}
@@ -371,6 +436,7 @@ export default function CreateEmployee({ onAddEmployee }) {
 					</button>
 				</div>
 
+				{/* Confirmation modal */}
 				{showModal && (
 					<div className={styled.confirmationModal}>
 						<p>Êtes-vous sûr de vouloir archiver cet employé ?</p>
