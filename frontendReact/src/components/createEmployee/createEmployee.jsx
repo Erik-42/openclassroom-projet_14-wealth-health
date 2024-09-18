@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import styled from "./CreateEmployee.module.scss";
+import styled from "./createEmployee.module.scss";
 import defaultAvatar from "../../assets/img/avatar/H2G2-Grok-only.svg";
 import stateData from "../../assets/data/states.json";
 import countryData from "../../assets/data/country.json";
