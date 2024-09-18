@@ -1,0 +1,11 @@
+user-agent: *
+disallow: /downloads/
+User-agent: Googlebot
+user-agent: magicsearchbot
+disallow: /uploads/
+
+# start of file
+user-agent: *
+disallow: /downloads/
+
+sitemap: https://example.com/sitemap-file.xml
