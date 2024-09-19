@@ -59,6 +59,7 @@ function handleReset(setEmployee) {
 		endWork: "",
 	});
 }
+
 // Function to handle form submission
 function handleValidSubmit(setShowConfirmationModal) {
 	setShowConfirmationModal(true);
@@ -448,15 +449,7 @@ export default function CreateEmployee({
 							<button
 								type="button"
 								className={styled.btn__modif}
-								onClick={(e) =>
-									handleValidSubmit(
-										e,
-										employee,
-										onAddEmployee,
-										setEmployee,
-										setShowConfirmationModal
-									)
-								}
+								onClick={() => handleValidSubmit(setShowConfirmationModal)}
 							>
 								Valider
 							</button>
