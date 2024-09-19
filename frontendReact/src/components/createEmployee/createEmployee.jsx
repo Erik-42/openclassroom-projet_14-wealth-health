@@ -22,13 +22,7 @@ function handleFileChange(e, setEmployee) {
 }
 
 // Function to handle form submission
-function handleSubmit(
-	e,
-	employee,
-	onAddEmployee,
-	setEmployee,
-	setShowConfirmationModal
-) {
+function handleSubmit(e, employee, onAddEmployee, setEmployee) {
 	e.preventDefault();
 	onAddEmployee(employee);
 	setEmployee({
@@ -46,6 +40,27 @@ function handleSubmit(
 		startWork: "",
 		endWork: "",
 	});
+}
+// Fonction pour réinitialiser tous les champs
+function handleReset(setEmployee) {
+	setEmployee({
+		avatar: "",
+		firstName: "",
+		lastName: "",
+		birthday: "",
+		street: "",
+		city: "",
+		state: "",
+		zipCode: "",
+		country: "",
+		department: "",
+		function: "",
+		startWork: "",
+		endWork: "",
+	});
+}
+// Function to handle form submission
+function handleValidSubmit(setShowConfirmationModal) {
 	setShowConfirmationModal(true);
 }
 
@@ -75,29 +90,10 @@ function handleJobChange(value, setEmployee) {
 	setEmployee((prev) => ({ ...prev, job: value }));
 }
 
-// Fonction pour gérer le changement dropdown
-function handleDropdownChange(value, name, setEmployee) {
-	setEmployee((prev) => ({ ...prev, [name]: value }));
-}
-
-// Fonction pour réinitialiser tous les champs
-function handleReset(setEmployee) {
-	setEmployee({
-		avatar: "",
-		firstName: "",
-		lastName: "",
-		birthday: "",
-		street: "",
-		city: "",
-		state: "",
-		zipCode: "",
-		country: "",
-		department: "",
-		function: "",
-		startWork: "",
-		endWork: "",
-	});
-}
+// // Fonction pour gérer le changement dropdown
+// function handleDropdownChange(value, name, setEmployee) {
+// 	setEmployee((prev) => ({ ...prev, [name]: value }));
+// }
 
 // Fonction pour gérer l'affichage de la modal de confirmation
 function handleDelete(setShowModal) {
@@ -114,7 +110,10 @@ function cancelDelete(setShowModal) {
 	setShowModal(false);
 }
 
-export default function CreateEmployee({ onAddEmployee = () => {} }) {
+export default function CreateEmployee({
+	onAddEmployee = () => {},
+	onCancel = () => {},
+}) {
 	const [employee, setEmployee] = useState({
 		avatar: "",
 		firstName: "",
@@ -138,6 +137,20 @@ export default function CreateEmployee({ onAddEmployee = () => {} }) {
 	const selectedEmployee = useSelector(
 		(state) => state.employee.selectedEmployee
 	);
+
+	// Initialize form avec données employé si disponible
+	useEffect(() => {
+		if (selectedEmployee) {
+			setEmployee(selectedEmployee);
+		} else {
+			handleReset(setEmployee); // Reset si pas d'employé sélectionné
+		}
+	}, [selectedEmployee]);
+
+	const handleConfirmationClose = () => {
+		setShowConfirmationModal(false);
+		setShowEmployeeInfo(true);
+	};
 
 	useEffect(() => {
 		if (stateData.length > 0)
@@ -167,11 +180,6 @@ export default function CreateEmployee({ onAddEmployee = () => {} }) {
 			endWork: "",
 		}));
 	}, [employee.firstName, employee.lastName]);
-
-	const handleConfirmationClose = () => {
-		setShowConfirmationModal(false);
-		setShowEmployeeInfo(true);
-	};
 
 	return (
 		<div className={styled.createEmployee}>
@@ -212,6 +220,7 @@ export default function CreateEmployee({ onAddEmployee = () => {} }) {
 								Cliquez sur la photo pour la changer
 							</p>
 						</div>
+
 						<div className={styled.generalInfos}>
 							<h3>Informations Générales</h3>
 							<div className={styled.infoGroup}>
@@ -433,16 +442,14 @@ export default function CreateEmployee({ onAddEmployee = () => {} }) {
 								</div>
 							</div>
 						</div>
+
 						{/* Buttons */}
 						<div className={styled.btn}>
-							<button type="submit" className={styled.btn__create}>
-								Ajouter Employé
-							</button>
 							<button
 								type="button"
 								className={styled.btn__modif}
 								onClick={(e) =>
-									handleSubmit(
+									handleValidSubmit(
 										e,
 										employee,
 										onAddEmployee,
@@ -464,7 +471,8 @@ export default function CreateEmployee({ onAddEmployee = () => {} }) {
 							<button
 								type="button"
 								className={styled.btn__supp}
-								onClick={() => handleDelete(setShowModal)}
+								onClick={onCancel}
+								// {() => handleDelete(setShowModal)}
 							>
 								⚠️ Archiver Employé ⚠️
 							</button>

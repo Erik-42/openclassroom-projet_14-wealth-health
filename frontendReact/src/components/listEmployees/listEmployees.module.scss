@@ -8,7 +8,6 @@
 	top: 5rem;
 	color: var(--secondaryFontColor);
 	background-color: var(--defaultBgColor);
-	// border: 3px solid;
 	&__search {
 		margin-bottom: 1rem;
 		width: 100%;
@@ -59,7 +58,10 @@
 		max-width: 37.5rem;
 	}
 
-	&__pagination__button {
+	&__btnCreate {
+	}
+	&__pagination__button,
+	&__create {
 		padding: 0.5rem 1rem;
 		border: 2px solid var(--buttonBgColor);
 		background-color: var(--buttonBgColor);
@@ -77,6 +79,12 @@
 			background-color: #ccc;
 			border-color: #ccc;
 			cursor: not-allowed;
+		}
+		&__create {
+			background-color: red;
+			&:hover {
+				background-color: #0056b3;
+			}
 		}
 	}
 

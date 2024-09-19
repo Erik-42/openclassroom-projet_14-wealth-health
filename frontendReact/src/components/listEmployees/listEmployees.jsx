@@ -5,6 +5,7 @@ import { selectEmployee } from "../../store/slice/employeeSlice";
 import styled from "./listEmployees.module.scss";
 import defaultAvatar from "../../assets/img/avatar/default-avatar.svg";
 import { useNavigate } from "react-router";
+import CreateEmployee from "../CreateEmployee/CreateEmployee";
 
 export default function ListEmployee() {
 	const dispatch = useDispatch();
@@ -12,6 +13,7 @@ export default function ListEmployee() {
 	const [minEntries, setMinEntries] = useState(0);
 	const [maxEntries, setMaxEntries] = useState(5);
 	const [page, setPage] = useState(0);
+	const [isCreatingEmployee, setIsCreatingEmployee] = useState(false);
 
 	const employees = useSelector((state) => state.employee?.employeeList || []);
 
@@ -52,91 +54,117 @@ export default function ListEmployee() {
 		setPage(page < maxPage - 1 ? page + 1 : page);
 	};
 
+	const handleAddEmployeeClick = () => {
+		dispatch(selectEmployee(null));
+		setIsCreatingEmployee(true);
+	};
+
+	const handleCancelCreation = () => {
+		setIsCreatingEmployee(false);
+	};
+
 	return (
 		<div className={styled.listEmployee}>
-			{/* Search */}
-			{employees.length !== 0 && (
-				<div className={styled.listEmployee__search}>
-					<span className={styled.listEmployee__search__title}>Search</span>
-					<input
-						id="search"
-						name="search"
-						onChange={(e) => setDataSearchInput(e.target.value)}
-						placeholder="Search by name"
-						type="search"
-						className={styled.listEmployee__search__input}
-					/>
-				</div>
-			)}
-
-			{/* Nombre par page */}
-			{employees.length !== 0 && (
-				<div className={styled.listEmployee__entries}>
-					<span className={styled.listEmployee__entries__title}>
-						Nombre par page
-					</span>
-					<select
-						value={maxEntries}
-						onChange={handleChangeEntries}
-						className={styled.listEmployee__entries__selectInput}
-					>
-						<option value={5}>5</option>
-						<option value={10}>10</option>
-						<option value={25}>25</option>
-						<option value={50}>50</option>
-						<option value={100}>100</option>
-					</select>
-					<span className={styled.listEmployee__entries__total}>
-						{" "}
-						Affichage {minEntries + 1} a {Math.min(maxEntries, dataShow.length)}{" "}
-						sur {dataShow.length} employés.
-					</span>
-				</div>
-			)}
-
-			{/* Pagination */}
-			{employees.length !== 0 && (
-				<div className={styled.listEmployee__pagination}>
-					<button
-						className={styled.listEmployee__pagination__button}
-						disabled={page === 0}
-						onClick={handlePreviousPage}
-					>
-						Previous page
-					</button>
-					<button
-						className={styled.listEmployee__pagination__button}
-						disabled={page === maxPage - 1}
-						onClick={handleNextPage}
-					>
-						Next page
-					</button>
-				</div>
-			)}
-
-			{/* Avatar List */}
-			<div className={styled.listEmployee__avatarList}>
-				{dataShow
-					.slice(page * maxEntries, (page + 1) * maxEntries)
-					.map((employee) => (
-						<div key={employee.id} className={styled.listEmployee__avatarItem}>
-							<img
-								src={employee.avatar || defaultAvatar}
-								alt={`${employee.firstName} ${employee.lastName}`}
-								className={styled.listEmployee__avatar}
+			{!isCreatingEmployee ? (
+				<>
+					{/* Search */}
+					{employees.length !== 0 && (
+						<div className={styled.listEmployee__search}>
+							<span className={styled.listEmployee__search__title}>Search</span>
+							<input
+								id="search"
+								name="search"
+								onChange={(e) => setDataSearchInput(e.target.value)}
+								placeholder="Search by name"
+								type="search"
+								className={styled.listEmployee__search__input}
 							/>
-							<span className={styled.listEmployee__name}>
-								{employee.firstName} {employee.lastName}
+						</div>
+					)}
+
+					{/* Nombre par page */}
+					{employees.length !== 0 && (
+						<div className={styled.listEmployee__entries}>
+							<span className={styled.listEmployee__entries__title}>
+								Nombre par page
 							</span>
-							<button
-								className={styled.listEmployee__editButton}
-								onClick={() => handleEditClick(employee.id)}
+							<select
+								value={maxEntries}
+								onChange={handleChangeEntries}
+								className={styled.listEmployee__entries__selectInput}
 							>
-								view
+								<option value={5}>5</option>
+								<option value={10}>10</option>
+								<option value={25}>25</option>
+								<option value={50}>50</option>
+								<option value={100}>100</option>
+							</select>
+							<span className={styled.listEmployee__entries__total}>
+								{" "}
+								Affichage {minEntries + 1} a{" "}
+								{Math.min(maxEntries, dataShow.length)} sur {dataShow.length}{" "}
+								employés.
+							</span>
+						</div>
+					)}
+
+					{/* Pagination */}
+					{employees.length !== 0 && (
+						<div className={styled.listEmployee__pagination}>
+							<button
+								className={styled.listEmployee__pagination__button}
+								disabled={page === 0}
+								onClick={handlePreviousPage}
+							>
+								Previous page
+							</button>
+							<button
+								type="submit"
+								className={styled.listEmployee__pagination__button__create}
+								onClick={handleAddEmployeeClick}
+							>
+								Ajouter un Employé
+							</button>
+							<button
+								className={styled.listEmployee__pagination__button}
+								disabled={page === maxPage - 1}
+								onClick={handleNextPage}
+							>
+								Next page
 							</button>
 						</div>
-					))}
-			</div>
+					)}
+
+					{/* Avatar List */}
+					<div className={styled.listEmployee__avatarList}>
+						{dataShow
+							.slice(page * maxEntries, (page + 1) * maxEntries)
+							.map((employee) => (
+								<div
+									key={employee.id}
+									className={styled.listEmployee__avatarItem}
+								>
+									<img
+										src={employee.avatar || defaultAvatar}
+										alt={`${employee.firstName} ${employee.lastName}`}
+										className={styled.listEmployee__avatar}
+									/>
+									<span className={styled.listEmployee__name}>
+										{employee.firstName} {employee.lastName}
+									</span>
+									<button
+										className={styled.listEmployee__editButton}
+										onClick={() => handleEditClick(employee.id)}
+									>
+										view
+									</button>
+								</div>
+							))}
+					</div>
+				</>
+			) : (
+				<CreateEmployee onCancel={handleCancelCreation} />
+			)}
 		</div>
 	);
 }
