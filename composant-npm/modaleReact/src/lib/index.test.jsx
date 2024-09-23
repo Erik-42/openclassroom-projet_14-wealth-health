@@ -1,26 +1,26 @@
 import React from "react";
-import renderer from "react-test-renderer";
+import { render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
 import ModaleReact from "./index";
 
 describe("ModaleReact", () => {
 	// Test du rendu sans props
 	test("Le composant ModaleReact se rend correctement sans props", () => {
-		const component = renderer.create(<ModaleReact />);
-		const tree = component.toJSON();
-		expect(tree).toMatchSnapshot();
+		render(<ModaleReact />);
+		const modaleElement = screen.getByRole("dialog");
+		expect(modaleElement).toBeInTheDocument();
 	});
 
 	// Test de la prop greetee
 	test("La prop greetee fonctionne correctement", () => {
-		const component = renderer.create(<ModaleReact greetee="Erik-42" />);
-		const tree = component.toJSON();
-		expect(tree).toMatchSnapshot();
+		render(<ModaleReact greetee="Erik-42" />);
+		const greeteeText = screen.getByText(/Erik-42/i);
+		expect(greeteeText).toBeInTheDocument();
 	});
 
 	// Test avec les paramètres de la modale
 	test("ModaleReact fonctionne avec les paramètres de la modale", () => {
-		const component = renderer.create(
+		render(
 			<ModaleReact
 				id="testModale"
 				showModale={true}
@@ -29,13 +29,16 @@ describe("ModaleReact", () => {
 				message="Message de test"
 			/>
 		);
-		const tree = component.toJSON();
-		expect(tree).toMatchSnapshot();
+		const modaleElement = screen.getByRole("dialog");
+		expect(modaleElement).toBeInTheDocument();
+		expect(modaleElement).toHaveStyle({ backgroundColor: "red" });
+		const messageElement = screen.getByText("Message de test");
+		expect(messageElement).toBeInTheDocument();
 	});
 
-	// Additional tests for interactions or behavior
+	// Test supplémentaire pour les interactions ou comportements
 	test("Ouverture de la modal et affichage du message", () => {
-		const component = renderer.create(
+		render(
 			<ModaleReact
 				id="testModale"
 				showModale={true}
@@ -44,11 +47,10 @@ describe("ModaleReact", () => {
 				message="Message de test"
 			/>
 		);
-		const instance = component.root;
-		expect(instance.findByProps({ id: "testModale" })).not.toBeNull();
-		expect(
-			instance.findByProps({ style: { backgroundColor: "red" } })
-		).not.toBeNull();
-		expect(instance.findByType("p").children).toEqual(["Message de test"]);
+		const modaleElement = screen.getByRole("dialog");
+		expect(modaleElement).toBeInTheDocument();
+		expect(modaleElement).toHaveStyle({ backgroundColor: "red" });
+		const messageElement = screen.getByText("Message de test");
+		expect(messageElement).toBeInTheDocument();
 	});
 });

@@ -18,7 +18,7 @@ export default function Modale({
 
 	return (
 		<>
-			<h1>Erik Modal React</h1>
+			<h1>Erik Modal React 2</h1>
 			<ModalDiv style={parameter} onClick={closeModale}>
 				<ModalContent>
 					<Content>
@@ -27,7 +27,10 @@ export default function Modale({
 					</Content>
 					<div className="modale" id={id} style={parameter}>
 						<div className="modale__content">
-							<span className="modale__iconClose" onClick={closeModale}>
+							<span
+								className="modale__content__iconClose"
+								onClick={closeModale}
+							>
 								<IMG src={close} alt="close" />
 							</span>
 						</div>

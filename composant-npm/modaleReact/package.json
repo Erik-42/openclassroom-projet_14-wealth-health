@@ -4,6 +4,7 @@
 	"description": "Modale toute prête et autonome sous React - https://github.com/Erik-42 ",
 	"license": "MIT",
 	"author": "Erik-42",
+	"type": "module",
 	"keywords": [
 		"modaleReact",
 		"react",

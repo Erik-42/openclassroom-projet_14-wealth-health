@@ -97,9 +97,9 @@ function handleJobChange(value, setEmployee) {
 // }
 
 // Fonction pour gérer l'affichage de la modal de confirmation
-function handleDelete(setShowModal) {
-	setShowModal(true);
-}
+// function handleDelete(setShowModal) {
+// 	setShowModal(true);
+// }
 
 // Fonction pour confirmer l'archivage
 function confirmDelete(setShowModal) {
@@ -112,7 +112,9 @@ function cancelDelete(setShowModal) {
 }
 
 export default function CreateEmployee({
+	// eslint-disable-next-line react/prop-types
 	onAddEmployee = () => {},
+	// eslint-disable-next-line react/prop-types
 	onCancel = () => {},
 }) {
 	const [employee, setEmployee] = useState({

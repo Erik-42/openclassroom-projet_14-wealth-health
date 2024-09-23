@@ -1,0 +1,108 @@
+[
+  {
+    "name": "App.jsx",
+    "type": "file"
+  },
+  {
+    "name": "assets",
+    "type": "directory",
+    "children": [
+      {
+        "name": "react.svg",
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "name": "export-file-structure.js",
+    "type": "file"
+  },
+  {
+    "name": "lib",
+    "type": "directory",
+    "children": [
+      {
+        "name": "components",
+        "type": "directory",
+        "children": [
+          {
+            "name": "assets",
+            "type": "directory",
+            "children": [
+              {
+                "name": "close.svg",
+                "type": "file"
+              },
+              {
+                "name": "modale.JPG",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "modale",
+            "type": "directory",
+            "children": [
+              {
+                "name": "modale.jsx",
+                "type": "file"
+              },
+              {
+                "name": "modale.scss",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "styles",
+            "type": "directory",
+            "children": [
+              {
+                "name": "modaleStyle.jsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "useKeyPress.jsx",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "index.jsx",
+        "type": "file"
+      },
+      {
+        "name": "index.test.jsx",
+        "type": "file"
+      },
+      {
+        "name": "integration.test.jsx",
+        "type": "file"
+      },
+      {
+        "name": "__snapshots__",
+        "type": "directory",
+        "children": [
+          {
+            "name": "index.test.jsx.snap",
+            "type": "file"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.jsx",
+    "type": "file"
+  },
+  {
+    "name": "main.scss",
+    "type": "file"
+  },
+  {
+    "name": "README.md",
+    "type": "file"
+  }
+]

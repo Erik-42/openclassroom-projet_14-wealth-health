@@ -6,7 +6,6 @@ function App() {
 	return (
 		<AppWrapper>
 			<AppHeader>
-				<p>Une modal réutilisable et paramétrable</p>
 				<AppLink
 					href="https://github.com/Erik-42/openclassroom-projet_14-wealthhealth"
 					target="_blank"
@@ -15,6 +14,7 @@ function App() {
 					Projet 14 - Faites passer une librairie jQuery vers React <br />
 					Application Developer - JavaScript React - OpenClassRoom
 				</AppLink>
+				<p>Une modal réutilisable et paramétrable</p>
 				<ModaleReact greetee="Erik-42" />
 			</AppHeader>
 		</AppWrapper>
@@ -39,6 +39,7 @@ const AppHeader = styled.header`
 `;
 
 const AppLink = styled.a`
+	font-size:1.75rem
 	color: #61dafb;
 	margin: 0 0 2rem 0;
 `;

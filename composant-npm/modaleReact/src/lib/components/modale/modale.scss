@@ -17,17 +17,18 @@ h1 {
 		background: rgb(196, 79, 79);
 		padding: 1em;
 		border-radius: 8px;
-	}
-
-	&__iconClose {
-		font-size: 25px;
-		position: absolute;
-		right: 5px;
-		top: 5px;
-		transition: 0.5s;
-
-		&:hover {
-			cursor: pointer;
+		
+		&__iconClose {
+			font-size: 25px;
+			position: absolute;
+			right: 5px;
+			top: 5px;
+			transition: 0.5s;
+	
+			&:hover {
+				cursor: pointer;
+			}
 		}
 	}
+
 }
