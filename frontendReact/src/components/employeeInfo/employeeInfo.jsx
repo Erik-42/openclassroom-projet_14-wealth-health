@@ -1,19 +1,19 @@
 import { useSelector } from "react-redux";
-import styled from "./employeeInfo.module.scss";
+import styles from "./employeeInfo.module.scss";
 import defaultAvatar from "../../assets/img/avatar/H2G2-Grok-only.svg";
 
 // Function qui génère les champs
 // eslint-disable-next-line react/prop-types
 function InfoField({ label, value, type = "text", placeholder = "" }) {
 	return (
-		<div className={styled.employeeInfo__field}>
-			<label className={styled.employeeInfo__label}>{label}</label>
+		<div className={styles.employeeInfo__field}>
+			<label className={styles.employeeInfo__label}>{label}</label>
 			<input
 				type={type}
 				value={value}
 				disabled
 				placeholder={placeholder}
-				className={styled.employeeInfo__input}
+				className={styles.employeeInfo__input}
 			/>
 		</div>
 	);
@@ -29,12 +29,12 @@ export default function EmployeeInfo() {
 	}
 
 	return (
-		<div className={styled.employeeInfo}>
-			<div className={styled.employeeInfo__infos}>
-				<div className={styled.employeeInfo__generalInfos}>
-					<h3 className={styled.employeeInfo__title}>General Information</h3>
-					<div className={styled.employeeInfo__infoGroup}>
-						<div className={styled.employeeInfo__avatar}>
+		<div className={styles.employeeInfo}>
+			<div className={styles.employeeInfo__infos}>
+				<div className={styles.employeeInfo__generalInfos}>
+					<h3 className={styles.employeeInfo__title}>General Information</h3>
+					<div className={styles.employeeInfo__infoGroup}>
+						<div className={styles.employeeInfo__avatar}>
 							<img
 								src={selectedEmployee.avatar || defaultAvatar}
 								alt="Employee Avatar"
@@ -51,9 +51,9 @@ export default function EmployeeInfo() {
 					</div>
 				</div>
 
-				<div className={styled.employeeInfo__addressInfo}>
-					<h3 className={styled.employeeInfo__title}>Address Information</h3>
-					<div className={styled.employeeInfo__infoGroup}>
+				<div className={styles.employeeInfo__addressInfo}>
+					<h3 className={styles.employeeInfo__title}>Address Information</h3>
+					<div className={styles.employeeInfo__infoGroup}>
 						<InfoField label="Street" value={selectedEmployee.street} />
 						<InfoField label="City" value={selectedEmployee.city} />
 						<InfoField label="State" value={selectedEmployee.state} />
@@ -62,9 +62,9 @@ export default function EmployeeInfo() {
 					</div>
 				</div>
 
-				<div className={styled.employeeInfo__workInfo}>
-					<h3 className={styled.employeeInfo__title}>Work Information</h3>
-					<div className={styled.employeeInfo__infoGroup}>
+				<div className={styles.employeeInfo__workInfo}>
+					<h3 className={styles.employeeInfo__title}>Work Information</h3>
+					<div className={styles.employeeInfo__infoGroup}>
 						<InfoField label="Department" value={selectedEmployee.department} />
 						<InfoField label="Function" value={selectedEmployee.function} />
 						<InfoField
