@@ -1,5 +1,5 @@
 {
-	"name": "ModaleReactErik42",
+	"name": "modalereacterik42",
 	"version": "1.0.0",
 	"description": "Modale toute prête et autonome sous React - https://github.com/Erik-42/openclassroom-projet_14-wealthhealth/tree/main/composant-npm ",
 	"license": "MIT",
@@ -16,12 +16,12 @@
 		"dist",
 		"README.md"
 	],
-	"main": "./dist/ModaleReactErik42.umd.js",
-	"module": "./dist/ModaleReactErik42.es.js",
+	"main": "./dist/modalereacterik42.umd.js",
+	"module": "./dist/modalereacterik42.es.js",
 	"exports": {
 		".": {
-			"import": "./dist/ModaleReactErik42.es.js",
-			"require": "./dist/ModaleReactErik42.umd.js"
+			"import": "./dist/modalereacterik42.es.js",
+			"require": "./dist/modalereacterik42.umd.js"
 		}
 	},
 	"scripts": {

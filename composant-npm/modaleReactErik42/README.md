@@ -1,11 +1,11 @@
 # ModaleErik42
 
-Plugin du projet 14 "Faites passer une librairie jQuery vers React" OpenClassrooms.
+Plugin du projet 14 Wealth Health - HR-Net "Faites passer une librairie jQuery vers React" OpenClassrooms.
 
 ## How to install ?
 
 ```cmd
-npm i modaleReactErik42
+npm i modalereacterik42
 ```
 
 ## How to use ?
@@ -13,7 +13,7 @@ npm i modaleReactErik42
 1. Importez le plugin dans votre projet:
 
 ```javascript
-import ModaleErik42 from "modaleReactErik42";
+import ModaleErik42 from "modalereacterik42";
 ```
 
 2. Le state :
