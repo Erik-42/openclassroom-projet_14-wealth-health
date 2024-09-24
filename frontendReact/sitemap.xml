@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
+		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//frontendJquery</loc>
+		<priority>0.58</priority>
+		<lastmod>2024-09-10</lastmod>
+	</url>
+	<url>
 		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//frontendReact</loc>
 		<priority>0.58</priority>
 		<lastmod>2024-09-24</lastmod>
 	</url>
 	<url>
-		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//frontendJquery</loc>
-		<priority>0.58</priority>
+		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//composant-npm/modaleReact</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-09-18</lastmod>
+	</url>
+	<url>
+		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//frontendJquery/employee-list.html</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-09-10</lastmod>
 	</url>
 	<url>
@@ -16,22 +26,12 @@
 		<lastmod>2024-09-24</lastmod>
 	</url>
 	<url>
-		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//frontendJquery/employee-list.html</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-09-10</lastmod>
-	</url>
-	<url>
-		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//composant-npm/modaleReact</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-09-18</lastmod>
-	</url>
-	<url>
 		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//backend/node_modules/swagger-ui-dist</loc>
 		<priority>0.42</priority>
 		<lastmod>2024-09-10</lastmod>
 	</url>
 	<url>
-		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//frontendReact/node_modules/tslib/tslib.html</loc>
+		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//backend/node_modules/swagger-ui-dist/oauth2-redirect.html</loc>
 		<priority>0.33</priority>
 		<lastmod>2024-09-10</lastmod>
 	</url>
@@ -41,32 +41,12 @@
 		<lastmod>2024-09-10</lastmod>
 	</url>
 	<url>
-		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//backend/node_modules/swagger-ui-dist/oauth2-redirect.html</loc>
+		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//frontendReact/node_modules/tslib/tslib.html</loc>
 		<priority>0.33</priority>
 		<lastmod>2024-09-10</lastmod>
 	</url>
 	<url>
-		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//frontendReact/node_modules/sprintf-js/demo/angular.html</loc>
-		<priority>0.25</priority>
-		<lastmod>2024-09-15</lastmod>
-	</url>
-	<url>
-		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//frontendReact/node_modules/flatted/php/flatted.php</loc>
-		<priority>0.25</priority>
-		<lastmod>2024-09-10</lastmod>
-	</url>
-	<url>
-		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//composant-npm/modaleReact/node_modules/tslib/tslib.html</loc>
-		<priority>0.25</priority>
-		<lastmod>2024-09-18</lastmod>
-	</url>
-	<url>
-		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//composant-npm/modaleReact/node_modules/tslib/tslib.es6.html</loc>
-		<priority>0.25</priority>
-		<lastmod>2024-09-18</lastmod>
-	</url>
-	<url>
-		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//backend/node_modules/yamljs/test/SpecRunner.html</loc>
+		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//backend/node_modules/sprintf-js/demo/angular.html</loc>
 		<priority>0.25</priority>
 		<lastmod>2024-09-10</lastmod>
 	</url>
@@ -76,8 +56,38 @@
 		<lastmod>2024-09-10</lastmod>
 	</url>
 	<url>
-		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//backend/node_modules/sprintf-js/demo/angular.html</loc>
+		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//backend/node_modules/yamljs/test/SpecRunner.html</loc>
 		<priority>0.25</priority>
+		<lastmod>2024-09-10</lastmod>
+	</url>
+	<url>
+		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//composant-npm/modaleReact/node_modules/tslib/tslib.es6.html</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-09-18</lastmod>
+	</url>
+	<url>
+		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//composant-npm/modaleReact/node_modules/tslib/tslib.html</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-09-18</lastmod>
+	</url>
+	<url>
+		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//frontendReact/node_modules/flatted/php/flatted.php</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-09-10</lastmod>
+	</url>
+	<url>
+		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//frontendReact/node_modules/sprintf-js/demo/angular.html</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-09-15</lastmod>
+	</url>
+	<url>
+		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//composant-npm/modaleReact/node_modules/flatted/php/flatted.php</loc>
+		<priority>0.17</priority>
+		<lastmod>2024-09-10</lastmod>
+	</url>
+	<url>
+		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//composant-npm/modaleReact/node_modules/lz-string/tests/SpecRunner.html</loc>
+		<priority>0.17</priority>
 		<lastmod>2024-09-10</lastmod>
 	</url>
 	<url>
@@ -86,24 +96,9 @@
 		<lastmod>2024-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//composant-npm/modaleReact/node_modules/lz-string/tests/SpecRunner.html</loc>
-		<priority>0.17</priority>
-		<lastmod>2024-09-10</lastmod>
-	</url>
-	<url>
-		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//composant-npm/modaleReact/node_modules/flatted/php/flatted.php</loc>
-		<priority>0.17</priority>
-		<lastmod>2024-09-10</lastmod>
-	</url>
-	<url>
-		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//frontendReact/node_modules/@mapbox/node-pre-gyp/lib/util/nw-pre-gyp</loc>
+		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//backend/node_modules/@mapbox/node-pre-gyp/lib/util/nw-pre-gyp</loc>
 		<priority>0.08</priority>
 		<lastmod>2024-09-10</lastmod>
-	</url>
-	<url>
-		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//composant-npm/modaleReact/node_modules/styled-components/node_modules/tslib/tslib.html</loc>
-		<priority>0.08</priority>
-		<lastmod>2024-09-18</lastmod>
 	</url>
 	<url>
 		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//composant-npm/modaleReact/node_modules/styled-components/node_modules/tslib/tslib.es6.html</loc>
@@ -111,7 +106,12 @@
 		<lastmod>2024-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//backend/node_modules/@mapbox/node-pre-gyp/lib/util/nw-pre-gyp</loc>
+		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//composant-npm/modaleReact/node_modules/styled-components/node_modules/tslib/tslib.html</loc>
+		<priority>0.08</priority>
+		<lastmod>2024-09-18</lastmod>
+	</url>
+	<url>
+		<loc>https://www.https://erik-42.github.io/openclassroom-projet_14-wealthhealth//frontendReact/node_modules/@mapbox/node-pre-gyp/lib/util/nw-pre-gyp</loc>
 		<priority>0.08</priority>
 		<lastmod>2024-09-10</lastmod>
 	</url>
