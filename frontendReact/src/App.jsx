@@ -8,7 +8,7 @@ import Header from "./layouts/header/header";
 import ListEmployees from "./components/listEmployees/listEmployees";
 import CreateEmployee from "./components/createEmployee/createEmployee";
 import ConnectedRoute from "./utils/connectedRoutes/connectedRoute";
-import { SpeedInsights } from "@vercel/speed-insights/react";
+// import { SpeedInsights } from "@vercel/speed-insights/react";
 
 export default function App() {
 	return (
@@ -35,7 +35,7 @@ export default function App() {
 			</Routes>
 
 			{/* SpeedInsights pour monitorer les performances avec Vercel */}
-			<SpeedInsights />
+			{/* <SpeedInsights /> */}
 		</BrowserRouter>
 	);
 }

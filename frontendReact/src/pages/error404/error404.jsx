@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import "react";
 import styled from "./error404.module.scss";
-import logo404 from "../../assets/img/error404/logo404.svg";
+import logo404 from "../../assets/img/error404/logo404.webp";
 
 export default function Error404() {
 	return (

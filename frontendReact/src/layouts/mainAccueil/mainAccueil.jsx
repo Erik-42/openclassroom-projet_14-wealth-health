@@ -1,6 +1,6 @@
 import "react";
 import styled from "./mainAccueil.module.scss";
-import logoAccueil from "../../assets/img/logo/logoAccueil.svg";
+import logoAccueil from "../../assets/img/logo/logoAccueil.webp";
 
 export default function MainAccueil() {
 	return (

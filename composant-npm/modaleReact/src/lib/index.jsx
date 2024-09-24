@@ -11,7 +11,7 @@ export default function ModaleReact({ greetee }) {
 			<Modale
 				showModale={isShow}
 				closeModale={toogleModal}
-				message="Modale de test"
+				// message="Modale de test"
 			/>
 			<button onClick={toogleModal}>Afficher</button>
 		</div>
