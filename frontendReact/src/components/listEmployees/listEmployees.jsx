@@ -5,7 +5,7 @@ import { selectEmployee } from "../../store/slice/employeeSlice";
 import styled from "./listEmployees.module.scss";
 import defaultAvatar from "../../assets/img/avatar/default-avatar.svg";
 import { useNavigate } from "react-router";
-import CreateEmployee from "../CreateEmployee/CreateEmployee";
+import CreateEmployee from "../createEmployee/createEmployee";
 
 export default function ListEmployee() {
 	const dispatch = useDispatch();

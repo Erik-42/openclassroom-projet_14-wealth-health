@@ -1,6 +1,6 @@
 import "react";
 import styled from "./mainRightBottom.module.scss";
-import logoRight from "../../assets/img/logo/logoAccueil.svg";
+import logoRight from "../../assets/img/logo/logoAccueil.webp";
 
 export default function MainRightBottom() {
 	return (
