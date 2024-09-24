@@ -16,12 +16,12 @@
 		"dist",
 		"README.md"
 	],
-	"main": "./dist/ModaleReact.umd.js",
-	"module": "./dist/ModaleReact.es.js",
+	"main": "./dist/ModaleReactErik42.umd.js",
+	"module": "./dist/ModaleReactErik42.es.js",
 	"exports": {
 		".": {
-			"import": "./dist/ModaleReact.es.js",
-			"require": "./dist/ModaleReact.umd.js"
+			"import": "./dist/ModaleReactErik42.es.js",
+			"require": "./dist/ModaleReactErik42.umd.js"
 		}
 	},
 	"scripts": {
