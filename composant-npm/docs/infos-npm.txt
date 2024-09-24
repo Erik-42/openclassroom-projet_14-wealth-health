@@ -14,3 +14,21 @@ Ou vous pouvez exécuter des tests et configurer une montre pour réexécuter le
 
 $ npm run watch
 Remarque : l'exécution de tests d'instantanés crée un /src/lib/**snapshots**dossier. N'ignorez pas ce dossier avec Git. Les tests d'instantanés sont destinés à être validés dans votre dépôt Git.
+
+
+Créez les fichiers de build :
+
+$ npm run build
+Les formats de module UMD et ESM sont créés et placés dans le /distdossier. 
+
+
+Assurez-vous d'être connecté à npm. Sinon, saisissez :
+
+
+$ npm login
+
+
+Publiez votre composant
+
+$ npm publish
+Et c'est tout !

@@ -1,6 +1,6 @@
 {
-	"name": "ModaleReact",
-	"version": "1.0.0",
+	"name": "ModaleReactErik42",
+	"version": "1.0.1",
 	"description": "Modale toute prête et autonome sous React - https://github.com/Erik-42 ",
 	"license": "MIT",
 	"author": "Erik-42",
@@ -16,12 +16,12 @@
 		"dist",
 		"README.md"
 	],
-	"main": "./dist/modaleReact.umd.js",
-	"module": "./dist/modaleReact.es.js",
+	"main": "./dist/modaleReactErik42.umd.js",
+	"module": "./dist/modaleReactErik42.es.js",
 	"exports": {
 		".": {
-			"import": "./dist/modaleReact.es.js",
-			"require": "./dist/modaleReact.umd.js"
+			"import": "./dist/modaleReactErik42.es.js",
+			"require": "./dist/modaleReactErik42.umd.js"
 		}
 	},
 	"scripts": {

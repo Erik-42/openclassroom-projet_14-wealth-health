@@ -1,13 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-// @font-face {
-// 	font-family: "Meutas";
-// 	font-weight: bold;
-// 	src: url("/maquette/fonts/Meutas-Sans-Font/Meutas-Bold.otf")
-// 		format("opentype");
-// }
-
 .roboto-regular {
 	font-family: "Roboto", Arial, Helvetica, sans-serif;
 	font-weight: 400;
@@ -20,7 +13,6 @@
 	text-decoration: none;
 	list-style: none;
 	font-family: var(--font-default);
-	// background-color: var(--defaultBgColor);
 }
 
 :root {

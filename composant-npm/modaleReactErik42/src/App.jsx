@@ -1,5 +1,5 @@
 import React from "react";
-import ModaleReact from "./lib";
+import ModaleReactErik42 from "./lib";
 import styled from "styled-components";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
 					Application Developer - JavaScript React - OpenClassRoom
 				</AppLink>
 				<p>Une modal réutilisable et paramétrable</p>
-				<ModaleReact greetee="Erik-42" />
+				<ModaleReactErik42 greetee="Erik-42" />
 			</AppHeader>
 		</AppWrapper>
 	);

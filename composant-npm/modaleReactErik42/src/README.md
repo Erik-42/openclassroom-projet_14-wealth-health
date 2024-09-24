@@ -1,11 +1,11 @@
-# Modale
+# ModaleErik42
 
 Plugin du projet 14 "Faites passer une librairie jQuery vers React" OpenClassrooms.
 
 ## How to install ?
 
 ```cmd
-npm i modaleReact
+npm i modaleReactErik42
 ```
 
 ## How to use ?
@@ -13,7 +13,7 @@ npm i modaleReact
 1. Importez le plugin dans votre projet:
 
 ```javascript
-import Modale from "modaleReact";
+import ModaleErik42 from "modaleReactErik42";
 ```
 
 2. Le state :
@@ -25,7 +25,7 @@ const [displayModale, setDisplayModale] = useState(false);
 3. Le return :
 
 ```javascript
-<Modale
+<ModaleErik42
 	key={modaleReset}
 	id="id-modale"
 	showModale={displayModale}
