@@ -1,17 +1,17 @@
 import "react";
-import styled from "./mainAccueil.module.scss";
+import styles from "./mainAccueil.module.scss";
 import logoAccueil from "../../assets/img/logo/logoAccueil.webp";
 
 export default function MainAccueil() {
 	return (
-		<div className={styled.mainAccueil}>
+		<div className={styles.mainAccueil}>
 			<img
-				className={styled.mainAccueil__img}
+				className={styles.mainAccueil__img}
 				src={logoAccueil}
-				alt="Wealth Health logo"
+				alt="Wealth Health accueil logo"
 			/>
-			<h2 className={styled.mainAccueil__subtitle}>Wealth Health</h2>
-			<h3 className={styled.mainAccueil__slogan}>Personal management</h3>
+			<h2 className={styles.mainAccueil__subtitle}>Wealth Health</h2>
+			<h3 className={styles.mainAccueil__slogan}>Personal management</h3>
 		</div>
 	);
 }

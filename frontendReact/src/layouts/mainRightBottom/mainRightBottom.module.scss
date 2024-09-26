@@ -61,7 +61,9 @@
 			&__slogan {
 				font-size: 12px;
 				letter-spacing: 0.25rem;
-				color: #fff;
+				color: #000;
+				// -webkit-text-stroke: 0.25px black;
+				text-shadow: 0 0 2px #000;
 
 				@media (max-width: 768px) {
 					font-size: 10px;
