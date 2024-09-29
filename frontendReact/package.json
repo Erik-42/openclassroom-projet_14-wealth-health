@@ -10,6 +10,7 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"@babel/register": "^7.24.6",
 		"@emotion/react": "^11.13.3",
 		"@emotion/styled": "^11.13.0",
 		"@fontsource/manrope": "^5.0.21",
@@ -20,7 +21,8 @@
 		"@vercel/speed-insights": "^1.0.12",
 		"axios": "^1.7.7",
 		"jsonwebtoken": "^9.0.2",
-		"modalereacterik42": "^1.0.0",
+		"modaleerik42": "^1.0.4",
+		"node-fetch": "^3.3.2",
 		"prop-types": "^15.8.1",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
@@ -29,9 +31,12 @@
 		"react-router-dom": "^6.26.2",
 		"redux": "^5.0.1",
 		"sass": "^1.79.3",
-		"vercel": "^37.5.4"
+		"vercel": "^28.18.5"
 	},
 	"devDependencies": {
+		"@babel/core": "^7.25.2",
+		"@babel/node": "^7.25.0",
+		"@babel/preset-react": "^7.24.7",
 		"@eslint/js": "^9.9.0",
 		"@types/jest": "^29.5.13",
 		"@types/react": "^18.3.3",
