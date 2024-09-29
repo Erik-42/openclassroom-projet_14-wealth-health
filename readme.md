@@ -8,7 +8,7 @@
 <div align="center">
   <h1>Wealth Health</h1>
   <a href="https://github.com/Erik-42">
-    <img src="./frontend/src/assets/img/logo/argentBankLogo.png" alt="Logo Wealth Health" width="300" height="70">
+    <img src="./frontendReact/src/assets/img/logo/logo-wealthhealth-nobackground.svg" alt="Logo Wealth Health" width="300" height="200">
   </a>
 </div>
 
@@ -48,7 +48,28 @@ Il faut mettre à jour HRnet et le convertir en React !
 -Effectuer des tests de performance Lighthouse en comparant l'ancienne et la nouvelle application.
 il faudra faire des tests de performance et fournir des rapports.
 
-## Conversion des plugins
+### Le projet se décompose en deux phases :
+
+## Phase 1:
+
+Passé l'application HR-Net à 100% React et 0% jQuery
+
+Voici le <a href="https://github.com/OpenClassrooms-Student-Center/P12_Front-end">repo HRnet</a> actuel. N'oublie pas que toute l'application HRNet doit être convertie en React :
+
+Tu devras faire une nouvelle version des pages "Create Employee" et "Employee List" avec React.
+
+Tu devras ajouter un système de gestion d'état
+(la version actuelle utilise un stockage local).
+
+Tu dois aussi t'assurer que tout est cohérent au niveau du style.
+
+Pour cela, tu n'es pas obligé de refaire le design de l'application, mais si tu veux changer le style pour quelque chose de plus moderne, tu es le bienvenu.
+
+Si tu as le temps, tu peux tester le code React avec une suite de tests unitaires. Sinon, seuls des tests manuels sont nécessaires.
+
+## Phase 2:
+
+### Conversion des plugins
 
 Pour les plugins, il faut consulter l'onglet Issues pour avoir plus de contexte sur les problèmes que les utilisateurs rencontrent avec les plugins jQuery existants : <a href="https://github.com/OpenClassrooms-Student-Center/P12_Front-end/issues/1">issue sur les sélecteurs de date</>, <a href="https://github.com/OpenClassrooms-Student-Center/P12_Front-end/issues/3">issues de fenêtres modales</a>, <a href="https://github.com/OpenClassrooms-Student-Center/P12_Front-end/issues/4">issue sur menus déroulants</a>, et <a href="https://github.com/OpenClassrooms-Student-Center/P12_Front-end/issues/2">issue sur les tableaux</a>.
 
@@ -69,16 +90,6 @@ Nous voulons également mesurer des données quantifiables (ex. : temps de charg
 Penses bien à faire un build de l'application avant de faire ton audit. Ça impactera grandement les performances de ton application.
 
 Une fois que l'application HRnet en React fonctionne, tu peux publier le composant React sur npm sous forme de package et partager le lien pour que nous puissions l'utiliser si nécessaire. Si tu as du mal avec npm, tu peux utiliser les paquets GitHub comme alternative.
-
-#### Le projet se décompose en deux phases :
-
-<p></p>
-Voici le repo HRnet actuel. N'oublie pas que toute l'application HRNet doit être convertie en React :
-
-Tu devras faire une nouvelle version des pages "Create Employee" et "Employee List" avec React.
-Tu devras ajouter un système de gestion d'état (la version actuelle utilise un stockage local).
-Tu dois aussi t'assurer que tout est cohérent au niveau du style. Pour cela, tu n'es pas obligé de refaire le design de l'application, mais si tu veux changer le style pour quelque chose de plus moderne, tu es le bienvenu.
-Si tu as le temps, tu peux tester le code React avec une suite de tests unitaires. Sinon, seuls des tests manuels sont nécessaires.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -101,25 +112,42 @@ Si tu as le temps, tu peux tester le code React avec une suite de tests unitaire
 <a href=https://nodejs.org>NodeJS</a> & <a href=https://github.com/coreybutler/nvm-windows>NVM</a>
 </div>
 <div>
-<a href=https://www.mongodb.com/try/download/community-edition/releases>MongoDB Community</a> & <a href=https://npmjs.com>Npm</a>
+<a href=https://github.com/Erik-42/openclassroom-projet_14-wealthhealth-npm>le package développé pour ce projet</a> & <a href=https://www.npmjs.com/package/modaleerik42>La modal sur npm développé pour ce projet</a>
 </div>
-
-### Backend Dependencies:
-
-    "axios": "^1.3.1",
 
 ### Frontend Dependencies:
 
+    "@babel/register": "^7.24.6",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@fontsource/manrope": "^5.0.21",
+    "@fontsource/roboto": "^5.0.15",
+    "@mui/icons-material": "^6.0.2",
+    "@mui/material": "^6.0.2",
     "@reduxjs/toolkit": "^2.2.7",
+    "@vercel/speed-insights": "^1.0.12",
+    "axios": "^1.7.7",
+    "babel": "^6.23.0",
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2",
+    "modaleerik42": "^1.0.4",
+    "node-fetch": "^3.3.2",
+    "prop-types": "^15.8.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-redux": "^9.1.2",
+    "react-router": "^6.26.2",
+    "react-router-dom": "^6.26.2",
+    "redux": "^5.0.1",
+    "sass": "^1.79.3",
+    "shallowequal": "^1.1.0",
+    "styled-components": "^6.1.13",
+    "vercel": "^32.3.0"
 
 ## Launching the project
 
 Fork the repository<br>
 Clone it on your computer.
-
-### Backend
-
-`npm install` command will allow you to install the dependencies.
 
 ### Frontend
 
@@ -127,12 +155,14 @@ Clone it on your computer.
 
 ### Available Scripts
 
-In the project backend directory , you can run:
-
-`npm run dev:server`
-
-And
 In the project frontend directory , you can run:
+
+`npm run preview`
+
+Runs the app .\
+Open [http://localhost:4173](http://localhost:4173) to view it in your browser.
+
+or
 
 `npm run dev`
 
@@ -144,9 +174,13 @@ You may also see any lint errors in the console.
 
 ================================
 
-Si vous souhaitez exporter la structure du projet en vous mettant dans le repertoir racine et en y copiant le fichier `export-file-structure.js`
+Si vous souhaitez exporter la structure du projet,mettez `export-file-structure.js` dans le repertoir racine et dans le terminal, lancez la commande:
 
-node export-file-structure.js
+`node export-file-structure.js`
+
+================================
+
+<a href=[text](./frontendReact/docs/Rapport-performances.pdf)>Le rapport de performance</a>
 
 ================================
 
@@ -154,7 +188,7 @@ node export-file-structure.js
 
 Github: [https://erik-42.github.io/openclassroom-projet_14-wealthhealth/](https://erik-42.github.io/openclassroom-projet_14-wealthhealth/)
 
-<a href='https://openclassroom-projet14-wealthhealth.vercel.app/'>Wealth Health en React</a>
+<a href='https://openclassroom-projet-14-wealthhealth-fs3dt96b5-erik42s-projects.vercel.app/'>Wealth Health en React</a>
 
 <a href='https://erik-42.github.io/openclassroom-projet_14-wealthhealth/frontendJquery/'>Wealth Health en Jquery</a>
 

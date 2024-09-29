@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import styled from "./createEmployee.module.scss";
+import styles from "./createEmployee.module.scss";
 import defaultAvatar from "../../assets/img/avatar/H2G2-Grok-only.svg";
 import stateData from "../../assets/data/states.json";
 import countryData from "../../assets/data/country.json";
@@ -10,220 +10,153 @@ import { useSelector } from "react-redux";
 import EmployeeInfo from "../employeeInfo/employeeInfo";
 import ModaleErik42 from "modaleerik42";
 
-// Fonction pour gérer le changement de fichier
+// Function to handle file changes (avatar image)
 function handleFileChange(e, setEmployee) {
-	const file = e.target.files[0];
-	if (file) {
-		const reader = new FileReader();
-		reader.onloadend = () => {
-			setEmployee((prev) => ({ ...prev, avatar: reader.result }));
-		};
-		reader.readAsDataURL(file);
-	}
+  const file = e.target.files[0];
+  if (file) {
+    if (!file.type.startsWith("image/")) {
+      alert("Veuillez sélectionner un fichier image valide.");
+      return;
+    }
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setEmployee((prev) => ({ ...prev, avatar: reader.result }));
+    };
+    reader.readAsDataURL(file);
+  }
 }
 
-// Function pour la submission du formulaire
+// Function to handle form submission
 function handleSubmit(e, employee, onAddEmployee, setEmployee) {
-	e.preventDefault();
-	onAddEmployee(employee);
-	setEmployee({
-		avatar: "",
-		firstName: "",
-		lastName: "",
-		birthday: "",
-		street: "",
-		city: "",
-		state: "",
-		zipCode: "",
-		country: "",
-		department: "",
-		function: "",
-		startWork: "",
-		endWork: "",
-	});
+  e.preventDefault();
+  onAddEmployee(employee);
+  // Reset form
+  setEmployee({
+    avatar: "",
+    firstName: "",
+    lastName: "",
+    birthday: "",
+    street: "",
+    city: "",
+    state: stateData[0]?.abbreviation || "",
+    zipCode: "",
+    country: countryData[0]?.abbreviation || "",
+    department: "",
+    function: "",
+    startWork: "",
+    endWork: "",
+  });
 }
-// Fonction pour réinitialiser tous les champs
+
+// Function to reset the employee form
 function handleReset(setEmployee) {
-	setEmployee({
-		avatar: "",
-		firstName: "",
-		lastName: "",
-		birthday: "",
-		street: "",
-		city: "",
-		state: "",
-		zipCode: "",
-		country: "",
-		department: "",
-		function: "",
-		startWork: "",
-		endWork: "",
-	});
+  setEmployee({
+    avatar: "",
+    firstName: "",
+    lastName: "",
+    birthday: "",
+    street: "",
+    city: "",
+    state: stateData[0]?.abbreviation || "",
+    zipCode: "",
+    country: countryData[0]?.abbreviation || "",
+    department: "",
+    function: "",
+    startWork: "",
+    endWork: "",
+  });
 }
 
-// Function pour la validation du formulaires
-function HandleValidSubmit() {
-//   const [isShow, setIsShow] = useState(false);
-//   const toogleModal = () => setIsShow(!isShow);
-  // setShowConfirmationModal(true);
-	<ModaleErik42 showModale={showModal} closeModale={handleClose} />;
-	
-    //   <ModaleErik42
-    //     showModale={showModal}
-    //     closeModale={handleClose}
-    //     parameter={{ backgroundColor: "white" }}
-    //     message="Votre message ici"
-    //   />
-    
-}
+// Handling modal open/close for validation
+const handleValidSubmit = (setShowModal) => {
+  setShowModal(true);
+};
 
-// Fonction pour gérer les changements de champ de saisie
+// Handling close modal
+const handleClose = (setShowModal) => {
+  setShowModal(false);
+};
+
+// Function to handle input changes
 function handleChange(e, setEmployee) {
-	const { name, value } = e.target;
-	setEmployee((prev) => ({ ...prev, [name]: value }));
+  const { name, value } = e.target;
+  setEmployee((prev) => ({ ...prev, [name]: value }));
 }
 
-// Fonction pour gérer le changement d'état
-function handleStateChange(value, setEmployee) {
-	setEmployee((prev) => ({ ...prev, state: value }));
-}
-
-// Fonction pour gérer le changement de pays
-function handleCountryChange(value, setEmployee) {
-	setEmployee((prev) => ({ ...prev, country: value }));
-}
-
-// Fonction pour gérer le changement de department
-function handleDepartmentChange(value, setEmployee) {
-	setEmployee((prev) => ({ ...prev, department: value }));
-}
-
-// Fonction pour gérer le changement de job
-function handleJobChange(value, setEmployee) {
-	setEmployee((prev) => ({ ...prev, job: value }));
-}
-
-// Fonction pour confirmer l'archivage
-function confirmDelete(setShowModal) {
-	setShowModal(false);
-}
-
-// Fonction pour annuler la suppression
-function cancelDelete(setShowModal) {
-	setShowModal(false);
-}
+// Handling dropdown changes
+const handleDropdownChange = (value, field, setEmployee) => {
+  setEmployee((prev) => ({ ...prev, [field]: value }));
+};
 
 export default function CreateEmployee({
-	// eslint-disable-next-line react/prop-types
-	onAddEmployee = () => {},
-	// eslint-disable-next-line react/prop-types
-	onCancel = () => {},
+  onAddEmployee = () => {},
+  onCancel = () => {},
 }) {
-	const [employee, setEmployee] = useState({
-		avatar: "",
-		firstName: "",
-		lastName: "",
-		birthday: "",
-		street: "",
-		city: "",
-		state: "",
-		zipCode: "",
-		country: "",
-		department: "",
-		function: "",
-		startWork: "",
-		endWork: "",
-	});
+  const [employee, setEmployee] = useState({
+    avatar: "",
+    firstName: "",
+    lastName: "",
+    birthday: "",
+    street: "",
+    city: "",
+    state: stateData[0]?.abbreviation || "",
+    zipCode: "",
+    country: countryData[0]?.abbreviation || "",
+    department: "",
+    function: "",
+    startWork: "",
+    endWork: "",
+  });
 
-	
-	const [showModal, setShowModal] = useState(false);
-	// const [showConfirmationModal, setShowConfirmationModal] = useState(false);
-	const [showEmployeeInfo, setShowEmployeeInfo] = useState(false);
-	const fileInputRef = useRef(null);
-	const selectedEmployee = useSelector(
-		(state) => state.employee.selectedEmployee
-	);
+  const [showModal, setShowModal] = useState(false);
+  const [showEmployeeInfo, setShowEmployeeInfo] = useState(false);
+  const fileInputRef = useRef(null);
+  const selectedEmployee = useSelector(
+    (state) => state.employee.selectedEmployee
+  );
 
-	const handleClose = () => {
-    setShowModal(false);
-	};
-	
-	// Initialize form avec données employé si disponible
-	useEffect(() => {
-		if (selectedEmployee) {
-			setEmployee(selectedEmployee);
-		} else {
-			handleReset(setEmployee); // Reset si pas d'employé sélectionné
-		}
-	}, [selectedEmployee, setEmployee]);
+  // Initialize form with selected employee data if available
+  useEffect(() => {
+    if (selectedEmployee) {
+      setEmployee(selectedEmployee);
+    } else {
+      handleReset(setEmployee);
+    }
+  }, [selectedEmployee]);
 
-	useEffect(() => {
+  // Modal open on Escape key
+  useEffect(() => {
     const handleKeyPress = (e) => {
       if (e.key === "Escape" && ModaleErik42.isOpen()) {
         ModaleErik42.close();
       }
     };
-
     window.addEventListener("keydown", handleKeyPress);
     return () => {
       window.removeEventListener("keydown", handleKeyPress);
     };
   }, []);
 
-	// const handleConfirmationClose = () => {
-	// 	showModal(false);
-	// 	setShowEmployeeInfo(true);
-	// };
-
-	useEffect(() => {
-    if (stateData.length > 0)
-      setEmployee((prev) => ({ ...prev, state: stateData[0].abbreviation }));
-    if (countryData.length > 0)
-      setEmployee((prev) => ({
-        ...prev,
-        country: countryData[0].abbreviation,
-      }));
-  }, []);
-
-	useEffect(() => {
-		setEmployee((prevEmployee) => ({
-			...prevEmployee,
-			avatar: "",
-			firstName: "",
-			lastName: "",
-			birthday: "",
-			street: "",
-			city: "",
-			state: stateData[0]?.abbreviation || "",
-			zipCode: "",
-			country: countryData[0]?.abbreviation || "",
-			department: "",
-			function: "",
-			startWork: "",
-			endWork: "",
-		}));
-	}, [employee.firstName, employee.lastName]);
-
-	return (
-    <div className={styled.createEmployee}>
+  return (
+    <div className={styles.createEmployee}>
       {!showEmployeeInfo ? (
         <>
           <h2>Modifier Employés</h2>
           <form
             key={employee.firstName + employee.lastName}
             onSubmit={(e) =>
-              handleSubmit(e, employee, onAddEmployee, setEmployee, showModal)
+              handleSubmit(e, employee, onAddEmployee, setEmployee)
             }
-            className={styled.form}
+            className={styles.form}
           >
             {/* Avatar Section */}
-            <div className={styled.avatarSection}>
+            <div className={styles.avatarSection}>
               <img
                 src={
                   employee.avatar || selectedEmployee?.avatar || defaultAvatar
                 }
                 alt="Employee Avatar"
-                className={styled.avatar}
+                className={styles.avatar}
                 onClick={() => fileInputRef.current.click()}
               />
               <input
@@ -233,26 +166,21 @@ export default function CreateEmployee({
                 ref={fileInputRef}
                 onChange={(e) => handleFileChange(e, setEmployee)}
               />
-              <p className={styled.avatar__text}>
+              <p className={styles.avatar__text}>
                 Cliquez sur la photo pour la changer
               </p>
             </div>
 
-            <div className={styled.generalInfos}>
+            {/* General Information */}
+            <div className={styles.generalInfos}>
               <h3>Informations Générales</h3>
-              <div className={styled.infoGroup}>
+              <div className={styles.infoGroup}>
                 <div>
                   <label>Prénom</label>
                   <input
                     type="text"
                     name="firstName"
-                    value={
-                      employee.firstName
-                        ? employee.firstName
-                        : selectedEmployee
-                        ? selectedEmployee.firstName
-                        : ""
-                    }
+                    value={employee.firstName || ""}
                     onChange={(e) => handleChange(e, setEmployee)}
                     placeholder="John"
                   />
@@ -263,13 +191,7 @@ export default function CreateEmployee({
                   <input
                     type="text"
                     name="lastName"
-                    value={
-                      employee.lastName
-                        ? employee.lastName
-                        : selectedEmployee
-                        ? selectedEmployee.lastName
-                        : ""
-                    }
+                    value={employee.lastName || ""}
                     onChange={(e) => handleChange(e, setEmployee)}
                     placeholder="Doe"
                   />
@@ -280,34 +202,23 @@ export default function CreateEmployee({
                   <input
                     type="date"
                     name="birthday"
-                    value={
-                      employee.birthday
-                        ? employee.birthday
-                        : selectedEmployee
-                        ? selectedEmployee.birthday
-                        : ""
-                    }
+                    value={employee.birthday || ""}
                     onChange={(e) => handleChange(e, setEmployee)}
                   />
                 </div>
               </div>
             </div>
 
-            <div className={styled.addressInfo}>
+            {/* Address Information */}
+            <div className={styles.addressInfo}>
               <h3>Informations Adresse</h3>
-              <div className={styled.infoGroup}>
+              <div className={styles.infoGroup}>
                 <div>
                   <label>Rue</label>
                   <input
                     type="text"
                     name="street"
-                    value={
-                      employee.street
-                        ? employee.street
-                        : selectedEmployee
-                        ? selectedEmployee.street
-                        : ""
-                    }
+                    value={employee.street || ""}
                     onChange={(e) => handleChange(e, setEmployee)}
                     placeholder="123 Main St"
                   />
@@ -318,13 +229,7 @@ export default function CreateEmployee({
                   <input
                     type="text"
                     name="city"
-                    value={
-                      employee.city
-                        ? employee.city
-                        : selectedEmployee
-                        ? selectedEmployee.city
-                        : ""
-                    }
+                    value={employee.city || ""}
                     onChange={(e) => handleChange(e, setEmployee)}
                     placeholder="New York"
                   />
@@ -335,16 +240,10 @@ export default function CreateEmployee({
                   <Dropdown
                     name="state"
                     onChangeDropdown={(value) =>
-                      handleStateChange(value, setEmployee)
+                      handleDropdownChange(value, "state", setEmployee)
                     }
                     optionsList={stateData}
-                    value={
-                      employee.state
-                        ? employee.state
-                        : selectedEmployee
-                        ? selectedEmployee.state
-                        : ""
-                    }
+                    value={employee.state || ""}
                   />
                 </div>
 
@@ -353,13 +252,7 @@ export default function CreateEmployee({
                   <input
                     type="text"
                     name="zipCode"
-                    value={
-                      employee.zipCode
-                        ? employee.zipCode
-                        : selectedEmployee
-                        ? selectedEmployee.zipCode
-                        : ""
-                    }
+                    value={employee.zipCode || ""}
                     onChange={(e) => handleChange(e, setEmployee)}
                     placeholder="10001"
                   />
@@ -370,41 +263,28 @@ export default function CreateEmployee({
                   <Dropdown
                     name="country"
                     onChangeDropdown={(value) =>
-                      handleCountryChange(value, setEmployee)
+                      handleDropdownChange(value, "country", setEmployee)
                     }
                     optionsList={countryData}
-                    value={
-                      employee.country
-                        ? employee.country
-                        : selectedEmployee
-                        ? selectedEmployee.country
-                        : ""
-                    }
+                    value={employee.country || ""}
                   />
                 </div>
               </div>
             </div>
 
-            <div className={styled.workInfo}>
+            {/* Work Information */}
+            <div className={styles.workInfo}>
               <h3>Informations Professionnelles</h3>
-              <div className={styled.infoGroup}>
+              <div className={styles.infoGroup}>
                 <div>
                   <label>Department</label>
                   <Dropdown
                     name="department"
                     onChangeDropdown={(value) =>
-                      handleDepartmentChange(value, setEmployee)
+                      handleDropdownChange(value, "department", setEmployee)
                     }
                     optionsList={departmentData}
-                    value={
-                      employee.department
-                        ? employee.department
-                        : selectedEmployee
-                        ? selectedEmployee.department
-                        : ""
-                    }
-                    onChange={(e) => handleChange(e, setEmployee)}
-                    placeholder="Engineering"
+                    value={employee.department || ""}
                   />
                 </div>
 
@@ -413,16 +293,10 @@ export default function CreateEmployee({
                   <Dropdown
                     name="function"
                     onChangeDropdown={(value) =>
-                      handleJobChange(value, setEmployee)
+                      handleDropdownChange(value, "function", setEmployee)
                     }
                     optionsList={jobData}
-                    value={
-                      employee.function
-                        ? employee.function
-                        : selectedEmployee
-                        ? selectedEmployee.function
-                        : ""
-                    }
+                    value={employee.function || ""}
                   />
                 </div>
 
@@ -431,13 +305,7 @@ export default function CreateEmployee({
                   <input
                     type="date"
                     name="startWork"
-                    value={
-                      employee.startWork
-                        ? employee.startWork
-                        : selectedEmployee
-                        ? selectedEmployee.startWork
-                        : ""
-                    }
+                    value={employee.startWork || ""}
                     onChange={(e) => handleChange(e, setEmployee)}
                   />
                 </div>
@@ -447,13 +315,7 @@ export default function CreateEmployee({
                   <input
                     type="date"
                     name="endWork"
-                    value={
-                      employee.endWork
-                        ? employee.endWork
-                        : selectedEmployee
-                        ? selectedEmployee.endWork
-                        : ""
-                    }
+                    value={employee.endWork || ""}
                     onChange={(e) => handleChange(e, setEmployee)}
                   />
                 </div>
@@ -461,51 +323,45 @@ export default function CreateEmployee({
             </div>
 
             {/* Buttons */}
-            <div className={styled.btn}>
-              {/* <button
-                type="button"
-                className={styled.btn__modif}
-                onClick={() => HandleValidSubmit(showModal)}
-              >
-                Valider
-              </button> */}
-							
-            {
-              <>
-                <ModaleErik42
-                  showModale={showModal}
-                  closeModale={handleClose}
-                  parameter={{ backgroundColor: "white" }}
-                  message="Votre message ici"
-                />
-              </>
-            }
+            <div className={styles.btn}>
               <button
                 type="button"
-                className={styled.btn__reset}
+                className={styles.btn__modif}
+                onClick={() => handleValidSubmit(setShowModal)}
+              >
+              <ModaleErik42
+                showModale={showModal}
+                closeModale={() => handleClose(setShowModal)}
+                parameter={{ backgroundColor: "white" }}
+                message="Votre employé a été ajouté avec succès"
+              />
+              </button>
+
+              <button
+                type="button"
+                className={styles.btn__reset}
                 onClick={() => handleReset(setEmployee)}
               >
                 Reset
               </button>
-              <br />
+
               <button
                 type="button"
-                className={styled.btn__supp}
+                className={styles.btn__supp}
                 onClick={() => setShowModal(true)}
-                // {() => handleDelete(setShowModal)}
               >
                 ⚠️ Archiver Employé ⚠️
               </button>
             </div>
-            {/* Confirmation modals */}
+
+            {/* Confirmation modal */}
             {showModal && (
-              <div className={styled.confirmationModal}>
+              <div className={styles.confirmationModal}>
                 <p>Êtes-vous sûr de vouloir archiver cet employé ?</p>
                 <button onClick={() => confirmDelete(setShowModal)}>Oui</button>
                 <button onClick={() => cancelDelete(setShowModal)}>Non</button>
               </div>
             )}
-           
           </form>
         </>
       ) : (
