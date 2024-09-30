@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-// import "shallowequal";
 import styles from "./createEmployee.module.scss";
 import defaultAvatar from "../../assets/img/avatar/H2G2-Grok-only.svg";
 import stateData from "../../assets/data/states.json";
@@ -79,15 +79,16 @@ const handleDropdownChange = (value, field, setEmployee) => {
   setEmployee((prev) => ({ ...prev, [field]: value }));
 };
 
-// Fonction pour confirmer l'archivage
-function confirmArchive(showArchiveModal) {
-  showArchiveModal(true);
-}
+// // Fonction pour confirmer l'archivage
+// function confirmArchive(showArchiveModal) {
+//   showArchiveModal(true);
+// }
 
 export default function CreateEmployee({
   onAddEmployee = () => {},
-  onCancel = () => {},
+  // onCancel = () => {},
 }) {
+  const navigate = useNavigate();
   const [showModale, setShowModale] = useState(false);
   const [showArchiveModal, setShowArchiveModal] = useState(false);
   const [showEmployeeInfo, setShowEmployeeInfo] = useState(false);
@@ -114,6 +115,18 @@ export default function CreateEmployee({
   // Gestion de l'ouverture/fermeture modale
   const handleValidSubmit = () => {
     setShowModale(true);
+  };
+
+  // Fonction pour fermer la modale et revenir à la liste des employés
+  const handleValidClose = () => {
+    setShowModale(false);
+    navigate("/listEmployees");
+  };
+
+  // Fonction pour fermer la modale et rediriger vers la liste des employés
+  const confirmArchive = () => {
+    setShowArchiveModal(false);
+    navigate("/listEmployees");
   };
 
   // Initialiser le formulaire avec les données de l'employé sélectionné si disponibles
@@ -340,7 +353,7 @@ export default function CreateEmployee({
               {showModale && (
                 <ModaleErik42
                   showModale={showModale}
-                  closeModale={() => setShowModale(false)}
+                  closeModale={handleValidClose}
                   parameter={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
                   message="Votre employé a été ajouté avec succès !"
                 />
@@ -358,7 +371,7 @@ export default function CreateEmployee({
             <button
               type="button"
               className={styles.btn__supp}
-              onClick={() => confirmArchive(setShowArchiveModal)}
+              onClick={() => setShowArchiveModal(true)}
             >
               ⚠️ Archiver Employé ⚠️
             </button>
@@ -367,7 +380,7 @@ export default function CreateEmployee({
             {showArchiveModal && (
               <div className={styles.confirmationModal}>
                 <p>Êtes-vous sûr de vouloir archiver cet employé ?</p>
-                <button onClick={onCancel}>Oui</button>
+                <button onClick={confirmArchive}>Oui</button>
                 <button onClick={() => setShowArchiveModal(false)}>Non</button>
               </div>
             )}

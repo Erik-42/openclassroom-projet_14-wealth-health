@@ -1,22 +1,26 @@
 [
-	{
-		"name": "Sales Manager",
-		"abbreviation": "sales-manager"
-	},
-	{
-		"name": "Marketing Specialist",
-		"abbreviation": "marketing-specialist"
-	},
-	{
-		"name": "Software Engineer",
-		"abbreviation": "software-engineer"
-	},
-	{
-		"name": "HR Coordinator",
-		"abbreviation": "hr-coordinator"
-	},
-	{
-		"name": "Legal Counsel",
-		"abbreviation": "legal-counsel"
-	}
+  {
+    "name": "Direction",
+    "abbreviation": "CEO"
+  },
+  {
+    "name": "Sales Manager",
+    "abbreviation": "sales-manager"
+  },
+  {
+    "name": "Marketing Specialist",
+    "abbreviation": "marketing-specialist"
+  },
+  {
+    "name": "Software Engineer",
+    "abbreviation": "software-engineer"
+  },
+  {
+    "name": "HR Coordinator",
+    "abbreviation": "hr-coordinator"
+  },
+  {
+    "name": "Legal Counsel",
+    "abbreviation": "legal-counsel"
+  }
 ]
