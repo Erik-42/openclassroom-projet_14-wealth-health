@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-import "shallowequal";
+// import "shallowequal";
 import styles from "./createEmployee.module.scss";
 import defaultAvatar from "../../assets/img/avatar/H2G2-Grok-only.svg";
 import stateData from "../../assets/data/states.json";
@@ -28,7 +28,7 @@ function handleFileChange(e, setEmployee) {
 }
 
 // Fonction pour gérer la soumission de formulaire
-function handleSubmit(e, employee, onAddEmployee, setEmployee) {
+function handleFormSubmit(e, employee, onAddEmployee, setEmployee) {
   e.preventDefault();
   onAddEmployee(employee);
   // Reset form
@@ -79,18 +79,12 @@ const handleDropdownChange = (value, field, setEmployee) => {
   setEmployee((prev) => ({ ...prev, [field]: value }));
 };
 
-// // Fonction pour confirmer l'archivage
-// function confirmArchive(showArchiveModal) {
-//   setShowArchiveModal(false);
-// }
-
-// // Fonction pour annuler l'archivage
-// function cancelArchive(showArchiveModal) {
-//   setShowArchiveModal(false);
-// }
+// Fonction pour confirmer l'archivage
+function confirmArchive(showArchiveModal) {
+  showArchiveModal(true);
+}
 
 export default function CreateEmployee({
-  // eslint-disable-next-line react/prop-types
   onAddEmployee = () => {},
   onCancel = () => {},
 }) {
@@ -122,11 +116,6 @@ export default function CreateEmployee({
     setShowModale(true);
   };
 
-  // Ferme la modal
-  const handleValidClose = () => {
-    setShowModale(false);
-  };
-
   // Initialiser le formulaire avec les données de l'employé sélectionné si disponibles
   useEffect(() => {
     if (selectedEmployee) {
@@ -155,9 +144,13 @@ export default function CreateEmployee({
         <>
           <h2>Modifier Employés</h2>
           <form
-            key={employee.firstName + employee.lastName}
-            onSubmit={(e) =>
-              handleSubmit(e, employee, onAddEmployee, setEmployee)
+            // key={employee.firstName + employee.lastName}
+            onSubmit={
+              (e) => {
+                e.preventDefault();
+                onAddEmployee(employee);
+              }
+              // handleSubmit(e, employee, onAddEmployee, setEmployee)
             }
             className={styles.form}
           >
@@ -336,46 +329,39 @@ export default function CreateEmployee({
 
             {/* Buttons */}
             <div className={styles.btn}>
-              <div>
-                <button
-                  type="button"
-                  className={styles.btn__modif}
-                  onClick={handleValidSubmit}
-                >
-                  Valider
-                  <ModaleErik42
-                    showModale={() => setShowModale(true)}
-                    closeModale={() => setShowModale(false)}
-                    parameter={{ backgroundColor: "darkmagenta" }}
-                    message="Votre employé a été ajouté avec succès."
-                  />
-                </button>
-                {/* {showModale && (
-                  <ModaleErik42
-                    showModale={() => showModale}
-                    closeModale={() => setShowModale(false)}
-                    parameter={{ backgroundColor: "white" }}
-                    message="Votre employé a été ajouté avec succès"
-                  />
-                )} */}
-              </div>
-
               <button
                 type="button"
-                className={styles.btn__reset}
-                onClick={() => handleReset(setEmployee)}
+                className={styles.btn__modif}
+                onClick={handleValidSubmit}
               >
-                Reset
+                Valider
               </button>
-
-              <button
-                type="button"
-                className={styles.btn__supp}
-                onClick={() => confirmArchive(setShowArchiveModal)}
-              >
-                ⚠️ Archiver Employé ⚠️
-              </button>
+              {/* Modal */}
+              {showModale && (
+                <ModaleErik42
+                  showModale={showModale}
+                  closeModale={() => setShowModale(false)}
+                  parameter={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+                  message="Votre employé a été ajouté avec succès !"
+                />
+              )}
             </div>
+
+            <button
+              type="button"
+              className={styles.btn__reset}
+              onClick={() => handleReset(setEmployee)}
+            >
+              Reset
+            </button>
+
+            <button
+              type="button"
+              className={styles.btn__supp}
+              onClick={() => confirmArchive(setShowArchiveModal)}
+            >
+              ⚠️ Archiver Employé ⚠️
+            </button>
 
             {/* Confirmation modal */}
             {showArchiveModal && (
