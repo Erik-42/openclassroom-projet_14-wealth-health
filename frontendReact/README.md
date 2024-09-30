@@ -117,32 +117,32 @@ Une fois que l'application HRnet en React fonctionne, tu peux publier le composa
 
 ### Frontend Dependencies:
 
-	"@babel/register": "^7.24.6",
-	"@emotion/react": "^11.13.3",
-	"@emotion/styled": "^11.13.0",
-	"@fontsource/manrope": "^5.0.21",
-	"@fontsource/roboto": "^5.0.15",
-	"@mui/icons-material": "^6.0.2",
-	"@mui/material": "^6.0.2",
-	"@reduxjs/toolkit": "^2.2.7",
-	"@vercel/speed-insights": "^1.0.12",
-	"axios": "^1.7.7",
-	"babel": "^6.23.0",
-	"express": "^4.21.0",
-	"jsonwebtoken": "^9.0.2",
-	"modaleerik42": "^1.0.4",
-	"node-fetch": "^3.3.2",
-	"prop-types": "^15.8.1",
-	"react": "^18.3.1",
-	"react-dom": "^18.3.1",
-	"react-redux": "^9.1.2",
-	"react-router": "^6.26.2",
-	"react-router-dom": "^6.26.2",
-	"redux": "^5.0.1",
-	"sass": "^1.79.3",
-	"shallowequal": "^1.1.0",
-	"styled-components": "^6.1.13",
-	"vercel": "^32.3.0"
+    "@babel/register": "^7.24.6",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@fontsource/manrope": "^5.0.21",
+    "@fontsource/roboto": "^5.0.15",
+    "@mui/icons-material": "^6.0.2",
+    "@mui/material": "^6.0.2",
+    "@reduxjs/toolkit": "^2.2.7",
+    "@vercel/speed-insights": "^1.0.12",
+    "axios": "^1.7.7",
+    "babel": "^6.23.0",
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2",
+    "modaleerik42": "^1.0.4",
+    "node-fetch": "^3.3.2",
+    "prop-types": "^15.8.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-redux": "^9.1.2",
+    "react-router": "^6.26.2",
+    "react-router-dom": "^6.26.2",
+    "redux": "^5.0.1",
+    "sass": "^1.79.3",
+    "shallowequal": "^1.1.0",
+    "styled-components": "^6.1.13",
+    "vercel": "^32.3.0"
 
 ## Launching the project
 
@@ -188,7 +188,7 @@ Si vous souhaitez exporter la structure du projet,mettez `export-file-structure.
 
 Github: [https://erik-42.github.io/openclassroom-projet_14-wealthhealth/](https://erik-42.github.io/openclassroom-projet_14-wealthhealth/)
 
-<a href='https://openclassroom-projet-14-wealthhealth-fs3dt96b5-erik42s-projects.vercel.app/'>Wealth Health en React</a>
+<a href='https://openclassroom-projet-14-wealthhealth.vercel.app/'>Wealth Health en React</a>
 
 <a href='https://erik-42.github.io/openclassroom-projet_14-wealthhealth/frontendJquery/'>Wealth Health en Jquery</a>
 
