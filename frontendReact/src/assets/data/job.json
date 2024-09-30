@@ -1,7 +1,11 @@
 [
   {
-    "name": "Direction",
-    "abbreviation": "CEO"
+    "name": "CTO",
+    "abbreviation": "cto"
+  },
+  {
+    "name": "CEO",
+    "abbreviation": "ceo"
   },
   {
     "name": "Sales Manager",

@@ -79,15 +79,7 @@ const handleDropdownChange = (value, field, setEmployee) => {
   setEmployee((prev) => ({ ...prev, [field]: value }));
 };
 
-// // Fonction pour confirmer l'archivage
-// function confirmArchive(showArchiveModal) {
-//   showArchiveModal(true);
-// }
-
-export default function CreateEmployee({
-  onAddEmployee = () => {},
-  // onCancel = () => {},
-}) {
+export default function CreateEmployee({ onAddEmployee = () => {} }) {
   const navigate = useNavigate();
   const [showModale, setShowModale] = useState(false);
   const [showArchiveModal, setShowArchiveModal] = useState(false);
