@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import EmployeeInfo from "../../components/employeeInfo/employeeInfo.jsx";
 import CreateEmployee from "../../components/createEmployee/createEmployee.jsx";
 import ListEmployee from "../../components/listEmployees/listEmployees.jsx";
-import styled from "./viewEmployee.module.scss";
+import styles from "./viewEmployee.module.scss";
 import { useState } from "react";
 import { selectEmployee } from "../../store/slice/employeeSlice.js";
 
@@ -22,11 +22,11 @@ export default function ViewEmployee() {
 	};
 
 	return (
-		<div className={styled.viewEmployee}>
-			<main className={styled.viewEmployee__main}>
+		<div className={styles.viewEmployee}>
+			<main className={styles.viewEmployee__main}>
 				{selectedEmployee ? (
-					<section className={styled.viewEmployee__main__general}>
-						<article className={styled.viewEmployee__main__general__employee}>
+					<section className={styles.viewEmployee__main__general}>
+						<article className={styles.viewEmployee__main__general__employee}>
 							{isEditing ? (
 								<CreateEmployee onCancel={handleCancelEdit} />
 							) : (
@@ -38,13 +38,13 @@ export default function ViewEmployee() {
 					<ListEmployee />
 				)}
 
-				<div className={styled.viewEmployee__actions}>
+				<div className={styles.viewEmployee__actions}>
 					{isEditing ? (
 						<button
 							className={
-								styled.viewEmployee__actions__btn +
+								styles.viewEmployee__actions__btn +
 								" " +
-								styled["viewEmployee__actions__btn--cancel"]
+								styles["viewEmployee__actions__btn--cancel"]
 							}
 							onClick={handleCancelEdit}
 						>
@@ -53,9 +53,9 @@ export default function ViewEmployee() {
 					) : (
 						<button
 							className={
-								styled.viewEmployee__actions__btn +
+								styles.viewEmployee__actions__btn +
 								" " +
-								styled["viewEmployee__actions__btn--modif"]
+								styles["viewEmployee__actions__btn--modif"]
 							}
 							onClick={() => handleEditClick(selectedEmployee.id)}
 						>

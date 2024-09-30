@@ -1,7 +1,7 @@
 import React from "react";
 import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, test } from "vitest";
-import ModaleReactErik42 from "./index";
+import ModaleErik42index from "./index";
 import ModaleErik42 from "./components/modaleErik42/modaleErik42";
 
 describe("ModaleReact", () => {
@@ -16,7 +16,7 @@ describe("ModaleReact", () => {
 	});
 	// Test de la prop greetee
 	test("La prop greetee fonctionne correctement", () => {
-		render(<ModaleReactErik42 greetee="Erik-42" />);
+		render(<ModaleErik42index greetee="Erik-42" />);
 		const greeteeText = screen.getByText(/Erik-42/i);
 		expect(greeteeText).toBeTruthy();
 	});

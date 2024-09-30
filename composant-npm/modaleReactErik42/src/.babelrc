@@ -1,0 +1,5 @@
+{
+	"préréglages": ["@babel/preset-env", "@babel/preset-react"],
+
+	"extensions": [".js", ".jsx"]
+}

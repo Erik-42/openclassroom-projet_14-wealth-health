@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
+import "shallowequal";
 import styles from "./createEmployee.module.scss";
 import defaultAvatar from "../../assets/img/avatar/H2G2-Grok-only.svg";
 import stateData from "../../assets/data/states.json";
@@ -6,16 +8,15 @@ import countryData from "../../assets/data/country.json";
 import jobData from "../../assets/data/job.json";
 import departmentData from "../../assets/data/department.json";
 import Dropdown from "../dropdown/dropdown";
-import { useSelector } from "react-redux";
 import EmployeeInfo from "../employeeInfo/employeeInfo";
 import ModaleErik42 from "modaleerik42";
 
-// Function to handle file changes (avatar image)
+// Fonction pour gérer les modifications de fichiers (image d'avatar)
 function handleFileChange(e, setEmployee) {
   const file = e.target.files[0];
   if (file) {
     if (!file.type.startsWith("image/")) {
-      alert("Veuillez sélectionner un fichier image valide.");
+      alert("Veuillez sélectionner un fichier image valide.(.jpg, .png, .gif");
       return;
     }
     const reader = new FileReader();
@@ -26,7 +27,7 @@ function handleFileChange(e, setEmployee) {
   }
 }
 
-// Function to handle form submission
+// Fonction pour gérer la soumission de formulaire
 function handleSubmit(e, employee, onAddEmployee, setEmployee) {
   e.preventDefault();
   onAddEmployee(employee);
@@ -48,7 +49,7 @@ function handleSubmit(e, employee, onAddEmployee, setEmployee) {
   });
 }
 
-// Function to reset the employee form
+// Fonction de réinitialisation du formulaire d'employé
 function handleReset(setEmployee) {
   setEmployee({
     avatar: "",
@@ -67,31 +68,39 @@ function handleReset(setEmployee) {
   });
 }
 
-// Handling modal open/close for validation
-const handleValidSubmit = (setShowModal) => {
-  setShowModal(true);
-};
-
-// Handling close modal
-const handleClose = (setShowModal) => {
-  setShowModal(false);
-};
-
-// Function to handle input changes
+// Fonction permettant de gérer les modifications d'entrée
 function handleChange(e, setEmployee) {
   const { name, value } = e.target;
   setEmployee((prev) => ({ ...prev, [name]: value }));
 }
 
-// Handling dropdown changes
+// Gestion des modifications de la liste déroulante
 const handleDropdownChange = (value, field, setEmployee) => {
   setEmployee((prev) => ({ ...prev, [field]: value }));
 };
 
+// // Fonction pour confirmer l'archivage
+// function confirmArchive(showArchiveModal) {
+//   setShowArchiveModal(false);
+// }
+
+// // Fonction pour annuler l'archivage
+// function cancelArchive(showArchiveModal) {
+//   setShowArchiveModal(false);
+// }
+
 export default function CreateEmployee({
+  // eslint-disable-next-line react/prop-types
   onAddEmployee = () => {},
   onCancel = () => {},
 }) {
+  const [showModale, setShowModale] = useState(false);
+  const [showArchiveModal, setShowArchiveModal] = useState(false);
+  const [showEmployeeInfo, setShowEmployeeInfo] = useState(false);
+  const fileInputRef = useRef(null);
+  const selectedEmployee = useSelector(
+    (state) => state.employee.selectedEmployee
+  );
   const [employee, setEmployee] = useState({
     avatar: "",
     firstName: "",
@@ -108,14 +117,17 @@ export default function CreateEmployee({
     endWork: "",
   });
 
-  const [showModal, setShowModal] = useState(false);
-  const [showEmployeeInfo, setShowEmployeeInfo] = useState(false);
-  const fileInputRef = useRef(null);
-  const selectedEmployee = useSelector(
-    (state) => state.employee.selectedEmployee
-  );
+  // Gestion de l'ouverture/fermeture modale
+  const handleValidSubmit = () => {
+    setShowModale(true);
+  };
 
-  // Initialize form with selected employee data if available
+  // Ferme la modal
+  const handleValidClose = () => {
+    setShowModale(false);
+  };
+
+  // Initialiser le formulaire avec les données de l'employé sélectionné si disponibles
   useEffect(() => {
     if (selectedEmployee) {
       setEmployee(selectedEmployee);
@@ -124,7 +136,7 @@ export default function CreateEmployee({
     }
   }, [selectedEmployee]);
 
-  // Modal open on Escape key
+  // Modal close on Escape key
   useEffect(() => {
     const handleKeyPress = (e) => {
       if (e.key === "Escape" && ModaleErik42.isOpen()) {
@@ -166,9 +178,9 @@ export default function CreateEmployee({
                 ref={fileInputRef}
                 onChange={(e) => handleFileChange(e, setEmployee)}
               />
-              <p className={styles.avatar__text}>
+              <label htmlFor="avatar" className={styles.avatar__text}>
                 Cliquez sur la photo pour la changer
-              </p>
+              </label>
             </div>
 
             {/* General Information */}
@@ -324,18 +336,29 @@ export default function CreateEmployee({
 
             {/* Buttons */}
             <div className={styles.btn}>
-              <button
-                type="button"
-                className={styles.btn__modif}
-                onClick={() => handleValidSubmit(setShowModal)}
-              >
-              <ModaleErik42
-                showModale={showModal}
-                closeModale={() => handleClose(setShowModal)}
-                parameter={{ backgroundColor: "white" }}
-                message="Votre employé a été ajouté avec succès"
-              />
-              </button>
+              <div>
+                <button
+                  type="button"
+                  className={styles.btn__modif}
+                  onClick={handleValidSubmit}
+                >
+                  Valider
+                  <ModaleErik42
+                    showModale={() => setShowModale(true)}
+                    closeModale={() => setShowModale(false)}
+                    parameter={{ backgroundColor: "darkmagenta" }}
+                    message="Votre employé a été ajouté avec succès."
+                  />
+                </button>
+                {/* {showModale && (
+                  <ModaleErik42
+                    showModale={() => showModale}
+                    closeModale={() => setShowModale(false)}
+                    parameter={{ backgroundColor: "white" }}
+                    message="Votre employé a été ajouté avec succès"
+                  />
+                )} */}
+              </div>
 
               <button
                 type="button"
@@ -348,18 +371,18 @@ export default function CreateEmployee({
               <button
                 type="button"
                 className={styles.btn__supp}
-                onClick={() => setShowModal(true)}
+                onClick={() => confirmArchive(setShowArchiveModal)}
               >
                 ⚠️ Archiver Employé ⚠️
               </button>
             </div>
 
             {/* Confirmation modal */}
-            {showModal && (
+            {showArchiveModal && (
               <div className={styles.confirmationModal}>
                 <p>Êtes-vous sûr de vouloir archiver cet employé ?</p>
-                <button onClick={() => confirmDelete(setShowModal)}>Oui</button>
-                <button onClick={() => cancelDelete(setShowModal)}>Non</button>
+                <button onClick={onCancel}>Oui</button>
+                <button onClick={() => setShowArchiveModal(false)}>Non</button>
               </div>
             )}
           </form>

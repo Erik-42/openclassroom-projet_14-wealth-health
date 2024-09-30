@@ -1,80 +1,100 @@
 {
-	"name": "modalereacterik42",
-	"version": "1.0.0",
-	"description": "Modale toute prête et autonome sous React - https://github.com/Erik-42/openclassroom-projet_14-wealthhealth/tree/main/composant-npm ",
-	"license": "MIT",
-	"author": "erik-42",
-	"type": "module",
-	"keywords": [
-		"modaleReact",
-		"react",
-		"modal",
-		"modale",
-		"dom"
-	],
-	"files": [
-		"dist",
-		"README.md"
-	],
-	"main": "./dist/modalereacterik42.umd.js",
-	"module": "./dist/modalereacterik42.es.js",
-	"exports": {
-		".": {
-			"import": "./dist/modalereacterik42.es.js",
-			"require": "./dist/modalereacterik42.umd.js"
-		}
-	},
-	"scripts": {
-		"dev": "vite",
-		"build": "vite build",
-		"test": "vitest run",
-		"watch": "vitest",
-		"coverage": "vitest run --coverage"
-	},
-	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
-	},
-	"eslintConfig": {
-		"env": {
-			"browser": true,
-			"node": true,
-			"es2020": true
-		},
-		"extends": [
-			"eslint:recommended",
-			"plugin:react/recommended"
-		],
-		"parserOptions": {
-			"sourceType": "module"
-		}
-	},
-	"devDependencies": {
-		"@testing-library/dom": "^10.4.0",
-		"@testing-library/react": "^16.0.1",
-		"@vitejs/plugin-react": "^4.3.1",
-		"c8": "^10.1.2",
-		"eslint": "^9.10.0",
-		"eslint-plugin-react": "^7.35.2",
-		"jsdom": "^25.0.0",
-		"react": "^18.3.1",
-		"react-dom": "^18.3.1",
-		"react-test-renderer": "^18.3.1",
-		"sass-embedded": "^1.79.1",
-		"vite": "^5.4.3",
-		"vitest": "^2.0.5"
-	},
-	"dependencies": {
-		"babel": "^6.23.0",
-		"jest": "^29.7.0",
-		"styled-components": "^6.1.13"
-	}
+  "name": "modaleerik42",
+  "version": "1.0.7",
+  "description": "Modale toute prête et autonome sous React - https://github.com/Erik-42/openclassroom-projet_14-wealthhealth-npm",
+  "license": "MIT",
+  "author": "erik-42 <erik.mesen@basillecorp.dev>",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Erik-42/openclassroom-projet_14-wealthhealth-npm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Erik-42/openclassroom-projet_14-wealthhealth-npm/issues"
+  },
+  "homepage": "https://github.com/Erik-42/openclassroom-projet_14-wealthhealth-npm#readme",
+  "type": "module",
+  "keywords": [
+    "modaleReact",
+    "react",
+    "modal",
+    "modale",
+    "dom"
+  ],
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "main": "./src/lib/components/modaleErik42/modaleErik42.jsx",
+  "module": "./src/lib/components/modaleErik42/modaleErik42.jsx",
+  "exports": {
+    ".": {
+      "import": "./src/lib/components/modaleErik42/modaleErik42.jsx",
+      "require": "./src/lib/components/modaleErik42/modaleErik42.jsx"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "watch": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true,
+      "es2020": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "parserOptions": {
+      "sourceType": "module"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/node": "^7.25.0",
+    "@babel/preset-env": "^7.25.4",
+    "@babel/preset-react": "^7.24.7",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.0.1",
+    "@vitejs/plugin-react": "^4.3.1",
+    "babel-jest": "^29.7.0",
+    "babel-loader": "^9.2.1",
+    "c8": "^10.1.2",
+    "eslint": "^9.10.0",
+    "eslint-plugin-react": "^7.35.2",
+    "jsdom": "^25.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-test-renderer": "^18.3.1",
+    "sass-embedded": "^1.79.1",
+    "vite": "^5.4.3",
+    "vitest": "^2.0.5"
+  },
+  "dependencies": {
+    "@babel/register": "^7.24.6",
+    "babel": "^6.23.0",
+    "jest": "^29.7.0",
+    "styled-components": "^6.1.13"
+  }
 }
